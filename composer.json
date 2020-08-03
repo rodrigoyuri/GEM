@@ -1,0 +1,52 @@
+{
+    "name": "rodrigoyuri/gem",
+    "description": "Projeto de Gerenciamento para uma ONG, com objetivo de melhorar o dia a dis dos usuários da propria",
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Denis Alves",
+            "email": "denis.alves139@gmail.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Eric Araújo",
+            "email": "eric.125araujo@gmail.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Esdras Victor",
+            "email": "viits012@gmail.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Evelyn Franciso",
+            "email": "evelynbrandao15@gmail.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Giovana Napoli",
+            "email": "giovananapoli2009@gmail.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Rodrigo Yuri",
+            "email": "rodrigo33996@gmail.com",
+            "role": "Developer"
+        }
+    ], 
+    "config":{
+        "vendor-dir": "vendor"
+    },
+    "autoload": {
+        "psr-4": {
+            "Source\\": "source/"
+        },
+        "files": [
+            "source/Config.php"
+        ]
+    },
+    "require": {
+        "coffeecode/router": "1.0.*"
+    }
+}
