@@ -1,6 +1,6 @@
 <?php 
 
-namespace Source\Affiliate;
+namespace Source\Models;
 
 class Affiliate
 {

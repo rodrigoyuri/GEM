@@ -1,17 +1,23 @@
 <?php
 
 require __DIR__."/vendor/autoload.php";
+require __DIR__ . "/source/login/ControllerLogin.php";
+require __DIR__ . "/source/affiliate/ControllerAffiliate.php";
 
 use CoffeeCode\Router\Router;
 
 $router = new Router(URL_BASE);
-$router->namespace("Source\Affiliate");
+$router->namespace("Source\Controllers");
 
 $router->group(null);
-$router->get("/", function($data) {
-    echo "<h1>Hello World!</h1>";
+$router->get("/", function() {
+    echo "<h1>Olá Mundo!</h1>";
 });
-$router->get("/lista-geral", "ControllerAffiliate:listAffiliate");
+
+
+$router->get("/login", "ControllerLogin:renderLogin");
+$router->get("/lista-geral", "ControllerAffiliate:renderGeneralList");
+
 
 
 $router->group("ops");

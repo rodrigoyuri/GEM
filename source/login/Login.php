@@ -1,6 +1,6 @@
 <?php
 
-namespace Source\Login;
+namespace Source\Models;
 
 class Login
 {
