@@ -1,6 +1,6 @@
 <?php
 
-use PDOException;
+//use PDOException;
 class Connection
 {
     private static $instance;
