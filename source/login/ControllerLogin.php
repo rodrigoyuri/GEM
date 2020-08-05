@@ -2,7 +2,7 @@
 
 namespace Source\Controllers;
 
-//require __DIR__ . "../../global/ViewController.php";
+require __DIR__ . "../../global/ViewController.php";
 
 use CoffeeCode\Router\Router;
 
