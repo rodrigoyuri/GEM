@@ -1,0 +1,51 @@
+:root {
+    --color-background: #f0f0f7;
+    --color-input-background: #F8F8FC;
+    --color-button-text: #FFFFFF;
+    --color-text-base: #57555c;
+    --color-text-title: #212529;
+    --color-box-base: #FFFFFF;
+    --color-box-footer: #FAFAFC;
+
+    --color-primary: #FF1493;
+    --color-primary-hover: #ca1074;
+
+    --font-base: 400 1rem Roboto, sans-serif;
+
+    font-size: 60%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100vh;
+}
+
+body {
+    background: var(--color-background);
+}
+
+
+body,
+input,
+button,
+textarea {
+    font: var(--font-base);
+    color: var(--color-text-base);
+}
+
+.container {
+    width: 90vw;
+    max-width: 700px;
+}
+
+@media(min-width:700px) {
+    :root {
+        font-size: 62.5%;
+    }
+}
