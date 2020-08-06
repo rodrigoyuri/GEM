@@ -1,0 +1,73 @@
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container main {
+    width: 70vw;
+}
+
+.container hr {
+    /* border: 1px solid var(--color-primary); */
+    border: none;
+    height: 2px;
+    background: var(--color-primary);
+    margin: 1rem 0;
+    width: 100%;
+}
+
+.container .form-login {
+    display: flex;
+    flex-direction: column;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-title {
+    color: var(--color-text-title);
+}
+
+.input-base {
+    height: 1.6rem;
+    background: var(--color-input-background);
+    border: 1px solid var(--color-input-border);
+    border-radius: 0.2rem;
+    padding: 0 1rem;
+
+    outline: 0;
+}
+
+.input-base:focus {
+    box-shadow: var(--shadow-input);
+}
+
+/* Se depois de um .input-base houver outro .input-base */
+.input-base+.input-base {
+    margin-top: 1rem;
+}
+
+.button-submit {
+    height: 1.7rem;
+    background: var(--color-primary);
+    color: var(--color-button-text);
+    border: none;
+    margin-top: 1rem;
+    font: var(--font-base);
+    border-radius: 0.2rem;
+}
+
+.button-submit:hover {
+    background: var(--color-primary-hover);
+}
+
+@media(min-width:700px) {
+    .container main {
+        width: 100vw;
+        max-width: 250px;
+    }
+}

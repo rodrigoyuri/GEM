@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__."/vendor/autoload.php";
+require __DIR__ . "/vendor/autoload.php";
 require __DIR__ . "/source/login/ControllerLogin.php";
 require __DIR__ . "/source/afiliado/ControllerAfiliado.php";
 
@@ -12,17 +12,18 @@ $router->namespace("Source\Controllers");
 $router->group(null);
 
 $router->get("/", "ControllerLogin:renderLogin");
+$router->post("/", "ControllerLogin:sendLogin", "login.login");
 $router->get("/lista-geral", "ControllerAfiliado:renderGeneralList");
 
 
 
 $router->group("ops");
-$router->get("/{errcode}", function ($data){
+$router->get("/{errcode}", function ($data) {
     echo "<h1>Erro {$data["errcode"]}</h1>";
 });
 
 $router->dispatch();
 
-if($router->error()) {
+if ($router->error()) {
     $router->redirect("/ops/{$router->error()}");
 }

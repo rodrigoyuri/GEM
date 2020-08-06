@@ -12,7 +12,7 @@ class ControllerLogin extends ViewController
 {
 
     /** @var Router */
-    private $router;
+    // private $router;
 
     public function __construct($router)
     {
