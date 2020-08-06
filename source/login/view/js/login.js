@@ -1,5 +1,3 @@
-console.log("consolo log antes do document");
-
 $(document).ready(function () {
 
     $("form").submit(function (e) {

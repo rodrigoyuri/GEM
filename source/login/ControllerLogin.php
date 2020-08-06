@@ -27,7 +27,7 @@ class ControllerLogin extends ViewController
 
     public function logIn(array $data)
     {
-        if($data) {
+        if ($data) {
             //var_dump($data);
             $login = new Login();
 
@@ -36,7 +36,7 @@ class ControllerLogin extends ViewController
             $url = URL_BASE . "/";
             $message = "Email ou senha incorreta...";
 
-            if($verifyLogin) {
+            if ($verifyLogin) {
                 $url = URL_BASE . "/lista-geral"; // METODO PARA RETORNAR A PAGINA DEPENDENDO DO TIPO DE USUARIO ??
                 $message = "";
             }
@@ -57,22 +57,22 @@ class ControllerLogin extends ViewController
         return $this->renderView("/esquece-senha");
     }
 
-    public function forgotPassw($data) 
+    public function forgotPassw($data)
     {
-        if($data) {
+        if ($data) {
 
             $login = new Login();
 
             $verifyUser = $login->resetPassword($data["email"]);
-            
-            if($verifyUser) {
+
+            if ($verifyUser) {
                 $response = array("message" => "Uma nova senha foi enviada para o seu email");
             } else {
                 $response = array("message" => "E-mail informado não está cadastrado");
             }
 
-            echo json_encode($response);  
-        } 
+            echo json_encode($response);
+        }
 
         return;
     }
