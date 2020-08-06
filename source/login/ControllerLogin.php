@@ -12,7 +12,7 @@ class ControllerLogin extends ViewController
 {
 
     /** @var Router */
-    private $router;
+    //private $router;
 
     public function __construct($router)
     {
@@ -22,12 +22,58 @@ class ControllerLogin extends ViewController
 
     public function renderLogin()
     {
-        $login = new Login();
+        return $this->renderView("/login", ["data" => ""]);
+    }
 
-        $logins = $login->renderLoginUsers();
+    public function logIn(array $data)
+    {
+        if($data) {
+            //var_dump($data);
+            $login = new Login();
 
-        return $this->renderView("/login", [
-            "data" => $logins
-        ]);
+            $verifyLogin = $login->verifyUserLogin($data['email'], $data['passw']);
+
+            $url = URL_BASE . "/";
+            $message = "Email ou senha incorreta...";
+
+            if($verifyLogin) {
+                $url = URL_BASE . "/lista-geral"; // METODO PARA RETORNAR A PAGINA DEPENDENDO DO TIPO DE USUARIO ??
+                $message = "";
+            }
+
+            $response = array(
+                "url" => $url,
+                "message" => $message
+            );
+
+            echo json_encode($response);
+        }
+
+        //return;
+    }
+
+    public function renderForgotPassw()
+    {
+        return $this->renderView("/esquece-senha");
+    }
+
+    public function forgotPassw($data) 
+    {
+        if($data) {
+
+            $login = new Login();
+
+            $verifyUser = $login->resetPassword($data["email"]);
+            
+            if($verifyUser) {
+                $response = array("message" => "Uma nova senha foi enviada para o seu email");
+            } else {
+                $response = array("message" => "E-mail informado não está cadastrado");
+            }
+
+            echo json_encode($response);  
+        } 
+
+        return;
     }
 }
