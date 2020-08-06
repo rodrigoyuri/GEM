@@ -4,7 +4,7 @@ namespace Source\Controllers;
 
 use CoffeeCode\Router\Router;
 
-class ControllerAffiliate extends ViewController
+class ControllerAfiliado extends ViewController
 {
     /** @var Router */
     private $router;
@@ -17,6 +17,6 @@ class ControllerAffiliate extends ViewController
 
     public function renderGeneralList()
     {
-        return $this->renderView("/general-list");
+        return $this->renderView("/lista-geral");
     }
 }

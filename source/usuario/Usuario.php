@@ -1,8 +1,8 @@
-<?php 
+<?php
 
 namespace Source\Models;
 
-class Affiliate
+class Usuario 
 {
-    
+
 }
