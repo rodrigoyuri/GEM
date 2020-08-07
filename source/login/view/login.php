@@ -22,7 +22,9 @@
             <form action="<?= $this->router->route("login.login") ?>/" method="post" class="form-login">
                 <input type="text" name="email" id="email" class="input-base" placeholder="Nome de Usuário">
                 <input type="password" name="passw" id="passw" class="input-base" placeholder="Senha">
+                <a href="<?= URL_BASE ?>/esqueceu-senha" class="forgot-password">Esqueceu a senha?</a>
                 <button type="submit" class="button-submit">Acessar</button>
+                <div id="message" class="message" hidden></div>
             </form>
         </main>
 

@@ -2,7 +2,7 @@
     --color-background: #f0f0f7;
     --color-input-background: #F8F8FC;
     --color-input-border: #80bdff;
-    --shadow-input: 0px 0px 0px 0.1rem rgba(128, 189, 255, 0.67);
+    --color-input-border-focus: 0px 0px 0px 0.1rem rgba(128, 189, 255, 0.67);
     --color-button-text: #FFFFFF;
     --color-text-base: #495057;
     --color-text-title: #212529;
@@ -11,8 +11,9 @@
 
     --color-primary: #FF1493;
     --color-primary-hover: #ca1074;
+    --color-error: #ff143b;
 
-    --font-base: 400 1rem Roboto, sans-serif;
+    --font-base: 400 1.1rem Roboto, sans-serif;
     --font-family: Roboto, sans-serif;
 
 }
