@@ -54,7 +54,7 @@ class ControllerLogin extends ViewController
 
     public function renderForgotPassw()
     {
-        return $this->renderView("/esquece-senha");
+        return $this->renderView("/esqueceu-senha");
     }
 
     public function forgotPassw($data)

@@ -14,7 +14,7 @@ $router->group(null);
 $router->get("/", "ControllerLogin:renderLogin");
 $router->post("/", "ControllerLogin:logIn", "login.login");
 $router->get("/esqueceu-senha", "ControllerLogin:renderForgotPassw");
-$router->get("/esqueceu-senha", "ControllerLogin:forgotPassw");
+$router->post("/esqueceu-senha", "ControllerLogin:forgotPassw", "login.forgotPassw");
 
 $router->get("/lista-geral", "ControllerAfiliado:renderGeneralList");
 
