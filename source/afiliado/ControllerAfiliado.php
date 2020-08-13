@@ -17,6 +17,7 @@ class ControllerAfiliado extends ViewController
 
     public function renderGeneralList()
     {
+        //Colocar verificação de tipo de usuario aqui
         return $this->renderView("/lista-geral");
     }
 }
