@@ -2,7 +2,7 @@
 
 namespace Source\Controllers;
 
-class ViewController
+class Controller
 {
     private $path;
     private $extension;

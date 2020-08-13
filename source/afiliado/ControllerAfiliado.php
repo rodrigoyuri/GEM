@@ -4,7 +4,7 @@ namespace Source\Controllers;
 
 use CoffeeCode\Router\Router;
 
-class ControllerAfiliado extends ViewController
+class ControllerAfiliado extends Controller
 {
     /** @var Router */
     private $router;

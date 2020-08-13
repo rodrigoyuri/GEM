@@ -2,13 +2,13 @@
 
 namespace Source\Controllers;
 
-require __DIR__ . "../../global/ViewController.php";
+require __DIR__ . "../../global/Controller.php";
 require __DIR__ . "../../login/Login.php";
 
 use CoffeeCode\Router\Router;
 use Source\Models\Login;
 
-class ControllerLogin extends ViewController
+class ControllerLogin extends Controller
 {
 
     /** @var Router */
