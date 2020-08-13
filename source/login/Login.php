@@ -23,7 +23,7 @@ class Login extends Crud
             $password = password_hash($userLogin->nm_senha, PASSWORD_DEFAULT);
 
             if (password_verify($passw, $password)) {
-                //$_SESSION['userLogin'] = $userLogin;
+                $_SESSION['userLogin'] = $userLogin;
                 return true;
             } else {
                 return false;

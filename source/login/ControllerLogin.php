@@ -28,18 +28,11 @@ class ControllerLogin extends Controller
     public function logIn(array $data)
     {
         if ($data) {
-            //var_dump($data);
-            $login = new Login();
 
-            $verifyLogin = $login->verifyUserLogin($data['email'], $data['passw']);
+            $login = (new Login)->verifyUserLogin($data['email'], $data['passw']);
 
-            $url = URL_BASE . "/";
+            $url = $this->getUrlTypeUser();
             $message = "Email ou senha incorreta...";
-
-            if ($verifyLogin) {
-                $url = URL_BASE . "/lista-geral"; // METODO PARA RETORNAR A PAGINA DEPENDENDO DO TIPO DE USUARIO ??
-                $message = "";
-            }
 
             $response = array(
                 "url" => $url,
@@ -49,7 +42,7 @@ class ControllerLogin extends Controller
             echo json_encode($response);
         }
 
-        //return;
+        return;
     }
 
     public function renderForgotPassw()

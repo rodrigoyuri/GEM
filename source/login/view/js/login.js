@@ -11,11 +11,9 @@ $(document).ready(function () {
             data: form.serialize(),
             success: function (response) {
 
-                console.log(response);
                 let res = JSON.parse(response);
-                console.log(res);
 
-                if (res.message && res.message !== "") {
+                if (res.url === window.location.href) {
 
                     $("#message").removeAttr("hidden").html(res.message);
 

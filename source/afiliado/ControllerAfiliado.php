@@ -12,7 +12,7 @@ class ControllerAfiliado extends Controller
     public function __construct($router)
     {
         $this->router = $router;
-        parent::init(__DIR__ . "/view", "html");
+        parent::init(__DIR__ . "/view", "php");
     }
 
     public function renderGeneralList()
