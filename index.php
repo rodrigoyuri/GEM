@@ -22,6 +22,7 @@ $router->get("/sair", "ControllerLogin:loguot");
 $router->group("admin");
 
 $router->get("/lista-geral", "ControllerAfiliado:renderGeneralList");
+$router->post("/lista-geral", "ControllerAfiliado:tableList");
 $router->get("/cadastro-afiliado", "ControllerAfiliado:renderRegisterAffiliate");
 $router->get("/ver-afiliado", "ControllerAfiliado:renderViewAffiliate");
 $router->get("/editar-afiliado", "ControllerAfiliado:renderEditAffiliate");
@@ -35,7 +36,7 @@ $router->get("/cadastro-usuario", "ControllerLogin:renderRegisterUser");
 
 $router->group("usuario");
 
-$router->get("/chamada", function(){
+$router->get("/chamada", function () {
     echo "<h1>Chamada</h1>";
 });
 

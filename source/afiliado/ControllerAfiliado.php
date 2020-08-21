@@ -2,7 +2,10 @@
 
 namespace Source\Controllers;
 
+require __DIR__ . "../../afiliado/Afiliado.php";
+
 use CoffeeCode\Router\Router;
+use Source\Models\Afiliado;
 
 class ControllerAfiliado extends Controller
 {
@@ -19,6 +22,15 @@ class ControllerAfiliado extends Controller
     {
         //Colocar verificação de tipo de usuario aqui
         return $this->renderView("/lista-geral");
+    }
+
+    public function tableList($data)
+    {
+        $afiliado = (new Afiliado)->indexFilter($data);
+
+        // $_SESSION["teste"] = $data;
+
+        echo json_encode($afiliado);
     }
 
     public function renderRegisterAffiliate()

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Source\Crud;
 
@@ -6,7 +6,7 @@ use Connection;
 use Exception;
 use PDO;
 
-abstract class Crud 
+abstract class Crud
 {
     private $query = "";
     private $terms = [];
@@ -30,11 +30,11 @@ abstract class Crud
 
         $amount = substr($amount, 0, -2);
 
-        if($columns) {
+        if ($columns) {
             $this->query .= " INSERT INTO $table ($columns) VALUES ($amount)";
         } else {
             $this->query .= " INSERT INTO $table VALUES ($amount)";
-        } 
+        }
 
         return $this;
     }
@@ -80,7 +80,7 @@ abstract class Crud
     }
 
     /**
-     * @param conditions
+     * @param conditions column1, column2 || LIKE, AND, OR
      * @param values
      * @return DAO
      */
@@ -90,6 +90,30 @@ abstract class Crud
             array_push($this->terms, $value);
         }
         $this->query .= " WHERE $conditions";
+        return $this;
+    }
+
+
+    /**
+     * @param columns "column1, column2"
+     * @param order "ASC|DESC"
+     * @return DAO
+     */
+    protected function order(string $columns, string $order = "ASC"): ?Crud
+    {
+        $this->query .= " ORDER BY $columns $order ";
+        // $this->query .= " ORDER BY $columns ";
+        return $this;
+    }
+
+    /**
+     * @param start 0
+     * @param end 10
+     * @return DAO
+     */
+    protected function limit(int $start = 0, int $end = 10): ?Crud
+    {
+        $this->query .= " LIMIT $start, $end";
         return $this;
     }
 
@@ -115,8 +139,8 @@ abstract class Crud
             if ($stmt->execute()) {
 
                 if ($fetch != "") {
-                    if($fetch == "fetch"){
-                        $rs = $stmt->fetch(PDO::FETCH_OBJ);    
+                    if ($fetch == "fetch") {
+                        $rs = $stmt->fetch(PDO::FETCH_OBJ);
                     } else if ($fetch == "fetchAll") {
                         $rs = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     }
@@ -129,7 +153,6 @@ abstract class Crud
         } catch (Exception $e) {
             self::$error = $e;
         }
-
     }
 
     /**
