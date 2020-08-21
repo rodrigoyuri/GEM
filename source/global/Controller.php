@@ -48,7 +48,7 @@ class Controller
                 return URL_BASE . "/admin/lista-geral";
                 break;
             case "U":
-                return URL_BASE . "/contato";
+                return URL_BASE . "/usuario/lista-chamada";
                 break;
             default:
                 return URL_BASE . "/";
@@ -73,6 +73,15 @@ class Controller
             default:
                 return URL_BASE . "/";
                 break;
+        }
+    }
+
+    protected function verify(string $type, string $route, string $routeError)
+    {
+        if($this->typeUser() === $type) {
+            return $this->renderView($route);
+        } else {
+            header("LOCATION: ". URL_BASE . $routeError);
         }
     }
 }
