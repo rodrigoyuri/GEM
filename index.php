@@ -3,6 +3,7 @@
 require __DIR__ . "/vendor/autoload.php";
 require __DIR__ . "/source/login/ControllerLogin.php";
 require __DIR__ . "/source/afiliado/ControllerAfiliado.php";
+require __DIR__ . "/source/chamada/ControllerChamada.php";
 
 use CoffeeCode\Router\Router;
 
@@ -24,6 +25,11 @@ $router->get("/lista-geral", "ControllerAfiliado:renderGeneralList");
 $router->get("/cadastro-afiliado", "ControllerAfiliado:renderRegisterAffiliate");
 $router->get("/ver-afiliado", "ControllerAfiliado:renderViewAffiliate");
 $router->get("/editar-afiliado", "ControllerAfiliado:renderEditAffiliate");
+
+$router->get("/lista-chamada", "ControllerChamada:renderAttendanceSheet");
+// $router->get("/lista-chamada", function(){
+//     echo "<h1>Chamada</h1>";
+// });
 
 $router->get("/cadastro-usuario", "ControllerLogin:renderRegisterUser");
 
