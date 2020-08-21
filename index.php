@@ -16,9 +16,29 @@ $router->post("/", "ControllerLogin:logIn", "login.login");
 $router->get("/esqueceu-senha", "ControllerLogin:renderForgotPassw");
 $router->post("/esqueceu-senha", "ControllerLogin:forgotPassw", "login.forgotPassw");
 
+$router->get("/sair", "ControllerLogin:loguot");
+
+$router->group("admin");
+
 $router->get("/lista-geral", "ControllerAfiliado:renderGeneralList");
+$router->get("/cadastro-afiliado", function(){
+    echo "<h1>Cadastro Afiliado</h1>";
+});
+$router->get("/ver-afiliado", function(){
+    echo "<h1>Ver Afiliado</h1>";
+});
+$router->get("/editar-afiliado", function(){
+    echo "<h1>Editar Afiliado</h1>";
+});
+$router->get("/cadastro-usuario", function(){
+    echo "<h1>Cadastro Usuário</h1>";
+});
 
+$router->group("usuario");
 
+$router->get("/chamada", function(){
+    echo "<h1>Chamada</h1>";
+});
 
 $router->group("ops");
 $router->get("/{errcode}", function ($data) {

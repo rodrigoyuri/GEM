@@ -7,5 +7,6 @@
 </head>
 <body>
     <h1>Lista Geral!</h1>
+    <h2><a href="<?=URL_BASE ?>/sair">Sair</a></h2>
 </body>
 </html>

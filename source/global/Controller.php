@@ -2,6 +2,7 @@
 
 namespace Source\Controllers;
 
+session_start();
 class Controller
 {
     private $path;
@@ -44,7 +45,7 @@ class Controller
     {
         switch ($this->typeUser()) {
             case "A":
-                return URL_BASE . "/lista-geral";
+                return URL_BASE . "/admin/lista-geral";
                 break;
             case "U":
                 return URL_BASE . "/contato";
