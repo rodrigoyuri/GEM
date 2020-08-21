@@ -27,7 +27,7 @@ class ControllerLogin extends Controller
 
     public function renderRegisterUser()
     {
-        $this->renderView("/cadastro-usuario");
+        $this->verify("A", "/cadastro-usuario", "/ops");
     }
 
     public function logIn(array $data)

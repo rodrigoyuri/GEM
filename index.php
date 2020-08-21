@@ -28,9 +28,6 @@ $router->get("/ver-afiliado", "ControllerAfiliado:renderViewAffiliate");
 $router->get("/editar-afiliado", "ControllerAfiliado:renderEditAffiliate");
 
 $router->get("/lista-chamada", "ControllerChamada:renderAttendanceSheet");
-// $router->get("/lista-chamada", function(){
-//     echo "<h1>Chamada</h1>";
-// });
 
 $router->get("/cadastro-usuario", "ControllerLogin:renderRegisterUser");
 

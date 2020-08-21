@@ -20,8 +20,7 @@ class ControllerAfiliado extends Controller
 
     public function renderGeneralList()
     {
-        //Colocar verificação de tipo de usuario aqui
-        return $this->renderView("/lista-geral");
+        $this->verify("A", "/lista-geral", "/ops");
     }
 
     public function tableList($data)
@@ -35,16 +34,16 @@ class ControllerAfiliado extends Controller
 
     public function renderRegisterAffiliate()
     {
-        return $this->renderView("/cadastro-afiliado");
+        $this->verify("A", "/cadastro-afiliado", "/ops");
     }
 
     public function renderViewAffiliate()
     {
-        return $this->renderView("/ver-afiliado");
+        $this->verify("A", "/ver-afiliado", "/ops");
     }
 
     public function renderEditAffiliate()
     {
-        return $this->renderView("/editar-afiliado");
+        $this->verify("A", "/editar-afiliado", "/ops");
     }
 }

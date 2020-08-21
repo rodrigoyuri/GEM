@@ -9,8 +9,13 @@ class ControllerChamada extends Controller
         $this->router = $router;
         parent::init(__DIR__ . "/view", "php");
     }
+
     public function renderAttendanceSheet()
     {
-        return $this->renderView("/lista-chamada");
+        if($this->typeUser() === "A" || $this->typeUser() === "U")
+            return $this->renderView("/lista-chamada");
+        else {
+            header("LOCATION: " . URL_BASE . "/ops");
+        }
     }
 }
