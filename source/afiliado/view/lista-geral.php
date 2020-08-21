@@ -13,7 +13,6 @@
 <body>
     <?php include __DIR__ . "/../../global/components/header.php" ?>
     <h1>Lista Geral!</h1>
-    <h2><a href="<?= URL_BASE ?>/sair">Sair</a></h2>
 
     <table id="afiliados" class="display">
         <thead>
