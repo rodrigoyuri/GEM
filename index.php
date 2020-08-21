@@ -21,18 +21,11 @@ $router->get("/sair", "ControllerLogin:loguot");
 $router->group("admin");
 
 $router->get("/lista-geral", "ControllerAfiliado:renderGeneralList");
-$router->get("/cadastro-afiliado", function(){
-    echo "<h1>Cadastro Afiliado</h1>";
-});
-$router->get("/ver-afiliado", function(){
-    echo "<h1>Ver Afiliado</h1>";
-});
-$router->get("/editar-afiliado", function(){
-    echo "<h1>Editar Afiliado</h1>";
-});
-$router->get("/cadastro-usuario", function(){
-    echo "<h1>Cadastro Usuário</h1>";
-});
+$router->get("/cadastro-afiliado", "ControllerAfiliado:renderRegisterAffiliate");
+$router->get("/ver-afiliado", "ControllerAfiliado:renderViewAffiliate");
+$router->get("/editar-afiliado", "ControllerAfiliado:renderEditAffiliate");
+
+$router->get("/cadastro-usuario", "ControllerLogin:renderRegisterUser");
 
 $router->group("usuario");
 

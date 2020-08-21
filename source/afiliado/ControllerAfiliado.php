@@ -20,4 +20,19 @@ class ControllerAfiliado extends Controller
         //Colocar verificação de tipo de usuario aqui
         return $this->renderView("/lista-geral");
     }
+
+    public function renderRegisterAffiliate()
+    {
+        return $this->renderView("/cadastro-afiliado");
+    }
+
+    public function renderViewAffiliate()
+    {
+        return $this->renderView("/ver-afiliado");
+    }
+
+    public function renderEditAffiliate()
+    {
+        return $this->renderView("/editar-afiliado");
+    }
 }

@@ -22,7 +22,12 @@ class ControllerLogin extends Controller
 
     public function renderLogin()
     {
-        return $this->renderView("/login", ["data" => ""]);
+        return $this->renderView("/login");
+    }
+
+    public function renderRegisterUser()
+    {
+        $this->renderView("/cadastro-usuario");
     }
 
     public function logIn(array $data)
