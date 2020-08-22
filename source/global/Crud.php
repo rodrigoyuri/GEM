@@ -118,10 +118,11 @@ abstract class Crud
     }
 
     /**
-     * @param fetch
+     * @param fetch fetch (retorna um objeto), fetchAll (retorna um array), rowCount (numero de linhas afetadas)
+     * @param cleanQuery 
      * @return mixed
      */
-    protected function execute(string $fetch = "")
+    protected function execute(string $fetch = "", bool $cleanQuery = true)
     {
         try {
 
@@ -133,8 +134,10 @@ abstract class Crud
                 $stmt->bindValue($key + 1, $val, $this->bindType($val));
             }
 
-            $this->query = "";
-            $this->terms = [];
+            if ($cleanQuery) {
+                $this->query = "";
+                $this->terms = [];
+            }
 
             if ($stmt->execute()) {
 
@@ -143,6 +146,8 @@ abstract class Crud
                         $rs = $stmt->fetch(PDO::FETCH_OBJ);
                     } else if ($fetch == "fetchAll") {
                         $rs = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    } else if ($fetch == "rowCount") {
+                        $rs = $stmt->rowCount();
                     }
                     return $rs;
                 }

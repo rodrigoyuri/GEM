@@ -10,15 +10,6 @@ class Afiliado extends Crud
 
     public function indexFilter($data = array())
     {
-        $table = "afiliado";
-        $tablePrimaryKey = "cd_afiliado";
-
-        // $columns = array(
-        //     array('db' => 'nm_afiliado', 'dt' => 0),
-        //     array('db' => 'nm_tipo_afiliado',  'dt' => 1),
-        //     array('db' => 'dt_nascimento',   'dt' => 2),
-        //     array('db' => 'cd_telefone',     'dt' => 3)
-        // );
         $columns = array(
             "0" => "nm_afiliado",
             "1" => "nm_tipo_afiliado",
@@ -31,17 +22,25 @@ class Afiliado extends Crud
         $start = $data['start'];
         $end = $data['length'];
 
-        $query = parent::select("nm_afiliado, nm_tipo_afiliado, dt_nascimento, cd_telefone")
-            ->from("afiliado")
-            ->where("nm_afiliado LIKE (?)", ["%{$data["search"]['value']}%"])
+        $queryFilter = parent::select("nm_afiliado, nm_tipo_afiliado, dt_nascimento, cd_telefone")
+            ->from("afiliado");
+
+        if (!empty($data["search"]['value'])) {
+            $queryFilter = $queryFilter
+                ->where("nm_afiliado LIKE (?)", ["%{$data["search"]['value']}%"]);
+        }
+
+        $totalRegisterInQuery = $queryFilter->execute("rowCount", false);
+
+        $query = $queryFilter
             ->order($orderBy, $typeOrderBy)
             ->limit($start, $end)
             ->execute("fetchAll");
 
-
-        $totalRegisterInTable = parent::select("COUNT(*) as count")->from("afiliado")->execute("fetch")->count;
-        $totalRegisterInQuery = count($query);
-
+        $totalRegisterInTable = parent::select("COUNT(*) as count")
+            ->from("afiliado")
+            ->execute("fetch")
+            ->count;
 
         $jsonData = array(
             "draw" => intval($data["draw"]),
