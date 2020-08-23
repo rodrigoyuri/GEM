@@ -8,6 +8,13 @@ use Source\Crud\Crud;
 class Afiliado extends Crud
 {
 
+    public function showAffiliate(int $id)
+    {
+        $query = parent::select()->from("afiliado")->where("cd_afiliado = ?", [$id])->execute("fetch");
+
+        return $query;
+    }
+
     public function indexFilter($data = array())
     {
         $columns = array(
@@ -22,7 +29,7 @@ class Afiliado extends Crud
         $start = $data['start'];
         $end = $data['length'];
 
-        $queryFilter = parent::select("nm_afiliado, nm_tipo_afiliado, dt_nascimento, cd_telefone")
+        $queryFilter = parent::select("cd_afiliado, nm_afiliado, nm_tipo_afiliado, dt_nascimento, cd_telefone")
             ->from("afiliado");
 
         if (!empty($data["search"]['value'])) {

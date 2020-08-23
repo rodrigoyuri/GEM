@@ -18,6 +18,13 @@ class ControllerAfiliado extends Controller
         parent::init(__DIR__ . "/view", "php");
     }
 
+    public function getAffiliate($data)
+    {
+        $afiliado = (new Afiliado)->showAffiliate($data["id"]);
+
+        echo json_encode($afiliado);
+    }
+
     public function renderGeneralList()
     {
         $this->verify("A", "/lista-geral", "/ops");

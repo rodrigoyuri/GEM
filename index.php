@@ -22,6 +22,7 @@ $router->get("/sair", "ControllerLogin:loguot");
 $router->group("admin");
 
 $router->get("/lista-geral", "ControllerAfiliado:renderGeneralList");
+$router->get("/lista-geral/{id}", "ControllerAfiliado:getAffiliate");
 $router->post("/lista-geral", "ControllerAfiliado:tableList");
 $router->get("/cadastro-afiliado", "ControllerAfiliado:renderRegisterAffiliate");
 $router->get("/ver-afiliado", "ControllerAfiliado:renderViewAffiliate");
