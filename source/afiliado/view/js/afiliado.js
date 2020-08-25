@@ -52,7 +52,7 @@ $(document).ready(function () {
             "sInfoFiltered": "(Filtrados de _MAX_ registros)",
             "sInfoPostFix": "",
             "sInfoThousands": ".",
-            "sLengthMenu": "_MENU_ resultados por página",
+            "sLengthMenu": "Afiliados por página _MENU_",
             "sLoadingRecords": "Carregando...",
             "sProcessing": "Processando...",
             "sZeroRecords": "Nenhum registro encontrado",
@@ -67,7 +67,8 @@ $(document).ready(function () {
                 "sSortAscending": ": Ordenar colunas de forma ascendente",
                 "sSortDescending": ": Ordenar colunas de forma descendente"
             }
-        }
+        },
+        // "pagingType": "full"
 
     });
 
