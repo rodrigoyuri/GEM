@@ -13,7 +13,7 @@ $(document).ready(function () {
     */
     let optionTag = function (data, type, row) {
         if (type === 'display') {
-            return `<button name="ver" value="${data}">Ver</button>`;
+            return `<button name="ver" value="${data}"><i class="fas fa-user-circle"></i> Ver Afiliado</button>`;
         }
         return data;
     }

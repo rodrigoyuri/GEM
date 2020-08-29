@@ -1,5 +1,5 @@
 :root {
-    --color-background: #f0f0f7;
+    --color-background: #FFF;
     --color-input-background: #F8F8FC;
     --color-input-border: #80bdff;
     --color-input-border-focus: 0px 0px 0px 0.1rem rgba(128, 189, 255, 0.67);
@@ -9,8 +9,8 @@
     --color-box-base: #FFFFFF;
     --color-box-footer: #FAFAFC;
 
-    --color-primary: #FF1493;
-    --color-primary-hover: #ca1074;
+    --color-primary: #ff5f77;
+    --color-primary-hover: #ff7e8c;
     --color-error: #ff143b;
 
     --font-base: 400 1.1rem Roboto, sans-serif;
