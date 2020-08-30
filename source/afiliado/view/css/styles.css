@@ -27,7 +27,6 @@
     color: var(--color-text-title);
     padding: 0.5rem 0;
     font-weight: bold;
-    position: sticky;
     border-radius: 4px;
 }
 
@@ -72,10 +71,6 @@
     
     /* background-image: url("../images/sort_desc.png"); */
 }
-
-.dataTables_wrapper table thead .sorting_asc_disabled::after {}
-
-.dataTables_wrapper table thead .sorting_desc_disabled::after {}
 
 .dataTables_wrapper table tfoot th {
     bottom: 0;
