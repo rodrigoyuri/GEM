@@ -188,6 +188,14 @@ abstract class Crud
     /**
      * @return mixed
      */
+    protected function getQuery()
+    {
+        return $this->query;
+    }
+
+    /**
+     * @return mixed
+     */
     protected static function getError()
     {
         return self::$error;

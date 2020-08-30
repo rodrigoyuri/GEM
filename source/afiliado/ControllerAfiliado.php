@@ -44,6 +44,13 @@ class ControllerAfiliado extends Controller
         $this->verify("A", "/cadastro-afiliado", "/ops");
     }
 
+    public function registerAffiliate($data)
+    {
+        $afiliado = (new Afiliado)->insertAffiliate($data);
+
+        echo $afiliado;
+    }
+
     public function renderViewAffiliate()
     {
         $this->verify("A", "/ver-afiliado", "/ops");
