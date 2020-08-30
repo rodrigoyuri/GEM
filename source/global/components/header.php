@@ -6,24 +6,22 @@
         </li>
 
         <li>
-            <a href="<?= URL_BASE ?>/admin/lista-geral">Lista Geral</a>
+            <a href="<?= URL_BASE ?>/admin/lista-geral"><i class="fas fa-clipboard-list"></i>Lista Geral</a>
         </li>
 
         <li>
-            <a href="<?= URL_BASE ?>/admin/cadastro-afiliado">Cadastrar Afiliado</a>
+            <a href="<?= URL_BASE ?>/admin/cadastro-afiliado"><i class="far fa-plus-square"></i>Cadastrar Afiliado</a>
         </li>
 
         <li>
-            <a href="<?= URL_BASE ?>/admin/lista-chamada">Chamada</a>
+            <a href="<?= URL_BASE ?>/admin/lista-chamada"><i class="fas fa-clipboard-check"></i>Chamada</a>
         </li>
 
         <li>
-            <a href="<?= URL_BASE ?>/admin/cadastro-usuario">Cadastrar usuário</a>
+            <a href="<?= URL_BASE ?>/admin/cadastro-usuario"><i class="fas fa-user-plus"></i>Cadastrar Usuário</a>
         </li>
-    </div>
-    <div class="li-exit">
         <li>
-            <a href="<?= URL_BASE ?>/sair">Sair</a>
+            <a href="<?= URL_BASE ?>/sair"><i class="fas fa-sign-out-alt"></i>Sair</a>
         </li>
     </div>
 </ul>
