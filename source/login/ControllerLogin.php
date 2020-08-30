@@ -30,6 +30,19 @@ class ControllerLogin extends Controller
         $this->verify("A", "/cadastro-usuario", "/ops");
     }
 
+    public function registerUser($data)
+    {
+        $data["senha"] = password_hash($data["senha"], PASSWORD_DEFAULT);
+
+        $login = (new Login)->insertUser($data);
+
+        if ($login) {
+            echo "Cadastrado com Sucesso";
+        } else {
+            echo "Falha ao realizar o Cadastro";
+        }
+    }
+
     public function logIn(array $data)
     {
         if ($data) {
@@ -79,12 +92,17 @@ class ControllerLogin extends Controller
     {
         $_SESSION['userLogin'] = array();
 
-        if(ini_get("session.use_cookies")) {
+        if (ini_get("session.use_cookies")) {
             $param = session_get_cookie_params();
 
-            setcookie(session_name(), '', time() - 42000,
-                $param["path"], $param["domain"],
-                $param["secure"], $param["httponly"]    
+            setcookie(
+                session_name(),
+                '',
+                time() - 42000,
+                $param["path"],
+                $param["domain"],
+                $param["secure"],
+                $param["httponly"]
             );
         }
 
