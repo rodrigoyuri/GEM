@@ -112,10 +112,11 @@
     border: none;
     margin: 5px 5px;
     padding: 3px 3px;
+    cursor: pointer;
 }
 .dataTables_wrapper table tbody td button:hover {
 
-    background-color: #ffb3b8;
+    background-color: var(--color-primary-hover);
     transition: 0.2s;
 
 }
@@ -211,8 +212,8 @@
 }*/
 
 /* Paginação: Próximo */
+
 .dataTables_wrapper .dataTables_paginate .current,
-.dataTables_wrapper .dataTables_paginate .paginate_button:hover,
 .dataTables_wrapper .dataTables_paginate .next,
 .dataTables_wrapper .dataTables_paginate .previous {
     background-color: var(--color-primary);
@@ -220,11 +221,12 @@
     color: var(--color-button-text);
 }
 
-
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover,
 .dataTables_wrapper .dataTables_paginate .previous:hover,
 .dataTables_wrapper .dataTables_paginate .next:hover {
     background-color: var(--color-primary-hover);
+    border-radius: 0.2rem;
+    color: var(--color-button-text);
     transition: 0.2s;
 }
 
