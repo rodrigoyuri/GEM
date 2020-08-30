@@ -17,9 +17,10 @@
 </head>
 
 <body>
-    <?php include __DIR__ . "/../../global/components/header.php" ?>
+    
 
     <div class="container">
+        <?php include __DIR__ . "/../../global/components/header.php" ?>
         <table id="list-afiliados" class="display" style="width: 100%;">
             <thead>
                 <tr>

@@ -1,7 +1,7 @@
 :root {
     --color-background: #FFF;
-    --color-input-background: #F8F8FC;
-    --color-input-border: #80bdff;
+    --color-input-background: #FFF;
+    --color-input-border: #ff5f77;
     --color-input-border-focus: 0px 0px 0px 0.1rem rgba(128, 189, 255, 0.67);
     --color-button-text: #FFFFFF;
     --color-text-base: #495057;
