@@ -54,7 +54,8 @@ class ControllerLogin extends Controller
 
             $response = array(
                 "url" => $url,
-                "message" => $message
+                "message" => $message,
+                "extra" => $login
             );
 
             echo json_encode($response);
@@ -77,9 +78,9 @@ class ControllerLogin extends Controller
             $verifyUser = $login->resetPassword($data["email"]);
 
             if ($verifyUser) {
-                $response = array("message" => "Uma nova senha foi enviada para o seu email");
+                $response = array("url" => URL_BASE . "/esqueceu-senha", "message" => "Uma nova senha foi enviada para o seu email", "extra" => $verifyUser);
             } else {
-                $response = array("message" => "E-mail informado não está cadastrado");
+                $response = array("url" => URL_BASE . "/esqueceu-senha", "message" => "E-mail informado não está cadastrado", "extra" => $verifyUser);
             }
 
             echo json_encode($response);
