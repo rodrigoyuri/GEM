@@ -34,6 +34,7 @@ $router->get("/editar-afiliado", "ControllerAfiliado:renderEditAffiliate");
 $router->get("/lista-chamada", "ControllerChamada:renderAttendanceSheet");
 
 $router->get("/cadastro-usuario", "ControllerLogin:renderRegisterUser");
+$router->post("/cadastro-usuario", "ControllerLogin:registerUser");
 
 $router->group("usuario");
 

@@ -33,6 +33,13 @@ class Login extends Crud
         }
     }
 
+    public function insertUser($data): bool
+    {
+        $crud = $this->insert("login", $data, "nm_login, nm_senha, nm_tipo_usuario")->execute();
+
+        return $crud;
+    }
+
     public function resetPassword($email)
     {
         $rs = parent::select()->from("login")
