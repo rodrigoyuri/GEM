@@ -56,28 +56,6 @@
     background-position: center right;
 }
 
-/* .dataTables_wrapper table thead .sorting::after {
-    content: "\025B4\025BE";
-    color: var(--color-primary);
-    margin-right: 3px;
-}
-
-.dataTables_wrapper table thead .sorting_asc::after {
-    content: "\025B4";
-    color: var(--color-primary);
-    margin-right: 3px;
-}
-
-.dataTables_wrapper table thead .sorting_desc::after {
-    content: "\025BE";
-    color: var(--color-primary);
-    margin-right: 3px;
-
-    background-image: url("../images/sort_desc.png"); 
-} */
-
-/*  */
-
 .dataTables_scrollHead .dataTables_scrollHeadInner table thead .sorting::after {
     content: "\025B4\025BE";
     color: var(--color-primary);
@@ -94,8 +72,6 @@
     content: "\025BE";
     color: var(--color-primary);
     margin-left: 0.3rem;
-
-    /* background-image: url("../images/sort_desc.png"); */
 }
 
 
@@ -112,9 +88,10 @@
     overflow: hidden;
 }
 
-.dataTables_wrapper table tbody tr {
-    border-bottom: 1px solid var(--color-primary-hover);
+.dataTables_wrapper table tbody tr:nth-child(odd) {
+    /* border-bottom: 1px solid var(--color-primary-hover); */
     border-radius: 4px;
+    background-color: #ff7e8d42;
 }
 
 .dataTables_wrapper table tbody td {
@@ -185,7 +162,8 @@
 .dataTables_wrapper table tbody td button {
     width: 7.5rem;
     height: 2rem;
-    text-align: left;
+    text-align: center;
+    font-weight: bold;
     color: var(--color-button-text);
     background-color: var(--color-primary-hover);
     border-radius: 0.2rem;
@@ -216,7 +194,8 @@
 
 .dataTables_processing {
     position: fixed;
-    width: 90%;
+    width: 76%;
+    /*  */
     padding: 3rem 0;
     top: calc(50% - 5.5rem);
     background-color: #49505769;
@@ -224,6 +203,7 @@
     font-size: 2.5rem;
     text-align: center;
     text-shadow: 2px 2px var(--color-text-title);
+    z-index: 10;
 }
 
 /* FIM: CSS do processando */
@@ -268,13 +248,13 @@
 .dataTables_wrapper .dataTables_info {
     clear: both;
     float: left;
-    margin-top: .5rem;
+    margin-top: 1rem;
 }
 
 /* Local da paginação */
 .dataTables_wrapper .dataTables_paginate {
     float: right;
-    margin-top: .5rem;
+    margin-top: 1rem;
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button {
@@ -282,7 +262,6 @@
     margin: 0 .3rem;
     outline: none;
     cursor: pointer;
-
 }
 
 /* Numero da paginação ativa*/
@@ -380,6 +359,11 @@
 
     .dataTables_scrollBody {
         max-height: 40vh;
+        border: 1px solid var(--color-primary-hover);
+    }
+
+    .dataTables_processing {
+        width: 90%;
     }
 
 }
