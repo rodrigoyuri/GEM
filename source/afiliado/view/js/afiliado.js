@@ -10,7 +10,7 @@ $(document).ready(function () {
    */
   let optionTag = function (data, type, row) {
     if (type === "display") {
-      return `<button name="ver" value="${data}"><i class="fas fa-user-circle"></i> Ver</button>`;
+      return `<button name="ver" value="${data}" data-view><i class="fas fa-user-circle"></i> Ver</button>`;
     }
     return data;
   };
@@ -82,23 +82,31 @@ $(document).ready(function () {
    * Função que escuta o evento click na tabela e acessa os botões de opção (ver e editar).
    *
    */
+  /**
+    * JS do Ver Afiliado (abre modal)
+    */
+  $('#list-afiliados').on('click', 'tbody tr td button[data-view]', function (e) {
 
-  $("#list-afiliados").on("click", "tbody td", function (e) {
-    //verifico que foi o button a ser clicado e não o TD
-    if (e.target.tagName == "TD") return;
-
-    //Pego os atributos do button
-    let activeButton = e.target;
+    let id = (e.currentTarget.attributes.value.value)
 
     $.ajax({
       type: "get",
-      url: "http://localhost/GEM/admin/lista-geral/" + activeButton.value,
-      // dataType: "dataType",
+      url: "http://localhost/GEM/admin/lista-geral/" + id,
+      // dataType: "json",
       success: function (response) {
-        console.log(response);
+        console.log(response)
+        $("#modal-ver .modal-body").append(response);
       },
+      error: function (e) {
+        console.error(e);
+      },
+      complete: function () {
+        $("#modal-ver").removeClass("modal-hidden")
+      }
     });
   });
+
+
 
   $("#form-resgister-affiliate").submit(function (event) {
     event.preventDefault();
@@ -163,4 +171,19 @@ $(document).ready(function () {
     }
     return element.join("");
   }
+
+
+
+  /**
+   * JS do Fechar Modal
+   */
+  $("span[close='modal-ver']").on("click", function (param) {
+
+    $(".modal-container").addClass("modal-hidden")
+    $(".modal-body").empty()
+  })
+
+
+
+
 });

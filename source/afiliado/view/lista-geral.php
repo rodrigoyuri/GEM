@@ -49,17 +49,15 @@
     </div>
 
 
-    <div class="modal-container">
+    <div id="modal-ver" class="modal-container modal-hidden" close="modal-ver">
         <div class="modal">
             <div class="modal-header">
                 <button disabled="disabled">Editar</button>
                 <p>Header</p>
-                <span close><i class="fas fa-times"></i></span>
+                <span close="modal-ver"><i class="fas fa-times"></i></span>
             </div>
             <div class="modal-body">
-                <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus porro fugiat harum nobis pariatur mollitia quasi incidunt amet, maxime corrupti.
-                </p>
+
             </div>
             <div class="modal-footer">
                 <p>Footer</p>
