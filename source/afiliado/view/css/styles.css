@@ -22,9 +22,10 @@
 /* INICIO: CSS da tabela */
 
 .dataTables_wrapper table {
-    margin: 1rem 0;
+
     border-collapse: collapse;
     border-spacing: 0;
+    width: 100%;
 }
 
 .dataTables_wrapper table thead th,
@@ -33,6 +34,9 @@
     padding: 0.5rem 0;
     font-weight: bold;
     border-radius: 4px;
+    min-width: 120px;
+
+    border: 1px solid var(--color-primary-hover);
 }
 
 .dataTables_wrapper table thead th {
@@ -77,19 +81,19 @@
 .dataTables_scrollHead .dataTables_scrollHeadInner table thead .sorting::after {
     content: "\025B4\025BE";
     color: var(--color-primary);
-    margin-right: 3px;
+    margin-left: 0.3rem;
 }
 
 .dataTables_scrollHead .dataTables_scrollHeadInner table thead .sorting_asc::after {
     content: "\025B4";
     color: var(--color-primary);
-    margin-right: 3px;
+    margin-left: 0.3rem;
 }
 
 .dataTables_scrollHead .dataTables_scrollHeadInner table thead .sorting_desc::after {
     content: "\025BE";
     color: var(--color-primary);
-    margin-right: 3px;
+    margin-left: 0.3rem;
 
     /* background-image: url("../images/sort_desc.png"); */
 }
@@ -135,6 +139,8 @@
 .dataTables_wrapper table tbody td:nth-child(2) {
     /* padding: 0 0.5rem; */
     min-width: 110px;
+    width: 130px;
+    max-width: 140px;
 }
 
 /* Função */
@@ -142,6 +148,8 @@
 .dataTables_wrapper table tbody td:nth-child(3) {
     /* padding: 0 0.5rem; */
     min-width: 110px;
+    /* width: 140px;
+    max-width: 150px; */
 }
 
 /* Data de aniversario */
@@ -149,20 +157,26 @@
 .dataTables_wrapper table tbody td:nth-child(4) {
     /* padding: 0 0.5rem; */
     min-width: 110px;
+    width: 120px;
+    max-width: 130px;
 }
 
 /* Telefone */
 .dataTables_wrapper table tbody tr:nth-child(5),
 .dataTables_wrapper table tbody td:nth-child(5) {
     /* padding: 0 0.5rem; */
-    min-width: 130px;
+    min-width: 110px;
+    width: 130px;
+    max-width: 135px;
 }
 
 /* Opções */
 .dataTables_wrapper table tbody tr:nth-child(6),
 .dataTables_wrapper table tbody td:nth-child(6) {
     /* padding: 0 0.5rem; */
-    min-width: 130px;
+    min-width: 110px;
+    width: 120px;
+    max-width: 130px;
 }
 
 
@@ -371,24 +385,40 @@
 }
 
 
-@media(max-width:750px) {
+@media(max-width:655px) {
 
-    .container {
-        width: 100vw;
-        height: 100vh;
-        left: 0;
+    .dataTables_wrapper .dataTables_length {
+        float: inherit;
+        display: flex;
+        justify-content: space-around;
     }
 
-    .modal {
-        width: 95vw;
+    /* Div que engloba o Pesquisar <input>  */
+    .dataTables_wrapper .dataTables_filter {
+        float: inherit;
+        display: flex;
+        justify-content: space-around;
     }
 
-    .dataTables_wrapper table thead tr th {
-        min-width: 150px;
+    .dataTables_wrapper .dataTables_filter input {
+        width: 165px;
     }
 
-    .dataTables_scrollBody {
-        max-height: 40vh;
+    /* Local onde fica o: Mostrando de 1 até 10 de 21 registros */
+    .dataTables_wrapper .dataTables_info {
+        float: inherit;
+        display: flex;
+        justify-content: space-around;
+        margin-top: .5rem;
+    }
+
+    /* Local da paginação */
+    .dataTables_wrapper .dataTables_paginate {
+        float: inherit;
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+        margin-top: .5rem;
     }
 
 }
