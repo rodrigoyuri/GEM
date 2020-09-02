@@ -29,7 +29,7 @@ class Afiliado extends Crud
         $start = $data['start'];
         $end = $data['length'];
 
-        $queryFilter = parent::select("cd_afiliado, nm_afiliado, nm_tipo_afiliado, dt_nascimento, cd_telefone")
+        $queryFilter = parent::select("cd_afiliado, nm_afiliado, nm_tipo_afiliado, nm_area_interesse, dt_nascimento, cd_telefone ")
             ->from("afiliado");
 
         if (!empty($data["search"]['value'])) {

@@ -39,6 +39,8 @@
     top: 0;
 }
 
+
+
 .dataTables_wrapper table thead .sorting,
 .dataTables_wrapper table thead .sorting_asc,
 .dataTables_wrapper table thead .sorting_desc,
@@ -50,32 +52,53 @@
     background-position: center right;
 }
 
-.dataTables_wrapper table thead .sorting::after {
-    /* content: "\029EB"; */
+/* .dataTables_wrapper table thead .sorting::after {
     content: "\025B4\025BE";
     color: var(--color-primary);
-
     margin-right: 3px;
-
-    /* background-image: url("../images/sort_both.png"); */
 }
 
 .dataTables_wrapper table thead .sorting_asc::after {
     content: "\025B4";
     color: var(--color-primary);
-
     margin-right: 3px;
-    /* background-image: url("../images/sort_asc.png"); */
 }
 
 .dataTables_wrapper table thead .sorting_desc::after {
     content: "\025BE";
     color: var(--color-primary);
+    margin-right: 3px;
 
+    background-image: url("../images/sort_desc.png"); 
+} */
+
+/*  */
+
+.dataTables_scrollHead .dataTables_scrollHeadInner table thead .sorting::after {
+    content: "\025B4\025BE";
+    color: var(--color-primary);
+    margin-right: 3px;
+}
+
+.dataTables_scrollHead .dataTables_scrollHeadInner table thead .sorting_asc::after {
+    content: "\025B4";
+    color: var(--color-primary);
+    margin-right: 3px;
+}
+
+.dataTables_scrollHead .dataTables_scrollHeadInner table thead .sorting_desc::after {
+    content: "\025BE";
+    color: var(--color-primary);
     margin-right: 3px;
 
     /* background-image: url("../images/sort_desc.png"); */
 }
+
+
+
+
+
+
 
 .dataTables_wrapper table tfoot th {
     bottom: 0;
@@ -92,14 +115,57 @@
 
 .dataTables_wrapper table tbody td {
     text-align: center;
+    border-right: 1px solid var(--color-primary-hover);
 }
 
+
+/* CSS das colunas individualmente */
+/* Nome */
 /* Alinha a esquerda apenas a primeira coluna */
-.dataTables_wrapper table tbody tr:first-child,
-.dataTables_wrapper table tbody td:first-child {
+.dataTables_wrapper table tbody tr:nth-child(1),
+.dataTables_wrapper table tbody td:nth-child(1) {
     text-align: left;
-    padding-left: 1rem;
+    padding: 0 0.2rem;
+    border-left: 1px solid var(--color-primary-hover);
+    min-width: 170px;
 }
+
+/* Tipo Afiliado */
+.dataTables_wrapper table tbody tr:nth-child(2),
+.dataTables_wrapper table tbody td:nth-child(2) {
+    /* padding: 0 0.5rem; */
+    min-width: 110px;
+}
+
+/* Função */
+.dataTables_wrapper table tbody tr:nth-child(3),
+.dataTables_wrapper table tbody td:nth-child(3) {
+    /* padding: 0 0.5rem; */
+    min-width: 110px;
+}
+
+/* Data de aniversario */
+.dataTables_wrapper table tbody tr:nth-child(4),
+.dataTables_wrapper table tbody td:nth-child(4) {
+    /* padding: 0 0.5rem; */
+    min-width: 110px;
+}
+
+/* Telefone */
+.dataTables_wrapper table tbody tr:nth-child(5),
+.dataTables_wrapper table tbody td:nth-child(5) {
+    /* padding: 0 0.5rem; */
+    min-width: 130px;
+}
+
+/* Opções */
+.dataTables_wrapper table tbody tr:nth-child(6),
+.dataTables_wrapper table tbody td:nth-child(6) {
+    /* padding: 0 0.5rem; */
+    min-width: 130px;
+}
+
+
 
 /* CSS da tabela bottun*/
 .dataTables_wrapper table tbody td button {
@@ -283,12 +349,46 @@
 }
 
 @media(max-width:750px) {
-    .container main {
+
+    .container {
         width: 100vw;
-        max-width: 300px;
+        height: 100vh;
+        left: 0;
     }
 
     .modal {
         width: 95vw;
     }
+
+    .dataTables_wrapper table thead tr th {
+        min-width: 150px;
+    }
+
+    .dataTables_scrollBody {
+        max-height: 40vh;
+    }
+
+}
+
+
+@media(max-width:750px) {
+
+    .container {
+        width: 100vw;
+        height: 100vh;
+        left: 0;
+    }
+
+    .modal {
+        width: 95vw;
+    }
+
+    .dataTables_wrapper table thead tr th {
+        min-width: 150px;
+    }
+
+    .dataTables_scrollBody {
+        max-height: 40vh;
+    }
+
 }

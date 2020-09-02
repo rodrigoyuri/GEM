@@ -34,3 +34,10 @@ li:hover {
     border-radius: 0.2rem;
     transition: 0.2s;
 }
+
+
+@media(max-width:750px) {
+    .nav-bar {
+        display: none;
+    }
+}

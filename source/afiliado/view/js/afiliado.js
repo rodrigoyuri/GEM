@@ -30,10 +30,14 @@ $(document).ready(function () {
         data: "nm_tipo_afiliado",
       },
       {
+        data: "nm_area_interesse",
+      },
+      {
         data: "dt_nascimento",
       },
       {
         data: "cd_telefone",
+        orderable: false,
       },
       {
         class: "details-control",
@@ -66,7 +70,11 @@ $(document).ready(function () {
         sSortDescending: ": Ordenar colunas de forma descendente",
       },
     },
-    // "pagingType": "full"
+    deferRender: true,
+    scrollY: "60vh",
+    scrollX: true,
+    scrollCollapse: true,
+    scroller: true
   });
 
   //===============================================

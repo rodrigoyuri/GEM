@@ -26,8 +26,9 @@
                 <tr>
                     <th>Nome</th>
                     <th>Tipo Afiliado</th>
-                    <th>Data Nascimento</th>
-                    <th>Telefone</th>
+                    <th>Função</th>
+                    <th><i class="fas fa-birthday-cake"></i></th>
+                    <th><i class="fas fa-phone"></i></th>
                     <th>Opções</th>
                 </tr>
             </thead>
