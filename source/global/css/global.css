@@ -8,14 +8,11 @@
     --color-text-title: #212529;
     --color-box-base: #FFFFFF;
     --color-box-footer: #FAFAFC;
-
     --color-primary: #ff5f77;
     --color-primary-hover: #ff7e8c;
     --color-error: #ff143b;
-
     --font-base: 400 1.1rem Roboto, sans-serif;
     --font-family: Roboto, sans-serif;
-
 }
 
 * {
@@ -31,13 +28,10 @@ body {
 
 body {
     background: var(--color-background);
+    font-family: 'Roboto', sans-serif;
 }
 
-
-body,
-input,
-button,
-textarea {
+body, input, button, textarea {
     font: var(--font-base);
     color: var(--color-text-base);
 }

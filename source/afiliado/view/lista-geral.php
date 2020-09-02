@@ -18,7 +18,6 @@
 
 <body>
     
-
     <div class="container">
         <?php include __DIR__ . "/../../global/components/header.php" ?>
         <table id="list-afiliados" class="display" style="width: 100%;">
@@ -36,8 +35,6 @@
             </tbody>
         </table>
     </div>
-
-
 
     <script src="<?= URL_BASE ?>/source/global/js/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>

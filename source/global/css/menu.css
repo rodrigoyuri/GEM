@@ -1,20 +1,10 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
-}
-
-body {
-    background-color: #fff;
-}
-
 .nav-bar {
     display: flex;
-    position: relative;
+    position: fixed;
+    left: 0;
     list-style-type: none;
     width: 17vw;
-    height: 100vh;
+    height: 100%;
     background-color: var(--color-primary);
 }
 
