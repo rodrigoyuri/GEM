@@ -58,4 +58,16 @@ class Afiliado extends Crud
 
         return $jsonData;
     }
+
+    public function insertAffiliate($data)
+    {
+        $crud = $this->insert("afiliado", $data, "nm_afiliado, cd_rg, cd_cpf, dt_nascimento, nm_escolaridade, nm_situacao_profissional, 
+                            cd_telefone, cd_contato, nm_email, nm_diagnostico, nm_cirurgia_mama_direita, dt_cirugia_mama_direita, 
+                            nm_cirurgia_mama_esquerda, dt_cirugia_mama_esquerda, nm_convenio_medico, nm_endereco")->execute();
+        if ($crud) {
+            return "Cadastrado Com Sucesso";
+        } else {
+            return $this->getError();
+        }
+    }
 }

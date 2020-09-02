@@ -16,13 +16,12 @@ class Login extends Crud
      */
     public function verifyUserLogin($loginUser, $passw) //: bool
     {
+
         $userLogin = parent::select("*")->from("login")->where("nm_login = ? ", [$loginUser])->execute("fetch");
 
         if ($userLogin) {
 
-            $password = password_hash($userLogin->nm_senha, PASSWORD_DEFAULT);
-
-            if (password_verify($passw, $password)) {
+            if (password_verify($passw, $userLogin->nm_senha)) {
                 $_SESSION['userLogin'] = $userLogin;
                 return true;
             } else {
@@ -33,28 +32,36 @@ class Login extends Crud
         }
     }
 
+    public function insertUser($data): bool
+    {
+        $crud = $this->insert("login", $data, "nm_login, nm_senha, nm_tipo_usuario")->execute();
+
+        return $crud;
+    }
+
     public function resetPassword($email)
     {
         $rs = parent::select()->from("login")
-            ->where("nmlogin = ?", [$email])
+            ->where("nm_login = ?", [$email])
             ->execute("fetch");
 
         if ($rs) {
 
             //senha que será enviado no email de recuperação
-            $newPasswordEmail = $this->generatorPasswordRandom(5);
+            // $newPasswordEmail = $this->generatorPasswordRandom(5);
+
+            $newPasswordEmail = "admin123"; //$this->generatorPasswordRandom(5);
 
             // encriptografar a senha antes de atualizar
             $newPasswordDB = password_hash($newPasswordEmail, PASSWORD_DEFAULT);
 
-            $update = parent::update("login", "cdsenha = ? ", [$newPasswordDB])
-                ->where("nmlogin = ?", [$email])
+            $update = parent::update("login", "nm_senha = ? ", [$newPasswordDB])
+                ->where("nm_login = ?", [$email])
                 ->execute();
 
             if ($update) {
 
-                //return $newPasswordEmail;
-                return $this->sendEmail($email, $newPasswordEmail);
+                return $newPasswordEmail;
 
                 if ($this->sendEmail($email, $newPasswordEmail)) {
                     return true;
