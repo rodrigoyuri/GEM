@@ -49,7 +49,7 @@
     </div>
 
 
-    <div id="modal-ver" class="modal-container modal-hidden" close="modal-ver">
+    <div id="modal-ver" class="modal-container " close="modal-ver">
         <div class="modal">
             <div class="modal-header">
                 <button disabled="disabled">Editar</button>
@@ -57,6 +57,16 @@
                 <span close="modal-ver"><i class="fas fa-times"></i></span>
             </div>
             <div class="modal-body">
+                <nav class="modal-menu">
+                    <span class="modal-menu-item menu-item-actived" modal-view="dados-pessoais">Dados Pessoais</span>
+                    <span class="modal-menu-item" modal-view="dados-contatos">Contato</span>
+                    <span class="modal-menu-item" modal-view="dados-afiliados">Dados Afiliado</span>
+                </nav>
+                <div class="dados">
+                    <div id="dados-pessoais" class="">Dados Pessoais</div>
+                    <div id="dados-contatos" class="modal-hidden">Dados Contatos</div>
+                    <div id="dados-afiliados" class="modal-hidden">Dados Afiliados</div>
+                </div>
 
             </div>
             <div class="modal-footer">

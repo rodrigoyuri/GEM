@@ -180,10 +180,22 @@ $(document).ready(function () {
   $("span[close='modal-ver']").on("click", function (param) {
 
     $(".modal-container").addClass("modal-hidden")
-    $(".modal-body").empty()
+    $(".modal-body").reset()
   })
 
+  /**
+   * JS que faz o nav do modal, aparecer e desaparecer div
+   */
 
+  $("[modal-view]").on("click", function (param) {
+    let span = ($(this).attr("modal-view"))
+
+    $(".modal-menu span").removeClass("menu-item-actived")
+    $(this).addClass("menu-item-actived")
+
+    $(".dados div").addClass("modal-hidden")
+    $("#" + span).removeClass("modal-hidden");
+  })
 
 
 });
