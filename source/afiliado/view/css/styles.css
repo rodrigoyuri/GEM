@@ -354,7 +354,6 @@
 .modal-menu {
     display: flex;
     flex-direction: row;
-    overflow-x: scroll;
 }
 
 .modal-menu-item {
@@ -439,4 +438,10 @@
         margin-top: .5rem;
     }
 
+}
+
+@media(max-width:410px) {
+    .modal-menu {
+        overflow-x: scroll;
+    }
 }

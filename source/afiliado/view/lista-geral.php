@@ -49,7 +49,7 @@
     </div>
 
 
-    <div id="modal-ver" class="modal-container " close="modal-ver">
+    <div id="modal-ver" class="modal-container modal-hidden" close="modal-ver">
         <div class="modal">
             <div class="modal-header">
                 <button disabled="disabled">Editar</button>
