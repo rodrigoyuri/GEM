@@ -111,7 +111,8 @@ $(document).ready(function () {
 	$("#add-affiliate").on("click", function (e) {
 		e.preventDefault()
 		$("#modal-ver").removeClass("modal-hidden")
-		// $(".modal-body .modal-menu").hide()
+		$(".modal-header button").hide()
+		$(".modal-body .modal-menu").hide()
 	})
 
 	$("#form-affiliate").submit(function (event) {
@@ -187,7 +188,14 @@ $(document).ready(function () {
 
 		$(".modal-container").addClass("modal-hidden")
 		$(".modal-body .modal-menu").show()
+		$(".modal-header button").show()
 		// $("#form-affiliate").reset()
+
+		$(".modal-menu span").removeClass("menu-item-actived")
+		$("span[modal-view=dados-pessoais]").addClass("menu-item-actived")
+		$(".dados section").fadeOut()
+		$("#dados-pessoais").fadeIn();
+
 	})
 
 	/**
