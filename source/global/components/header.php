@@ -10,7 +10,7 @@
         </li>
 
         <li>
-            <a href="<?= URL_BASE ?>/admin/cadastro-afiliado"><i class="far fa-plus-square"></i>Cadastrar Afiliado</a>
+            <a href="#" id="add-affiliate"><i class="far fa-plus-square"></i>Cadastrar Afiliado</a>
         </li>
 
         <li>

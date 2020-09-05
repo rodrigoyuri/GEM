@@ -26,7 +26,8 @@ $router->get("/lista-geral/{id}", "ControllerAfiliado:getAffiliate");
 $router->post("/lista-geral", "ControllerAfiliado:tableList");
 
 $router->get("/cadastro-afiliado", "ControllerAfiliado:renderRegisterAffiliate");
-$router->post("/cadastro-afiliado", "ControllerAfiliado:registerAffiliate");
+$router->post("/cadastro-afiliado", "ControllerAfiliado:registerAffiliate", "form.affiliate");
+$router->post("/cadastro-afiliado/{id}", "ControllerAfiliado:updateAffiliate");
 
 $router->get("/ver-afiliado", "ControllerAfiliado:renderViewAffiliate");
 $router->get("/editar-afiliado", "ControllerAfiliado:renderEditAffiliate");
