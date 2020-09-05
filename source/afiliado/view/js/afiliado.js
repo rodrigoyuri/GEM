@@ -208,12 +208,34 @@ $(document).ready(function () {
 		$("#" + span).removeClass("modal-hidden");
 		*/
 
-		$(".dados section").hide()
+		$(".dados section").fadeOut()
+		$("#" + span).fadeIn();
+		//$(".dados section").hide()
+		//$("#" + span).show();
+		// $(".dados section").animate({ width: 'toggle' }, 500).hide()
 		// $("#" + span).fadeIn();
-		$("#" + span).animate({ width: 'toggle' }, 1000);
+		// $("#" + span).animate({ width: 'toggle' }, 500);
 		// $("#" + span).show("slide", { direction: "right" }, 500);
 
 	})
+
+	/**
+	 * JS mostra e oculta div do tipo de afiliado
+	 * Códido do Denis abaixo
+	 */
+	$("#ddlPassport").change(function () {
+		if ($(this).val() === "vol") {
+			$("#voluntario").show();
+			$("#assistida").hide();
+		} else if ($(this).val() === "ass") {
+			$("#assistida").show();
+			$("#voluntario").hide();
+		} else {
+			$("#voluntario").hide();
+			$("#assistida").hide();
+
+		}
+	});
 
 
 });

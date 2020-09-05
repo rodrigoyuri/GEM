@@ -62,9 +62,9 @@
                     <span class="modal-menu-item" modal-view="dados-contatos">Contato</span>
                     <span class="modal-menu-item" modal-view="dados-afiliados">Dados Afiliado</span>
                 </nav>
-                <div class="dados">
+                <div class="dados form-outer">
                     <form id="form-affiliate" action="<?= URL_BASE ?>/admin/cadastro-afiliado" method="post">
-                        <section id="dados-pessoais" class="">
+                        <section id="dados-pessoais" class="page">
                             <div class="title">Informações pessoais:</div>
                             <div class="field">
                                 <div class="label">Nome Completo</div>
@@ -90,7 +90,7 @@
                                 <button class="firstNext next" modal-view="dados-contatos">Próximo</button>
                             </div>
                         </section>
-                        <section id="dados-contatos" class="modal-hidden">
+                        <section id="dados-contatos" class="page modal-hidden">
                             <div class="title">Informações de contato:</div>
                             <div class="field">
                                 <div class="label">Estado</div>
@@ -210,7 +210,7 @@
                                 <button class="next-1 next" modal-view="dados-afiliados">Próximo</button>
                             </div>
                         </section>
-                        <section id="dados-afiliados" class="modal-hidden">
+                        <section id="dados-afiliados" class="page modal-hidden">
                             <div class="title">Outras informações:</div>
                             <div class="field">
                                 <div class="label">Sexo</div>
