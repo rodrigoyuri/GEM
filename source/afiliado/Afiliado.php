@@ -20,7 +20,7 @@ class Afiliado extends Crud
                                 nm_convenio_medico as convenio, nm_status_assistida as statusAss, nm_status_voluntario as statusVol")
             ->from("afiliado")->where("cd_afiliado = ?", [$id])->execute("fetch");
 
-        $endereco = explode(" ", $query->endereco);
+        $endereco = explode(";", $query->endereco);
         $query->estado = ($endereco[0] != null) ? $endereco[0] : "";
         $query->cidade = ($endereco[1] != null) ? $endereco[1] : "";
         $query->bairro = ($endereco[2] != null) ? $endereco[2] : "";

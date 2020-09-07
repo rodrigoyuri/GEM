@@ -164,11 +164,7 @@ $(document).ready(function () {
 			}
 		});
 
-		let addrees = fieldsAddresses[0].value;
-
-		for (let i = 1; i < fieldsAddresses.length; i++) {
-			addrees += " " + fieldsAddresses[i].value;
-		}
+		let addrees = fieldsAddresses.map(e => e.value).join(";");
 
 		fields.push({ name: "endereco", value: addrees });
 
