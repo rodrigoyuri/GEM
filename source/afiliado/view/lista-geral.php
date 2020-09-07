@@ -214,7 +214,7 @@
                             <div class="title">Outras informações:</div>
                             <div class="field">
                                 <div class="label">Sexo</div>
-                                <select name="sex">
+                                <select name="sexo">
                                     <option value="Masculino">Masculino</option>
                                     <option value="Feminino">Feminino</option>
                                 </select>
