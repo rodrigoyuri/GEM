@@ -79,7 +79,6 @@ $(document).ready(function () {
 
 	//===============================================
 	/**
-	 * Função que escuta o evento click na tabela e acessa os botões de opção (ver e editar).
 	 * JS do Ver Afiliado (abre modal)
 	 */
 	//===============================================
@@ -87,18 +86,32 @@ $(document).ready(function () {
 
 		let id = (e.currentTarget.attributes.value.value)
 
+		let inputForm = $("#form-affiliate :input").serializeArray();
+
 		$.ajax({
 			type: "get",
 			url: "http://localhost/GEM/admin/lista-geral/" + id,
 			// dataType: "json",
 			success: function (response) {
 				console.log(response)
+				let affiliate = JSON.parse(response)
+
+				for (let i = 0; i < inputForm.length; i++) {
+					$("#form-affiliate [name=" + inputForm[i].name + "]").val(affiliate[inputForm[i].name])
+					console.log(inputForm[i].name)
+				}
+
+				// $("#form-affiliate [name=estado]").val("SP")
+
+				$("#form-affiliate [name=tipo]").val("ass")
+
 				// $("#modal-ver .modal-body").append(response);
 			},
 			error: function (e) {
 				console.error(e);
 			},
 			complete: function () {
+				// $("#form-affiliate :input").attr("disabled", true);
 				$("#modal-ver").removeClass("modal-hidden")
 			}
 		});
@@ -113,6 +126,8 @@ $(document).ready(function () {
 		$("#modal-ver").removeClass("modal-hidden")
 		$(".modal-header button").hide()
 		$(".modal-body .modal-menu").hide()
+
+		$("#form-affiliate :input").attr("disabled", false);
 	})
 
 	$("#form-affiliate").submit(function (event) {
@@ -198,7 +213,7 @@ $(document).ready(function () {
 		$(".modal-container").addClass("modal-hidden")
 		$(".modal-body .modal-menu").show()
 		$(".modal-header button").show()
-		// $("#form-affiliate").reset()
+		$("#form-affiliate")[0].reset()
 
 		$(".modal-menu span").removeClass("menu-item-actived")
 		$("span[modal-view=dados-pessoais]").addClass("menu-item-actived")
@@ -225,13 +240,14 @@ $(document).ready(function () {
 		$("#" + span).removeClass("modal-hidden");
 		*/
 
-		$(".dados section").fadeOut()
-		$("#" + span).fadeIn();
+		// $(".dados section").fadeOut()
+		// $("#" + span).fadeIn();
 		//$(".dados section").hide()
 		//$("#" + span).show();
-		// $(".dados section").animate({ width: 'toggle' }, 500).hide()
+
 		// $("#" + span).fadeIn();
-		// $("#" + span).animate({ width: 'toggle' }, 500);
+		$("#" + span).animate({ width: 'toggle' }, 500);
+		$(".dados section").animate({ width: 'toggle' }).hide()
 		// $("#" + span).show("slide", { direction: "right" }, 500);
 
 	})
