@@ -221,7 +221,7 @@
                             </div>
                             <div class="field">
                                 <div class="label">Tipo</div>
-                                <select id="ddlPassport">
+                                <select id="ddlPassport" name="tipo">
                                     <option value="esc">Escolha</option>
                                     <option value="ass">Assistida</option>
                                     <option value="vol">Vonluntário</option>
