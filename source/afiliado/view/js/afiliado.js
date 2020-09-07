@@ -122,6 +122,8 @@ $(document).ready(function () {
 
 		const fieldsForm = form.serializeArray();
 
+		console.log(fieldsForm);
+
 		const fields = fieldsForm.filter(function (value) {
 			if (value.name == "cpf") {
 				value.value = removeCharacter(value.value);
@@ -158,8 +160,9 @@ $(document).ready(function () {
 		$.ajax({
 			type: "POST",
 			url: form.attr("action"),
-			data: fields,
+			data: sortFields(fields),
 			success: function (response) {
+				console.log(response);
 				alert(response);
 			},
 			error: function (error) {
@@ -179,7 +182,13 @@ $(document).ready(function () {
 		return element.join("");
 	}
 
+	function sortFields(array) {
+		array.sort((a, b) => {
+			return (a.name > b.name) ? 1 : -1;
+		});
 
+		return array;
+	}
 
 	/**
 	 * JS do Fechar Modal

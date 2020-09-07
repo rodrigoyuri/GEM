@@ -214,59 +214,59 @@
                             <div class="title">Outras informações:</div>
                             <div class="field">
                                 <div class="label">Sexo</div>
-                                <select>
-                                    <option>Masculino</option>
-                                    <option>Feminino</option>
+                                <select name="sex">
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Feminino">Feminino</option>
                                 </select>
                             </div>
                             <div class="field">
                                 <div class="label">Tipo</div>
-                                <select id="ddlPassport">
+                                <select id="ddlPassport" name="type">
                                     <option value="esc">Escolha</option>
                                     <option value="ass">Assistida</option>
                                     <option value="vol">Vonluntário</option>
                                 </select>
                             </div>
-                            <div id="assistida">
+                            <div id="voluntario">
                                 <div class="field">
                                     <div class="label">Area de interesse</div>
-                                    <input type="text">
+                                    <input type="text" name="funcao">
                                 </div>
 
                                 <div class="fielde">
                                     <div class="label">disponibilidade</div>
                                     <div class="todas">
                                         <div class="div">
-                                            <input type="checkbox">
+                                            <input type="checkbox" name="week[]" value="segunda">
                                             <label for="">segunda</label>
                                         </div>
                                         <div class="div">
-                                            <input type="checkbox">
+                                            <input type="checkbox" name="week[]" value="terça">
                                             <label for="">terça</label>
                                         </div>
                                         <div class="div">
-                                            <input type="checkbox">
+                                            <input type="checkbox" name="week[]" value="quarta">
                                             <label for="">quarta</label>
                                         </div>
                                         <div class="div">
-                                            <input type="checkbox">
+                                            <input type="checkbox" name="week[]" value="quinta">
                                             <label for="">Quinta</label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div id="voluntario">
+                            <div id="assistida">
                                 <div class="field">
                                     <div class="label">Diagnóstico</div>
-                                    <textarea name="" id="" cols="30" rows="10"></textarea>
+                                    <textarea name="diagnostico" id="" cols="30" rows="10"></textarea>
                                 </div>
 
                                 <div class="fielda">
                                     <div class="label">Cirurgia da mama</div>
                                     <div>
                                         <div class="label-mama-direita">
-                                            <input type="checkbox" class="custom-control-input" value="true" name="mamaDireita" id="mamaDireita">
+                                            <input type="checkbox" class="custom-control-input" name="mamaDireita" id="mamaDireita">
                                             <label class="custom-control-label" for="mamaDireita">Direita</label>
                                         </div>
                                         <div class="data-mama-direita">
@@ -274,7 +274,7 @@
                                         </div>
 
                                         <div class="label-mama-direita">
-                                            <input type="checkbox" class="custom-control-input" value="true" name="mamaDireita" id="mamaEsquerda">
+                                            <input type="checkbox" class="custom-control-input" name="mamaEsquerda" id="mamaEsquerda">
                                             <label class="custom-control-label" for="mamaEsquerda">Esquerda</label>
                                         </div>
                                         <div class="data-mama-direita">
@@ -284,7 +284,7 @@
                                 </div>
                                 <div class="field">
                                     <div class="label">Convenio</div>
-                                    <textarea name="" cols="30" rows="10"></textarea>
+                                    <textarea name="convenio" cols="30" rows="10"></textarea>
                                 </div>
                             </div>
                             <div class="field btns">

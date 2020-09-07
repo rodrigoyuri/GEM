@@ -46,9 +46,12 @@ class ControllerAfiliado extends Controller
 
     public function registerAffiliate($data)
     {
+        $data["week"] = implode(";", $data["week"]);
+
         $afiliado = (new Afiliado)->insertAffiliate($data);
 
         echo $afiliado;
+        //var_dump($afiliado);
     }
 
     public function renderViewAffiliate()
