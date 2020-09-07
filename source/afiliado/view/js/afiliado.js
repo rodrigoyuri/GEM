@@ -93,17 +93,14 @@ $(document).ready(function () {
 			url: "http://localhost/GEM/admin/lista-geral/" + id,
 			// dataType: "json",
 			success: function (response) {
-				console.log(response)
 				let affiliate = JSON.parse(response)
+
+				console.log(affiliate)
 
 				for (let i = 0; i < inputForm.length; i++) {
 					$("#form-affiliate [name=" + inputForm[i].name + "]").val(affiliate[inputForm[i].name])
 					console.log(inputForm[i].name)
 				}
-
-				// $("#form-affiliate [name=estado]").val("SP")
-
-				$("#form-affiliate [name=tipo]").val("ass")
 
 				// $("#modal-ver .modal-body").append(response);
 			},
@@ -113,6 +110,7 @@ $(document).ready(function () {
 			complete: function () {
 				// $("#form-affiliate :input").attr("disabled", true);
 				$("#modal-ver").removeClass("modal-hidden")
+				showType();
 			}
 		});
 	});
@@ -252,11 +250,14 @@ $(document).ready(function () {
 	 * JS mostra e oculta div do tipo de afiliado
 	 * Códido do Denis abaixo
 	 */
-	$("#ddlPassport").change(function () {
-		if ($(this).val() === "vol") {
+	$("#ddlPassport").change(showType);
+
+	function showType() {
+		let s = $("#ddlPassport")
+		if ($(s).val() === "vol") {
 			$("#voluntario").show();
 			$("#assistida").hide();
-		} else if ($(this).val() === "ass") {
+		} else if ($(s).val() === "ass") {
 			$("#assistida").show();
 			$("#voluntario").hide();
 		} else {
@@ -264,7 +265,7 @@ $(document).ready(function () {
 			$("#assistida").hide();
 
 		}
-	});
+	}
 
 
 });
