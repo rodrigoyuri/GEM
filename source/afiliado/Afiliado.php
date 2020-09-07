@@ -21,10 +21,10 @@ class Afiliado extends Crud
             ->from("afiliado")->where("cd_afiliado = ?", [$id])->execute("fetch");
 
         $endereco = explode(";", $query->endereco);
-        $query->estado = ($endereco[0] != null) ? $endereco[0] : "";
-        $query->cidade = ($endereco[1] != null) ? $endereco[1] : "";
-        $query->bairro = ($endereco[2] != null) ? $endereco[2] : "";
-        $query->cep = ($endereco[3] != null) ? $endereco[3] : "";
+        $query->estado = (isset($endereco[0])) ? $endereco[0] : null;
+        $query->cidade = (isset($endereco[1])) ? $endereco[1] : null;
+        $query->bairro = (isset($endereco[2])) ? $endereco[2] : null;
+        $query->cep = (isset($endereco[3])) ? $endereco[3] : null;
 
         unset($query->endereco);
 
