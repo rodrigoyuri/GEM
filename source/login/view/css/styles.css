@@ -32,26 +32,6 @@
     color: var(--color-text-title);
 }
 
-.input-base {
-    height: 2.3rem;
-    background: var(--color-input-background);
-    border: 1px solid var(--color-input-border);
-    border-radius: 0.2rem;
-    padding: 0 1rem;
-    outline: 0;
-    font: var(--font-base);
-    /* line-height: 2.5rem; */
-}
-
-.input-base:focus {
-    box-shadow: var(--color-input-border-focus);
-}
-
-/* Se depois de um .input-base houver outro .input-base */
-.input-base+.input-base {
-    margin-top: 1rem;
-}
-
 .button-submit {
     height: 2.5rem;
     background: var(--color-primary);

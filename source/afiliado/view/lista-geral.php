@@ -61,8 +61,9 @@
             <div class="modal-body">
                 <nav class="modal-menu">
                     <span class="modal-menu-item menu-item-actived" modal-view="dados-pessoais">Dados Pessoais</span>
-                    <span class="modal-menu-item" modal-view="dados-contatos">Contato</span>
+                    <span class="modal-menu-item" modal-view="dados-contatos">Dados Contato</span>
                     <span class="modal-menu-item" modal-view="dados-afiliados">Dados Afiliado</span>
+                    <span class="modal-menu-item" modal-view="dados-cedidos">Benficios cedidos</span>
                 </nav>
                 <div class="dados form-outer">
                     <form id="form-affiliate" action="<?= URL_BASE ?>/admin/cadastro-afiliado" method="post">
@@ -70,23 +71,23 @@
                             <div class="title">Informações pessoais:</div>
                             <div class="field">
                                 <div class="label">Nome Completo</div>
-                                <input type="text" class="form-control" name="nome" id="nome" title="nome" />
+                                <input type="text" class="input-base" name="nome" id="nome" title="nome" />
                             </div>
                             <div class="field">
                                 <div class="label">Rg</div>
-                                <input type="text" class="form-control" name="rg" id="rg" title="rg" />
+                                <input type="text" class="input-base" name="rg" id="rg" title="rg" />
                             </div>
                             <div class="field">
                                 <div class="label">Cpf</div>
-                                <input type="text" class="form-control" name="cpf" id="cpf" title="CPF" maxlength="14" />
+                                <input type="text" class="input-base" name="cpf" id="cpf" title="CPF" maxlength="14" />
                             </div>
                             <div class="field">
                                 <div class="label">Nacionalidade</div>
-                                <input type="text" name="nacionalidade" id="nacionalidade" title="Nacionalidade">
+                                <input type="text" class="input-base" name="nacionalidade" id="nacionalidade" title="Nacionalidade">
                             </div>
                             <div class="field">
                                 <div class="label">Data de nascimento</div>
-                                <input type="date" class="form-control" name="data" id="data" title="Data de Nascimento">
+                                <input type="date" class="input-base" name="data" id="data" title="Data de Nascimento">
                             </div>
                             <div class="field">
                                 <button class="firstNext next" modal-view="dados-contatos">Próximo</button>
@@ -96,7 +97,7 @@
                             <div class="title">Informações de contato:</div>
                             <div class="field">
                                 <div class="label">Estado</div>
-                                <select class="form-control" name="estado" id="estado" title="Estado">
+                                <select class="input-base" name="estado" id="estado" title="Estado">
                                     <option class="" value="Estado">
                                         Estado
                                     </option>
@@ -185,27 +186,27 @@
                             </div>
                             <div class="field">
                                 <div class="label">Cidade</div>
-                                <input type="text" class="form-control" name="cidade" id="cidade" title="Cidade">
+                                <input type="text" class="input-base" name="cidade" id="cidade" title="Cidade">
                             </div>
                             <div class="field">
                                 <div class="label">Bairro</div>
-                                <input type="text" class="form-control" name="bairro" id="bairro" title="Bairro">
+                                <input type="text" class="input-base" name="bairro" id="bairro" title="Bairro">
                             </div>
                             <div class="field">
                                 <div class="label">Cep</div>
-                                <input type="text" class="form-control" name="cep" id="cep" title="CEP">
+                                <input type="text" class="input-base" name="cep" id="cep" title="CEP">
                             </div>
                             <div class="field">
                                 <div class="label">Telefone</div>
-                                <input type="text" class="form-control" name="telefone" id="telefone" placeholder="(00)0000-0000" title="Telefone Princial">
+                                <input type="text" class="input-base" name="telefone" id="telefone" placeholder="(00)0000-0000" title="Telefone Princial">
                             </div>
                             <div class="field">
                                 <div class="label">Celular</div>
-                                <input type="text" class="form-control" name="celular" id="celular" placeholder="(00)00000-0000" title="Telefone para contato">
+                                <input type="text" class="input-base" name="celular" id="celular" placeholder="(00)00000-0000" title="Telefone para contato">
                             </div>
                             <div class="field">
                                 <div class="label">Email</div>
-                                <input type="email" class="form-control" name="email" id="email" placeholder="exemplo@gmail.com" title="E-mail">
+                                <input type="email" class="input-base" name="email" id="email" placeholder="exemplo@gmail.com" title="E-mail">
                             </div>
                             <div class="field btns">
                                 <button class="prev-1 prev" modal-view="dados-pessoais">Anterior</button>
@@ -261,7 +262,7 @@
                             <div id="assistida">
                                 <div class="field">
                                     <div class="label">Diagnóstico</div>
-                                    <textarea name="diagnostico" id="" cols="30" rows="10"></textarea>
+                                    <textarea name="diagnostico" id="diagnostico" cols="30" rows="10"></textarea>
                                 </div>
 
                                 <div class="fielda">
@@ -295,6 +296,37 @@
                             </div>
                         </section>
                     </form>
+                    <section id="dados-cedidos" class="page modal-hidden">
+                        <form action="#" id="form-items">
+                            <input type="number" name="" id="" class="input-base">
+                            <input type="text" class="input-base">
+                            <button type="submit">+</button>
+                        </form>
+                        <table id="list-items" class="display" style="width: 100%;">
+                            <thead>
+                                <tr>
+                                    <th>Qtd</th>
+                                    <th>Nome</th>
+                                    <th>Data</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Dipirona</td>
+                                    <td>2020-08-27</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Qtd</th>
+                                    <th>Nome</th>
+                                    <th>Data</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+                    </section>
                 </div>
 
             </div>

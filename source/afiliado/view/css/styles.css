@@ -385,6 +385,14 @@
     padding: .5rem 0;
 }
 
+#form-items {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: .5rem 0;
+}
+
 .dados {
     height: 90%;
     overflow-x: hidden;
@@ -436,12 +444,7 @@ form .page .field input[type=text],
 form .page .field input[type=email],
 form .page .field input[type=date],
 form .page .fielda input[type=date] {
-    height: 100%;
     width: 100%;
-    border: 1px solid lightgrey;
-    border-radius: 5px;
-    padding-left: 15px;
-    font-size: 18px;
 }
 
 form .page .field textarea {
