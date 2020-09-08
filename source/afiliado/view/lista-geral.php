@@ -289,7 +289,7 @@
                             </div>
                             <div class="field btns">
                                 <button class="prev-2 prev" modal-view="dados-contatos">Anterior</button>
-                                <button class="submit">Enviar</button>
+                                <button class="submit" id="enviar">Enviar</button>
                             </div>
                         </section>
                     </form>
@@ -308,8 +308,7 @@
     <script src="<?= URL_BASE ?>/source/afiliado/view/js/afiliado.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js" 
         integrity="sha256-yE5LLp5HSQ/z+hJeCqkz9hdjNkk1jaiGG0tDCraumnA=" 
-        crossorigin="anonymous"
-    >
+        crossorigin="anonymous">
     </script>
 </body>
 

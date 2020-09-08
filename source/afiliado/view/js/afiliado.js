@@ -132,6 +132,22 @@ $(document).ready(function () {
 		$("#form-affiliate :input").attr("disabled", false);
 	})
 
+	
+	/**
+	 * JS que verifica se o CPF é valido após preencher o input
+	 */
+	$('input[name="cpf"]').focusout(function () {
+		let buttonSend = document.getElementById('enviar');
+		let cpf = removeCharacter($('#cpf').val());		
+
+		if(validarCPF(cpf)) {
+			buttonSend.disabled = false;
+			$('#cpf').css('border-color', '#00E676');
+		} else {
+			buttonSend.disabled = true;
+			$('#cpf').css('border-color', '#E53935');
+		}
+	});
 
 	/**
 	 * JS que envia os dados para o banco de dados para cadastro
@@ -142,8 +158,6 @@ $(document).ready(function () {
 		const form = $(this);
 
 		const fieldsForm = form.serializeArray();
-
-		console.log(fieldsForm);
 
 		const fields = fieldsForm.filter(function (value) {
 			if (value.name == "cpf") {
@@ -235,7 +249,6 @@ $(document).ready(function () {
 	/**
 	 * JS que faz o nav do modal, aparecer e desaparecer div
 	 */
-
 	$("[modal-view]").on("click", function (param) {
 		param.preventDefault()
 		let span = ($(this).attr("modal-view"))
@@ -286,8 +299,36 @@ $(document).ready(function () {
 	/**
 	 * JS para adição de mascára nos campos necessários
 	 */
-	$('input[name="cpf"]').mask('000.000.000-00', {reverse: true});
+	$('input[name="cpf"]').mask('000.000.000-00');
 	$('input[name="cep"]').mask('00000-000');
 	$('input[name="telefone"]').mask('(00) 0000-0000');
 	$('input[name="celular"]').mask('(00) 00000-0000');
+
+	function validarCPF(input) {
+		let valor = input.split('')
+		let soma = 0
+		let cont = 10
+	
+		for (let index = 0; index < valor.length - 2; index++) {
+			soma = soma + (valor[index] * cont--);
+		}
+	
+		let digito1 = ((11 - (soma % 11)) >= 10) ? 0 : (11 - (soma % 11))
+	
+		soma = 0
+		cont = 11
+		for (let index = 0; index < valor.length - 1; index++) {
+			soma = soma + (valor[index] * cont--);
+		}
+	
+		let digito2 = ((11 - (soma % 11)) >= 10) ? 0 : (11 - (soma % 11))
+	
+		if (valor[9] == digito1 && valor[10] == digito2) {
+			console.log("Este CPF é válido")
+			return true
+		} else {
+			console.log("Este CPF NÃO é válido")
+			return false
+		}
+	}
 });
