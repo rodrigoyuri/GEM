@@ -218,14 +218,13 @@
                             <div class="field">
                                 <div class="label">Sexo</div>
                                 <select name="sexo">
-                                    <option value="Masculino">Masculino</option>
                                     <option value="Feminino">Feminino</option>
+                                    <option value="Masculino">Masculino</option>
                                 </select>
                             </div>
                             <div class="field">
                                 <div class="label">Tipo</div>
                                 <select id="ddlPassport" name="tipo">
-                                    <option value="esc">Escolha</option>
                                     <option value="Assistida">Assistida</option>
                                     <option value="Voluntário">Voluntário</option>
                                 </select>
