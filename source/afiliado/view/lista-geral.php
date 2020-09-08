@@ -27,6 +27,7 @@
                     <th>Nome</th>
                     <th>Tipo Afiliado</th>
                     <th>Função</th>
+                    <th>Status</th>
                     <th><i class="fas fa-birthday-cake"></i></th>
                     <th><i class="fas fa-phone"></i></th>
                     <th>Opções</th>
@@ -40,6 +41,7 @@
                     <th>Nome</th>
                     <th>Tipo Afiliado</th>
                     <th>Função</th>
+                    <th>Status</th>
                     <th><i class="fas fa-birthday-cake"></i></th>
                     <th><i class="fas fa-phone"></i></th>
                     <th>Opções</th>
@@ -306,9 +308,7 @@
     <script src="<?= URL_BASE ?>/source/global/js/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
     <script src="<?= URL_BASE ?>/source/afiliado/view/js/afiliado.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js" 
-        integrity="sha256-yE5LLp5HSQ/z+hJeCqkz9hdjNkk1jaiGG0tDCraumnA=" 
-        crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js" integrity="sha256-yE5LLp5HSQ/z+hJeCqkz9hdjNkk1jaiGG0tDCraumnA=" crossorigin="anonymous">
     </script>
 </body>
 

@@ -15,6 +15,35 @@ $(document).ready(function () {
 		return data;
 	};
 
+	let statusAffiliate = function (data, type, row) {
+
+		let dataType = (data !== null) ? data.split(";") : [];
+		if (type == "display") {
+
+			if (dataType[0] == "Voluntário" || dataType[0] == "vol") {
+				return (dataType[1] == "1") ? "Ativo" : "Inativo"
+
+			} else if (dataType[0] == "Assistida" || dataType[0] == "ass") {
+
+				if (dataType[2] == "0000-00-00") {
+					return "Tratamento";
+				} else {
+					let now = Date.now() //data atual
+					let altaHospitalar = new Date(dataType[2])
+
+					let year = 1000 * 60 * 60 * 24 * 365;//ano
+					let years = (now - altaHospitalar) / year;
+
+					return (years >= 5) ? "Curada" : "Observação";
+				}
+			} else if (dataType[0] == "Ambos") {
+				return "Ass/Vol"
+			}
+		}
+
+		return "-"
+	}
+
 	$("#list-afiliados").DataTable({
 		processing: true,
 		serverSide: true,
@@ -31,6 +60,10 @@ $(document).ready(function () {
 			},
 			{
 				data: "nm_area_interesse",
+			},
+			{
+				data: "status",
+				render: statusAffiliate
 			},
 			{
 				data: "dt_nascimento",
@@ -132,15 +165,15 @@ $(document).ready(function () {
 		$("#form-affiliate :input").attr("disabled", false);
 	})
 
-	
+
 	/**
 	 * JS que verifica se o CPF é valido após preencher o input
 	 */
 	$('input[name="cpf"]').focusout(function () {
 		let buttonSend = document.getElementById('enviar');
-		let cpf = removeCharacter($('#cpf').val());		
+		let cpf = removeCharacter($('#cpf').val());
 
-		if(validarCPF(cpf)) {
+		if (validarCPF(cpf)) {
 			buttonSend.disabled = false;
 			$('#cpf').css('border-color', '#00E676');
 		} else {
@@ -308,21 +341,21 @@ $(document).ready(function () {
 		let valor = input.split('')
 		let soma = 0
 		let cont = 10
-	
+
 		for (let index = 0; index < valor.length - 2; index++) {
 			soma = soma + (valor[index] * cont--);
 		}
-	
+
 		let digito1 = ((11 - (soma % 11)) >= 10) ? 0 : (11 - (soma % 11))
-	
+
 		soma = 0
 		cont = 11
 		for (let index = 0; index < valor.length - 1; index++) {
 			soma = soma + (valor[index] * cont--);
 		}
-	
+
 		let digito2 = ((11 - (soma % 11)) >= 10) ? 0 : (11 - (soma % 11))
-	
+
 		if (valor[9] == digito1 && valor[10] == digito2) {
 			console.log("Este CPF é válido")
 			return true
