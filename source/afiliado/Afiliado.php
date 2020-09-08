@@ -25,6 +25,8 @@ class Afiliado extends Crud
         $query->cidade = (isset($endereco[1])) ? $endereco[1] : null;
         $query->bairro = (isset($endereco[2])) ? $endereco[2] : null;
         $query->cep = (isset($endereco[3])) ? $endereco[3] : null;
+        // Deixo tudo em minusculo, removo espaços em branco e separo em um array pelo ;
+        $query->week = explode(";", str_replace(" ", "", strtolower($query->week)));
 
         unset($query->endereco);
 

@@ -94,15 +94,19 @@ $(document).ready(function () {
 			// dataType: "json",
 			success: function (response) {
 				let affiliate = JSON.parse(response)
-
 				console.log(affiliate)
-
+				// seto valor nos campos text
 				for (let i = 0; i < inputForm.length; i++) {
 					$("#form-affiliate [name=" + inputForm[i].name + "]").val(affiliate[inputForm[i].name])
-					console.log(inputForm[i].name)
 				}
 
-				// $("#modal-ver .modal-body").append(response);
+				// Marco os checkbox 
+				let week = $("#form-affiliate [name='week[]']");
+
+				for (let i = 0; i < week.length; i++) {
+					(affiliate["week"].includes(week[i].value)) ? week[i].checked = true : ""
+				}
+
 			},
 			error: function (e) {
 				console.error(e);
