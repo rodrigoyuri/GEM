@@ -266,10 +266,10 @@ $(document).ready(function () {
 
 	function showType() {
 		let s = $("#ddlPassport")
-		if ($(s).val() === "vol") {
+		if ($(s).val() === "Voluntário") {
 			$("#voluntario").show();
 			$("#assistida").hide();
-		} else if ($(s).val() === "ass") {
+		} else if ($(s).val() === "Assistida") {
 			$("#assistida").show();
 			$("#voluntario").hide();
 		} else {
