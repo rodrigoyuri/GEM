@@ -223,8 +223,8 @@
                                 <div class="label">Tipo</div>
                                 <select id="ddlPassport" name="tipo">
                                     <option value="esc">Escolha</option>
-                                    <option value="ass">Assistida</option>
-                                    <option value="vol">Vonluntário</option>
+                                    <option value="Assistida">Assistida</option>
+                                    <option value="Voluntário">Voluntário</option>
                                 </select>
                             </div>
                             <div id="voluntario">
