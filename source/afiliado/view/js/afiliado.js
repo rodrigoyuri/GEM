@@ -170,6 +170,14 @@ $(document).ready(function () {
 
 		fields.push({ name: "endereco", value: addrees });
 
+		$('#form-affiliate input:checkbox').map(function () {
+			if (this.checked) {
+				return
+			} else {
+				fields.push({ name: this.name, value: "" });
+			}
+		});
+
 		$.ajax({
 			type: "POST",
 			url: form.attr("action"),
