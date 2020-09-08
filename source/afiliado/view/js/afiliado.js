@@ -132,6 +132,10 @@ $(document).ready(function () {
 		$("#form-affiliate :input").attr("disabled", false);
 	})
 
+
+	/**
+	 * JS que envia os dados para o banco de dados para cadastro
+	 */
 	$("#form-affiliate").submit(function (event) {
 		event.preventDefault();
 
@@ -278,6 +282,4 @@ $(document).ready(function () {
 
 		}
 	}
-
-
 });
