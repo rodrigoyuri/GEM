@@ -89,6 +89,8 @@ class Afiliado extends Crud
                                                   nm_email,
                                                   nm_endereco,
                                                   nm_area_interesse,
+                                                  nm_cirurgia_mama_direita,
+                                                  nm_cirurgia_mama_esquerda,
                                                   nm_nacionalidade,
                                                   nm_afiliado,
                                                   cd_rg,
