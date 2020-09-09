@@ -385,16 +385,19 @@
     padding: .5rem 0;
 }
 
-#form-items {
+#dados-cedidos {
     height: 100%;
+}
+
+#form-items {
     display: flex;
-    align-items: center;
-    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
     padding: .5rem 0;
 }
 
 .dados {
-    height: 90%;
+    height: 85%;
     overflow-x: hidden;
     overflow-y: scroll;
 
@@ -403,6 +406,13 @@
     flex-direction: column;
 }
 
+.dados section {
+    width: 320px;
+}
+
+.dados .input-base {
+    width: 100%;
+}
 
 /*
 INICIO: CSS dos inputs/form de #form-affiliate
@@ -412,10 +422,11 @@ INICIO: CSS dos inputs/form de #form-affiliate
     background: #d43f8d;
 }
 
-.form-outer form .page {
-    /* width: 25%; */
+
+/* .form-outer form .page {
+    width: 25%;
     transition: margin-left 0.3s ease-in-out;
-}
+} */
 
 .form-outer form .page .title {
     text-align: left;
@@ -425,13 +436,40 @@ INICIO: CSS dos inputs/form de #form-affiliate
 }
 
 .form-outer form .page .field {
-    width: 330px;
+    /* width: 330px;
     height: 45px;
     margin: 45px 0;
     display: flex;
-    position: relative;
+    position: relative; */
+    margin-top: .8rem;
+    /* width: 50%; */
 }
 
+.form-outer form .page .field button {
+    border: none;
+    background: var(--color-input-border);
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: 0.5s ease;
+    padding: .5rem;
+    width: 49%;
+}
+
+.form-outer form .page .btns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-outer form .page .field .firstNext {
+    width: 100%;
+}
+
+/* 
 form .page .field .label,
 form .page .fielde .label,
 form .page .fielda .label {
@@ -444,7 +482,12 @@ form .page .field input[type=text],
 form .page .field input[type=email],
 form .page .field input[type=date],
 form .page .fielda input[type=date] {
+    height: 100%;
     width: 100%;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    padding-left: 15px;
+    font-size: 18px;
 }
 
 form .page .field textarea {
@@ -458,12 +501,12 @@ form .page .field select {
     font-weight: 500;
 }
 
-form .page .field button {
+
+form .page .btns button {
     width: 100%;
     height: calc(100% + 5px);
     border: none;
     background: #d33f8d;
-    margin-top: -20px;
     border-radius: 5px;
     color: #fff;
     cursor: pointer;
@@ -478,10 +521,6 @@ form .page .field button:hover {
     background: #000;
 }
 
-form .page .btns button {
-    margin-top: -20px !important;
-}
-
 form .page .btns button.prev {
     margin-right: 3px;
     font-size: 17px;
@@ -489,8 +528,9 @@ form .page .btns button.prev {
 
 form .page .btns button.next {
     margin-left: 3px;
-}
+}*/
 
+/*
 .todas {
     text-align: left;
 }
@@ -521,7 +561,7 @@ form .page .btns button.next {
 
 .label-mama-direita {
     text-align: left;
-}
+} */
 
 #assistida {
     display: none;
@@ -535,6 +575,11 @@ form .page .btns button.next {
 /*
 FIM: CSS dos inputs/form de #form-affiliate
  */
+@media(max-width:840px) {
+    .modal-menu {
+        overflow-x: scroll;
+    }
+}
 
 @media(max-width:750px) {
 
@@ -560,11 +605,10 @@ FIM: CSS dos inputs/form de #form-affiliate
     .dataTables_processing {
         width: 90%;
     }
-
 }
 
 
-@media(max-width:655px) {
+@media(max-width:665px) {
 
     .dataTables_wrapper .dataTables_length {
         float: inherit;
@@ -600,10 +644,23 @@ FIM: CSS dos inputs/form de #form-affiliate
         margin-top: .5rem;
     }
 
+
+
 }
 
 @media(max-width:410px) {
-    .modal-menu {
-        overflow-x: scroll;
+    .dados section {
+        width: 90%;
+    }
+}
+
+@media(max-width:280px) {
+    .form-outer form .page .field button {
+        margin-top: .5rem;
+        width: 100%;
+    }
+
+    .form-outer form .page .btns {
+        flex-direction: column;
     }
 }

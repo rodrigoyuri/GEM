@@ -217,14 +217,14 @@
                             <div class="title">Outras informações:</div>
                             <div class="field">
                                 <div class="label">Sexo</div>
-                                <select name="sexo">
+                                <select name="sexo" class="input-base">
                                     <option value="Feminino">Feminino</option>
                                     <option value="Masculino">Masculino</option>
                                 </select>
                             </div>
                             <div class="field">
                                 <div class="label">Tipo</div>
-                                <select id="ddlPassport" name="tipo">
+                                <select id="ddlPassport" name="tipo" class="input-base">
                                     <option value="Assistida">Assistida</option>
                                     <option value="Voluntário">Voluntário</option>
                                 </select>
@@ -232,7 +232,7 @@
                             <div id="voluntario">
                                 <div class="field">
                                     <div class="label">Area de interesse</div>
-                                    <input type="text" name="funcao">
+                                    <input type="text" name="funcao" class="input-base">
                                 </div>
 
                                 <div class="fielde">
@@ -261,32 +261,32 @@
                             <div id="assistida">
                                 <div class="field">
                                     <div class="label">Diagnóstico</div>
-                                    <textarea name="diagnostico" id="diagnostico" cols="30" rows="10"></textarea>
+                                    <textarea name="diagnostico" id="diagnostico" cols="30" rows="10" class="input-base"></textarea>
                                 </div>
 
                                 <div class="fielda">
                                     <div class="label">Cirurgia da mama</div>
                                     <div>
-                                        <div class="label-mama-direita">
+                                        <div class="field label-mama-direita">
                                             <input type="checkbox" class="custom-control-input" name="mamaDireita" id="mamaDireita">
                                             <label class="custom-control-label" for="mamaDireita">Direita</label>
                                         </div>
                                         <div class="data-mama-direita">
-                                            <input type="date" name="anoDireita" id="anoDireita">
+                                            <input type="date" name="anoDireita" class="input-base" id="anoDireita">
                                         </div>
 
-                                        <div class="label-mama-direita">
+                                        <div class="field label-mama-direita">
                                             <input type="checkbox" class="custom-control-input" name="mamaEsquerda" id="mamaEsquerda">
                                             <label class="custom-control-label" for="mamaEsquerda">Esquerda</label>
                                         </div>
                                         <div class="data-mama-direita">
-                                            <input type="date" name="anoEsquerda" id="anoEsquerda">
+                                            <input type="date" name="anoEsquerda" class="input-base" id="anoEsquerda">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="field">
                                     <div class="label">Convenio</div>
-                                    <textarea name="convenio" cols="30" rows="10"></textarea>
+                                    <textarea name="convenio" cols="30" rows="10" class="input-base"></textarea>
                                 </div>
                             </div>
                             <div class="field btns">
