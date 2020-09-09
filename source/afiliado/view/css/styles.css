@@ -512,6 +512,10 @@ INICIO: CSS dos inputs/form de #form-affiliate
     width: 100%;
 }
 
+.form-outer form .page .fielda {
+    margin-top: 1rem;
+}
+
 /* 
 form .page .field .label,
 form .page .fielde .label,

@@ -66,6 +66,7 @@
                     <span class="modal-menu-item" modal-view="dados-cedidos">Benficios cedidos</span>
                 </nav>
                 <div class="dados form-outer">
+                    <input type="text" name="codAfiliado" id="codAfiliado" hidden>
                     <form id="form-affiliate" action="<?= URL_BASE ?>/admin/cadastro-afiliado" method="post">
                         <section id="dados-pessoais" class="page">
                             <div class="title">Informações pessoais:</div>
@@ -234,9 +235,13 @@
                                     <div class="label">Area de interesse</div>
                                     <input type="text" name="funcao" class="input-base">
                                 </div>
+                                <div class="field">
+                                    <div class="label">Qualificação Profissional</div>
+                                    <input type="text" name="qualificacao" class="input-base">
+                                </div>
 
-                                <div class="fielde">
-                                    <div class="label">disponibilidade</div>
+                                <div class="fielda">
+                                    <div class="label">Disponibilidade</div>
                                     <div class="todas">
                                         <div class="div">
                                             <input type="checkbox" name="week[]" value="segunda">
@@ -262,6 +267,11 @@
                                 <div class="field">
                                     <div class="label">Diagnóstico</div>
                                     <textarea name="diagnostico" id="diagnostico" cols="30" rows="10" class="input-base"></textarea>
+                                </div>
+
+                                <div class="field">
+                                    <div class="label">Auta Hospitalar</div>
+                                    <input type="date" name="auta" class="input-base" id="auta">
                                 </div>
 
                                 <div class="fielda">
