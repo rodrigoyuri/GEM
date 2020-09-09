@@ -75,7 +75,7 @@
                             </div>
                             <div class="field">
                                 <div class="label">RG</div>
-                                <input type="text" class="input-base" name="rg" id="rg" title="rg" />
+                                <input type="text" class="input-base" name="rg" id="rg" title="rg" maxlength="9" />
                             </div>
                             <div class="field">
                                 <div class="label">CPF</div>
