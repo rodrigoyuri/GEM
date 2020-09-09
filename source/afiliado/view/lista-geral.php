@@ -307,9 +307,9 @@
                         </section>
                     </form>
                     <section id="dados-cedidos" class="page modal-hidden">
-                        <form action="#" id="form-items">
-                            <input type="number" name="" id="" class="input-base input-item-num">
-                            <input type="text" class="input-base input-item">
+                        <form action="<?= URL_BASE ?>/admin/cadastro-item" id="form-items">
+                            <input type="number" name="qtItem" id="" class="input-base input-item-num">
+                            <input type="text" name="nomeItem" class="input-base input-item">
                             <button type="submit" class="input-base input-item-btn"><i class="fa fa-plus" aria-hidden="true"></i>
                             </button>
                         </form>
