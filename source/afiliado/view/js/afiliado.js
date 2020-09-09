@@ -134,6 +134,15 @@ $(document).ready(function () {
 				for (let i = 0; i < week.length; i++) {
 					affiliate["week"].includes(week[i].value) ? (week[i].checked = true) : "";
 				}
+
+				let right = $("#form-affiliate [name='mamaDireita']");
+				let left = $("#form-affiliate [name='mamaEsquerda']");
+
+				affiliate["mamaDireita"] == (right[0].value) ? (right[0].checked = true) : "";
+				affiliate["mamaEsquerda"] == (left[0].value) ? (left[0].checked = true) : "";
+				
+				console.log(right[0].value);
+				console.log(left[0].value);
 			},
 			error: function (e) {
 				console.error(e);
