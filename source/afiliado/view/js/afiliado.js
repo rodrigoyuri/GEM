@@ -181,6 +181,7 @@ $(document).ready(function () {
       $("#enviar").addClass('button-disable');
       $("#cpf").css("border-color", "#E53935");
       $("#cpf").css("background-color", "#e5383560");
+      alert("O CPF digitado é invalido, por favor digite um CPF valido");
     }
   });
 

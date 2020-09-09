@@ -240,15 +240,15 @@
                                     <div class="todas">
                                         <div class="div">
                                             <input type="checkbox" name="week[]" value="segunda">
-                                            <label for="">segunda</label>
+                                            <label for="">Segunda</label>
                                         </div>
                                         <div class="div">
                                             <input type="checkbox" name="week[]" value="terça">
-                                            <label for="">terça</label>
+                                            <label for="">Terça</label>
                                         </div>
                                         <div class="div">
                                             <input type="checkbox" name="week[]" value="quarta">
-                                            <label for="">quarta</label>
+                                            <label for="">Quarta</label>
                                         </div>
                                         <div class="div">
                                             <input type="checkbox" name="week[]" value="quinta">
