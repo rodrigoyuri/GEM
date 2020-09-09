@@ -104,4 +104,34 @@ class Afiliado extends Crud
             return $this->getError();
         }
     }
+
+    public function updateAffiliate(int $id, array $data)
+    {
+        $crud = $this->update("afiliado", "dt_cirugia_mama_direita = ?, 
+                                            dt_cirugia_mama_esquerda = ?,
+                                            cd_contato = ?,
+                                            nm_convenio_medico = ?,
+                                            cd_cpf = ?,
+                                            dt_nascimento = ?,
+                                            nm_diagnostico = ?,
+                                            nm_email = ?,
+                                            nm_endereco = ?,
+                                            nm_area_interesse = ?,
+                                            nm_cirurgia_mama_direita = ?,
+                                            nm_cirurgia_mama_esquerda = ?,
+                                            nm_nacionalidade = ?,
+                                            nm_afiliado = ?,
+                                            cd_rg = ?,
+                                            ic_sexo = ?,
+                                            cd_telefone = ?,
+                                            nm_tipo_afiliado = ?,
+                                            nm_disponibilidade = ?", $data)
+            ->where("cd_afiliado = ?", [$id])->execute();
+
+        if ($crud) {
+            return "Atualizado Com Sucesso";
+        } else {
+            return $this->getError();
+        }
+    }
 }

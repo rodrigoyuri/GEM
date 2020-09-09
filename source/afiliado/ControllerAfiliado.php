@@ -44,6 +44,18 @@ class ControllerAfiliado extends Controller
         $this->verify("A", "/cadastro-afiliado", "/ops");
     }
 
+    public function updateAffiliate($data)
+    {
+        $data["week"] = isset($data["week"]) ? implode(";", $data["week"]) : "";
+
+        $id = $data["id"];
+        unset($data["id"]);
+
+        $afiliado = (new Afiliado)->updateAffiliate($id, $data);
+
+        echo $afiliado;
+    }
+
     public function registerAffiliate($data)
     {
         $data["week"] = isset($data["week"]) ? implode(";", $data["week"]) : "";
