@@ -138,6 +138,7 @@ $(document).ready(function () {
 						affiliate["statusAss"],
 					])
 				);
+				$(".dados #codAfiliado").val(affiliate["cod"]);
 			},
 			error: function (e) {
 				console.error(e);
@@ -185,6 +186,11 @@ $(document).ready(function () {
 		$("#modal-edit-affiliate").show();
 		$(this).hide();
 
+		let id = $(".dados #codAfiliado").val();
+
+		console.log(id)
+		sendDataAffiliate(id, "PUT");
+
 		$("#form-affiliate :input").attr("disabled", false);
 
 	})
@@ -229,19 +235,17 @@ $(document).ready(function () {
 	/**
 	 * JS que envia os dados para o banco de dados para cadastro
 	 */
-	$("#form-affiliate").submit(sendDataAffiliate());
+	$("#form-affiliate").submit(function (e) {
+		e.preventDefault()
+		sendDataAffiliate()
+	});
 
 	function sendDataAffiliate(id = null, type = "POST") {
-		event.preventDefault();
-		let url;
 
-		const form = $(this);
+		let url = "";
 
-		if (id !== null) {
-			url = form.attr("action") + "/" + id;
-		} else {
-			url = form.attr("action");
-		}
+		const form = $("#form-affiliate");
+
 
 		const fieldsForm = form.serializeArray();
 
@@ -274,6 +278,13 @@ $(document).ready(function () {
 
 		fields.push({ name: "endereco", value: addrees });
 
+		if (id !== null) {
+			url = form.attr("action") + "/" + id;
+			fields.push({ name: "id", value: id });
+		} else {
+			url = form.attr("action");
+		}
+
 		$("#form-affiliate input:checkbox").map(function () {
 			if (this.checked) {
 				return;
@@ -281,6 +292,8 @@ $(document).ready(function () {
 				fields.push({ name: this.name, value: "" });
 			}
 		});
+
+		console.log(sortFields(fields))
 
 		$.ajax({
 			type: type,
@@ -332,6 +345,8 @@ $(document).ready(function () {
 		$("span[modal-view=dados-pessoais]").addClass("menu-item-actived");
 		$(".dados section").fadeOut();
 		$("#dados-pessoais").fadeIn();
+
+		$("#modal-salve-affiliate").hide();
 	}
 
 	/**
@@ -416,4 +431,5 @@ $(document).ready(function () {
 			return false;
 		}
 	}
+
 });

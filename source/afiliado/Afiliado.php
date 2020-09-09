@@ -111,6 +111,7 @@ class Afiliado extends Crud
     {
         $crud = $this->update("afiliado", "dt_cirugia_mama_direita = ?, 
                                             dt_cirugia_mama_esquerda = ?,
+                                            nm_status_assistida = ?,
                                             cd_contato = ?,
                                             nm_convenio_medico = ?,
                                             cd_cpf = ?,
@@ -123,6 +124,7 @@ class Afiliado extends Crud
                                             nm_cirurgia_mama_esquerda = ?,
                                             nm_nacionalidade = ?,
                                             nm_afiliado = ?,
+                                            nm_situacao_profissional = ?,
                                             cd_rg = ?,
                                             ic_sexo = ?,
                                             cd_telefone = ?,
@@ -133,6 +135,7 @@ class Afiliado extends Crud
         if ($crud) {
             return "Atualizado Com Sucesso";
         } else {
+            return "não";
             return $this->getError();
         }
     }

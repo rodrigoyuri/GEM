@@ -55,7 +55,7 @@
         <div class="modal">
             <div class="modal-header">
                 <button id="modal-edit-affiliate" class="input-base input-item-btn">Editar</button>
-                <button id="modal-salve-affiliate" class="input-base input-item-btn" hidden>Salvar</button>
+                <button id="modal-salve-affiliate" class="input-base" hidden>Salvar</button>
                 <p id="modal-text-type">Afiliado</p>
                 <span close="modal-ver"><i class="fas fa-times"></i></span>
             </div>
