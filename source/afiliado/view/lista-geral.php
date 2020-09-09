@@ -55,7 +55,7 @@
         <div class="modal">
             <div class="modal-header">
                 <button disabled="disabled">Editar</button>
-                <p>Afiliado</p>
+                <p id="modal-text-type">Afiliado</p>
                 <span close="modal-ver"><i class="fas fa-times"></i></span>
             </div>
             <div class="modal-body">

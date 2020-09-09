@@ -18,23 +18,7 @@ $(document).ready(function () {
 	let statusAffiliate = function (data, type, row) {
 		let dataType = data !== null ? data.split(";") : [];
 		if (type == "display") {
-			if (dataType[0] == "Voluntário" || dataType[0] == "vol") {
-				return dataType[1] == "1" ? "Ativo" : "Inativo";
-			} else if (dataType[0] == "Assistida" || dataType[0] == "ass") {
-				if (dataType[2] == "0000-00-00") {
-					return "Tratamento";
-				} else {
-					let now = Date.now(); //data atual
-					let altaHospitalar = new Date(dataType[2]);
-
-					let year = 1000 * 60 * 60 * 24 * 365; //ano
-					let years = (now - altaHospitalar) / year;
-
-					return years >= 5 ? "Curada" : "Observação";
-				}
-			} else if (dataType[0] == "Ambos") {
-				return "Ass/Vol";
-			}
+			return textStatusAffiliate(dataType)
 		}
 
 		return "-";
@@ -140,9 +124,9 @@ $(document).ready(function () {
 
 				affiliate["mamaDireita"] == (right[0].value) ? (right[0].checked = true) : "";
 				affiliate["mamaEsquerda"] == (left[0].value) ? (left[0].checked = true) : "";
-				
-				console.log(right[0].value);
-				console.log(left[0].value);
+
+				$(".modal-header #modal-text-type").text(textStatusAffiliate([affiliate["tipo"], affiliate["statusVol"], affiliate["statusAss"]]))
+
 			},
 			error: function (e) {
 				console.error(e);
@@ -156,6 +140,27 @@ $(document).ready(function () {
 		});
 	});
 
+	function textStatusAffiliate(dataType = []) {
+
+		if (dataType[0] == "Voluntário" || dataType[0] == "vol") {
+			return dataType[1] == 1 ? "Ativo" : "Inativo";
+		} else if (dataType[0] == "Assistida" || dataType[0] == "ass") {
+			if (dataType[2] == "0000-00-00") {
+				return "Tratamento";
+			} else {
+				let now = Date.now(); //data atual
+				let altaHospitalar = new Date(dataType[2]);
+
+				let year = 1000 * 60 * 60 * 24 * 365; //ano
+				let years = (now - altaHospitalar) / year;
+
+				return years >= 5 ? "Curada" : "Observação";
+			}
+		} else if (dataType[0] == "Ambos") {
+			return "Ass/Vol";
+		}
+	}
+
 	/**
 	 * Cliclou no Menu (li a)"Cadastrar Afiliado"
 	 */
@@ -168,6 +173,8 @@ $(document).ready(function () {
 		$("#form-affiliate button").show();
 
 		$("#form-affiliate :input").attr("disabled", false);
+
+		$(".modal-header #modal-text-type").text("Cadastrar Afiliado")
 	});
 
 	/**
