@@ -396,6 +396,10 @@
     justify-content: center;
     align-items: baseline;
     padding: .5rem 0;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .dados {
@@ -405,7 +409,9 @@
 
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
+    position: relative;
 }
 
 .dados section {
@@ -414,6 +420,25 @@
 
 .dados .input-base {
     width: 100%;
+
+}
+
+.dados .input-item-num {
+    width: 3rem;
+    padding: 0;
+}
+
+.dados .input-item-btn {
+    width: 3rem;
+    padding: 0;
+    background-color: var(--color-input-border);
+    color: var(--color-button-text);
+
+}
+
+.dados .input-item {
+    width: 40%;
+    margin: 0 .3rem;
 }
 
 /*

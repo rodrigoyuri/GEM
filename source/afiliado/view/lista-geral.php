@@ -297,9 +297,10 @@
                     </form>
                     <section id="dados-cedidos" class="page modal-hidden">
                         <form action="#" id="form-items">
-                            <input type="number" name="" id="" class="input-base">
-                            <input type="text" class="input-base">
-                            <button type="submit">+</button>
+                            <input type="number" name="" id="" class="input-base input-item-num">
+                            <input type="text" class="input-base input-item">
+                            <button type="submit" class="input-base input-item-btn"><i class="fa fa-plus" aria-hidden="true"></i>
+                            </button>
                         </form>
                         <table id="list-items" class="display" style="width: 100%;">
                             <thead>
