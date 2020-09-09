@@ -268,7 +268,7 @@
                                     <div class="label">Cirurgia da mama</div>
                                     <div>
                                         <div class="field label-mama-direita">
-                                            <input type="checkbox" class="custom-control-input" name="mamaDireita" id="mamaDireita">
+                                            <input type="checkbox" class="custom-control-input" name="mamaDireita" id="mamaDireita" value="1">
                                             <label class="custom-control-label" for="mamaDireita">Direita</label>
                                         </div>
                                         <div class="data-mama-direita">
@@ -276,7 +276,7 @@
                                         </div>
 
                                         <div class="field label-mama-direita">
-                                            <input type="checkbox" class="custom-control-input" name="mamaEsquerda" id="mamaEsquerda">
+                                            <input type="checkbox" class="custom-control-input" name="mamaEsquerda" id="mamaEsquerda" value="1">
                                             <label class="custom-control-label" for="mamaEsquerda">Esquerda</label>
                                         </div>
                                         <div class="data-mama-direita">
