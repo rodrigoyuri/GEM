@@ -74,11 +74,11 @@
                                 <input type="text" class="input-base" name="nome" id="nome" title="nome" />
                             </div>
                             <div class="field">
-                                <div class="label">Rg</div>
+                                <div class="label">RG</div>
                                 <input type="text" class="input-base" name="rg" id="rg" title="rg" />
                             </div>
                             <div class="field">
-                                <div class="label">Cpf</div>
+                                <div class="label">CPF</div>
                                 <input type="text" class="input-base" name="cpf" id="cpf" title="CPF" maxlength="14" />
                             </div>
                             <div class="field">
@@ -193,7 +193,7 @@
                                 <input type="text" class="input-base" name="bairro" id="bairro" title="Bairro">
                             </div>
                             <div class="field">
-                                <div class="label">Cep</div>
+                                <div class="label">CEP</div>
                                 <input type="text" class="input-base" name="cep" id="cep" title="CEP">
                             </div>
                             <div class="field">
