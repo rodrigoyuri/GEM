@@ -119,7 +119,6 @@ $(document).ready(function () {
 		$.ajax({
 			type: "get",
 			url: "http://localhost/GEM/admin/lista-geral/" + id,
-			// dataType: "json",
 			success: function (response) {
 				let affiliate = JSON.parse(response);
 				console.log(affiliate);
@@ -129,14 +128,11 @@ $(document).ready(function () {
 						affiliate[inputForm[i].name]
 					);
 				}
-
 				// Marco os checkbox
 				let week = $("#form-affiliate [name='week[]']");
 
 				for (let i = 0; i < week.length; i++) {
-					affiliate["week"].includes(week[i].value)
-						? (week[i].checked = true)
-						: "";
+					affiliate["week"].includes(week[i].value) ? (week[i].checked = true) : "";
 				}
 			},
 			error: function (e) {
@@ -273,6 +269,7 @@ $(document).ready(function () {
 	$("span[close='modal-ver']").on("click", closeModal);
 
 	function closeModal() {
+		$("#form-affiliate :input").attr("disabled", false);
 		$(".modal-container").addClass("modal-hidden");
 		$(".modal-body .modal-menu").show();
 		$(".modal-header button").show();
