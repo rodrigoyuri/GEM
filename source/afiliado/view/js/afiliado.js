@@ -239,6 +239,7 @@ $(document).ready(function () {
       success: function (response) {
         console.log(response);
         alert(response);
+        closeModal();
       },
       error: function (error) {
         alert("Erro" + error);
@@ -268,7 +269,9 @@ $(document).ready(function () {
   /**
    * JS do Fechar Modal
    */
-  $("span[close='modal-ver']").on("click", function (param) {
+  $("span[close='modal-ver']").on("click", closeModal());
+
+  function closeModal() {
     $(".modal-container").addClass("modal-hidden");
     $(".modal-body .modal-menu").show();
     $(".modal-header button").show();
@@ -278,7 +281,7 @@ $(document).ready(function () {
     $("span[modal-view=dados-pessoais]").addClass("menu-item-actived");
     $(".dados section").fadeOut();
     $("#dados-pessoais").fadeIn();
-  });
+  }
 
   /**
    * JS que faz o nav do modal, aparecer e desaparecer div
