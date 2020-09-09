@@ -394,6 +394,8 @@
     position: absolute;
     top: 0;
     left: 0;
+    /**/
+    align-self: flex-end;
 }
 
 .dados {
@@ -434,6 +436,22 @@
     width: 40%;
     margin: 0 .3rem;
 }
+
+.dados .table-item,
+.dados .table-item tr,
+.dados .table-item tr th,
+.dados .table-item tr td {
+    border: 1px solid var(--color-input-border);
+    text-align: center;
+}
+
+.dados .table-item {
+    margin-top: 5rem;
+    overflow: scroll;
+    align-self: start;
+}
+
+/*  */
 
 /*
 INICIO: CSS dos inputs/form de #form-affiliate

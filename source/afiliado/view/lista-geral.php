@@ -302,7 +302,7 @@
                             <button type="submit" class="input-base input-item-btn"><i class="fa fa-plus" aria-hidden="true"></i>
                             </button>
                         </form>
-                        <table id="list-items" class="display" style="width: 100%;">
+                        <table id="list-items" class="table-item" style="width: 100%;">
                             <thead>
                                 <tr>
                                     <th>Qtd</th>
@@ -316,7 +316,7 @@
                                     <td>Dipirona</td>
                                     <td>2020-08-27</td>
                                 </tr>
-                            </tbody>
+
                             <tfoot>
                                 <tr>
                                     <th>Qtd</th>
