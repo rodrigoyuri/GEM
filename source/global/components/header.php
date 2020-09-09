@@ -18,7 +18,7 @@
         </li>
 
         <li>
-            <a href="<?= URL_BASE ?>/admin/cadastro-usuario"><i class="fas fa-user-plus"></i>Cadastrar Usuário</a>
+            <a href="#" id="add-user"><i class="fas fa-user-plus"></i>Cadastrar Usuário</a>
         </li>
         <li>
             <a href="<?= URL_BASE ?>/sair"><i class="fas fa-sign-out-alt"></i>Sair</a>

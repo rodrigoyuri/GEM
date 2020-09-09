@@ -68,7 +68,7 @@
                 </nav>
                 <div class="dados form-outer">
                     <input type="text" name="codAfiliado" id="codAfiliado" hidden>
-                    <form id="form-affiliate" action="<?= URL_BASE ?>/admin/cadastro-afiliado" method="post">
+                    <form id="form-affiliate" action="<?= URL_BASE ?>/admin/cadastro-afiliado" method="POST">
                         <section id="dados-pessoais" class="page">
                             <div class="title">Informações pessoais:</div>
                             <div class="field">
@@ -327,6 +327,48 @@
                         </table>
 
                     </section>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <p>Footer</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-cad-usu" class="modal-container modal-hidden" close="modal-ver">
+        <div class="modal">
+            <div class="modal-header">
+                <p id="modal-text-type">Afiliado</p>
+                <span close="modal-ver"><i class="fas fa-times"></i></span>
+            </div>
+            <div class="modal-body">
+
+                <div class="dados form-outer">
+                    <form action="<?= URL_BASE ?>/admin/cadastro-usuario" method="POST">
+
+                        <div class="page">
+                            <div class="title">Informações para Cadastro:</div>
+
+                            <div class="field">
+                                <div class="label">E-mail</div>
+                                <input type="email" class="input-base" name="email" id="email" title="E-mail" />
+                            </div>
+                            <div class="field">
+                                <div class="label">Senha</div>
+                                <input type="password" class="input-base" name="senha" id="senha" title="Senha" />
+                            </div>
+                            <div class="field">
+                                <div class="label">Confirmar senha</div>
+                                <input type="password" class="input-base" name="confSenha" id="confSenha" title="Confirmar Senha">
+                            </div>
+                            <div class="field btns">
+                                <button class="submit" id="confirmar">Confirmar</button>
+                                <button>Cancelar</button>
+                            </div>
+                        </div>
+
+                    </form>
                 </div>
 
             </div>
