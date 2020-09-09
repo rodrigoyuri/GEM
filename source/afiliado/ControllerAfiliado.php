@@ -66,6 +66,20 @@ class ControllerAfiliado extends Controller
         //var_dump($afiliado);
     }
 
+    public function registerItem($data)
+    {
+        $afiliado = (new Afiliado)->insertItem($data);
+
+        echo $afiliado;
+    }
+
+    public function getItem()
+    {
+        $afiliado = (new Afiliado)->showItems();
+
+        echo json_encode($afiliado);
+    }
+
     public function renderViewAffiliate()
     {
         $this->verify("A", "/ver-afiliado", "/ops");

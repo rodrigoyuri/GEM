@@ -432,4 +432,34 @@ $(document).ready(function () {
 		}
 	}
 
+
+	/**
+	 * JS cadastrar Items
+	 */
+
+	$("#form-items").submit(function (e) {
+		e.preventDefault();
+		let form = $(this);
+		let arrayForm = form.serializeArray();
+		let id = $(".dados #codAfiliado").val();
+
+		arrayForm.push({ name: "id", value: id })
+
+		if (arrayForm[0].value == "" || arrayForm[2].value == "" || arrayForm[2].value == "") {
+			alert("Coloque a quantidade e a descrição para cadastrar");
+			return;
+		}
+
+		$.ajax({
+			type: "POST",
+			url: form.attr("action"),
+			data: arrayForm,
+			success: function (response) {
+				console.log(response)
+			}
+		});
+	});
+
+
+
 });

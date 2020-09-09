@@ -139,6 +139,23 @@ class Afiliado extends Crud
             return $this->getError();
         }
     }
+
+    public function insertItem(array $data = null)
+    {
+        $query = $this->insert("item", $data, "qt_item, nm_item, id_afiliado")->execute();
+
+        if ($query) {
+            return "Item cadastrado";
+        } else {
+            return $this->getError();
+        }
+    }
+    public function showItems()
+    {
+        $query = $this->select("qt_item as qt, nm_item as nome, dt_aquisicao as data")->from("item")->execute("fetchAll");
+
+        return $query;
+    }
 }
 
 
