@@ -212,6 +212,15 @@ $(document).ready(function () {
 	});
 
 	/**
+	 * Clicou no Menu (li a) "Cadastro de Usuário"
+	 */
+	$("#add-user").on("click", function(e) {
+		e.preventDefault();
+
+		$("#modal-cad-usu").removeClass("modal-hidden");
+	})
+
+	/**
 	 * JS que verifica se o CPF é valido após preencher o input
 	 */
 	$('input[name="cpf"]').focusout(function () {
