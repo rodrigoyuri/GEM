@@ -173,10 +173,12 @@ $(document).ready(function () {
 
     if (validarCPF(cpf)) {
       buttonSend.disabled = false;
+      $("#enviar").removeClass('button-disable');
       $("#cpf").css("border-color", "#00E676");
       $("#cpf").css("background-color", "#00e67765");
     } else {
       buttonSend.disabled = true;
+      $("#enviar").addClass('button-disable');
       $("#cpf").css("border-color", "#E53935");
       $("#cpf").css("background-color", "#e5383560");
     }

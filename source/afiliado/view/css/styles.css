@@ -74,12 +74,6 @@
     margin-left: 0.3rem;
 }
 
-
-
-
-
-
-
 .dataTables_wrapper table tfoot th {
     bottom: 0;
 }
@@ -598,6 +592,9 @@ form .page .btns button.next {
     display: none;
 }
 
+.button-disable {
+    background-color: #ff5f776e !important;
+}
 
 /*
 FIM: CSS dos inputs/form de #form-affiliate
