@@ -322,19 +322,8 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Dipirona</td>
-                                    <td>2020-08-27</td>
-                                </tr>
 
-                            <tfoot>
-                                <tr>
-                                    <th>Qtd</th>
-                                    <th>Nome</th>
-                                    <th>Data</th>
-                                </tr>
-                            </tfoot>
+                            </tbody>
                         </table>
 
                     </section>

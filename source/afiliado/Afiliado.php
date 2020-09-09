@@ -150,9 +150,12 @@ class Afiliado extends Crud
             return $this->getError();
         }
     }
-    public function showItems()
+    public function showItems(int $id)
     {
-        $query = $this->select("qt_item as qt, nm_item as nome, dt_aquisicao as data")->from("item")->execute("fetchAll");
+        $query = $this->select("qt_item as qt, nm_item as nome, dt_aquisicao as data")
+            ->from("item")
+            ->where("id_afiliado = ?", [$id])
+            ->execute("fetchAll");
 
         return $query;
     }
