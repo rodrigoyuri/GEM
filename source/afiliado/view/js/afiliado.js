@@ -172,6 +172,24 @@ $(document).ready(function () {
 	}
 
 	/**
+	 * JS do editar afiliado
+	 */
+	$("#modal-edit-affiliate").on("click", function () {
+		$("#modal-salve-affiliate").show();
+		$(this).hide();
+
+		$("#form-affiliate :input").attr("disabled", false);
+	})
+
+	$("#modal-salve-affiliate").on("click", function () {
+		$("#modal-edit-affiliate").show();
+		$(this).hide();
+
+		$("#form-affiliate :input").attr("disabled", false);
+
+	})
+
+	/**
 	 * Cliclou no Menu (li a)"Cadastrar Afiliado"
 	 */
 	$("#add-affiliate").on("click", function (e) {
