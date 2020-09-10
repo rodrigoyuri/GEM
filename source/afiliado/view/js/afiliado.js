@@ -15,6 +15,15 @@ $(document).ready(function () {
 		return data;
 	};
 
+	let statusAffiliate = function (data, type, row) {
+		let dataType = data !== null ? data.split(";") : [];
+		if (type == "display") {
+			return textStatusAffiliate(dataType);
+		}
+
+		return "-";
+	};
+
 	$("#list-afiliados").DataTable({
 		processing: true,
 		serverSide: true,
@@ -31,6 +40,10 @@ $(document).ready(function () {
 			},
 			{
 				data: "nm_area_interesse",
+			},
+			{
+				data: "status",
+				render: statusAffiliate,
 			},
 			{
 				data: "dt_nascimento",
@@ -74,51 +87,175 @@ $(document).ready(function () {
 		scrollY: "60vh",
 		scrollX: true,
 		scrollCollapse: true,
-		scroller: true
+		scroller: true,
 	});
 
 	//===============================================
 	/**
-	 * Função que escuta o evento click na tabela e acessa os botões de opção (ver e editar).
 	 * JS do Ver Afiliado (abre modal)
 	 */
 	//===============================================
-	$('#list-afiliados').on('click', 'tbody tr td button[data-view]', function (e) {
+	$("#list-afiliados").on("click", "tbody tr td button[data-view]", function (e) {
+		let id = e.currentTarget.attributes.value.value;
 
-		let id = (e.currentTarget.attributes.value.value)
+		let inputForm = $("#form-affiliate :input").serializeArray();
 
 		$.ajax({
 			type: "get",
 			url: "http://localhost/GEM/admin/lista-geral/" + id,
-			// dataType: "json",
 			success: function (response) {
-				console.log(response)
-				// $("#modal-ver .modal-body").append(response);
+				let affiliate = JSON.parse(response);
+				console.log(affiliate);
+				// seto valor nos campos text
+				for (let i = 0; i < inputForm.length; i++) {
+					$("#form-affiliate [name=" + inputForm[i].name + "]").val(
+						affiliate[inputForm[i].name]
+					);
+				}
+				// Marco os checkbox
+				let week = $("#form-affiliate [name='week[]']");
+
+				for (let i = 0; i < week.length; i++) {
+					affiliate["week"].includes(week[i].value)
+						? (week[i].checked = true)
+						: "";
+				}
+
+				let right = $("#form-affiliate [name='mamaDireita']");
+				let left = $("#form-affiliate [name='mamaEsquerda']");
+
+				affiliate["mamaDireita"] == right[0].value
+					? (right[0].checked = true)
+					: "";
+				affiliate["mamaEsquerda"] == left[0].value
+					? (left[0].checked = true)
+					: "";
+
+				$(".modal-header #modal-text-type").text(
+					textStatusAffiliate([
+						affiliate["tipo"],
+						affiliate["statusVol"],
+						affiliate["statusAss"],
+					])
+				);
+				$(".dados #codAfiliado").val(affiliate["cod"]);
 			},
 			error: function (e) {
 				console.error(e);
 			},
 			complete: function () {
-				$("#modal-ver").removeClass("modal-hidden")
-			}
+				$("#form-affiliate :input").attr("disabled", true);
+				$("#form-affiliate button").hide();
+				$("#modal-ver").removeClass("modal-hidden");
+				showType();
+				getItemsAffiliate()
+			},
 		});
 	});
 
+	function textStatusAffiliate(dataType = []) {
+		if (dataType[0] == "Voluntário" || dataType[0] == "vol") {
+			return dataType[1] == 1 ? "Ativo" : "Inativo";
+		} else if (dataType[0] == "Assistida" || dataType[0] == "ass") {
+			if (dataType[2] == "0000-00-00") {
+				return "Tratamento";
+			} else {
+				let now = Date.now(); //data atual
+				let altaHospitalar = new Date(dataType[2]);
+
+				let year = 1000 * 60 * 60 * 24 * 365; //ano
+				let years = (now - altaHospitalar) / year;
+
+				return years >= 5 ? "Curada" : "Observação";
+			}
+		} else if (dataType[0] == "Ambos") {
+			return "Ass/Vol";
+		}
+	}
+
+	/**
+	 * JS do editar afiliado
+	 */
+	$("#modal-edit-affiliate").on("click", function () {
+		$("#modal-salve-affiliate").show();
+		$(this).hide();
+
+		$("#form-affiliate :input").attr("disabled", false);
+	})
+
+	$("#modal-salve-affiliate").on("click", function () {
+		$("#modal-edit-affiliate").show();
+		$(this).hide();
+
+		let id = $(".dados #codAfiliado").val();
+
+		console.log(id)
+		sendDataAffiliate(id, "PUT");
+
+		$("#form-affiliate :input").attr("disabled", false);
+
+	})
 
 	/**
 	 * Cliclou no Menu (li a)"Cadastrar Afiliado"
 	 */
 	$("#add-affiliate").on("click", function (e) {
-		e.preventDefault()
-		$("#modal-ver").removeClass("modal-hidden")
-		$(".modal-header button").hide()
-		$(".modal-body .modal-menu").hide()
+		e.preventDefault();
+		$("#modal-ver").removeClass("modal-hidden");
+		$(".modal-header button").hide();
+		$(".modal-body .modal-menu").hide();
+
+		$("#form-affiliate button").show();
+
+		$("#form-affiliate :input").attr("disabled", false);
+
+		$(".modal-header #modal-text-type").text("Cadastrar Afiliado");
+	});
+
+	/**
+	 * Clicou no Menu (li a) "Cadastro de Usuário"
+	 */
+	$("#add-user").on("click", function(e) {
+		e.preventDefault();
+
+		$("#modal-cad-user").removeClass("modal-hidden");
 	})
 
-	$("#form-affiliate").submit(function (event) {
-		event.preventDefault();
+	/**
+	 * JS que verifica se o CPF é valido após preencher o input
+	 */
+	$('input[name="cpf"]').focusout(function () {
+		let buttonSend = document.getElementById("enviar");
+		let cpf = removeCharacter($("#cpf").val());
 
-		const form = $(this);
+		if (validarCPF(cpf)) {
+			buttonSend.disabled = false;
+			$("#enviar").removeClass("button-disable");
+			$("#cpf").css("border-color", "#00E676");
+			$("#cpf").css("background-color", "#00e67765");
+		} else {
+			buttonSend.disabled = true;
+			$("#enviar").addClass("button-disable");
+			$("#cpf").css("border-color", "#E53935");
+			$("#cpf").css("background-color", "#e5383560");
+			alert("O CPF digitado é invalido, por favor digite um CPF valido");
+		}
+	});
+
+	/**
+	 * JS que envia os dados para o banco de dados para cadastro
+	 */
+	$("#form-affiliate").submit(function (e) {
+		e.preventDefault()
+		sendDataAffiliate()
+	});
+
+	function sendDataAffiliate(id = null, type = "POST") {
+
+		let url = "";
+
+		const form = $("#form-affiliate");
+
 
 		const fieldsForm = form.serializeArray();
 
@@ -147,27 +284,40 @@ $(document).ready(function () {
 			}
 		});
 
-		let addrees = fieldsAddresses[0].value;
-
-		for (let i = 1; i < fieldsAddresses.length; i++) {
-			addrees += " " + fieldsAddresses[i].value;
-		}
+		let addrees = fieldsAddresses.map((e) => e.value).join(";");
 
 		fields.push({ name: "endereco", value: addrees });
 
+		if (id !== null) {
+			url = form.attr("action") + "/" + id;
+			fields.push({ name: "id", value: id });
+		} else {
+			url = form.attr("action");
+		}
+
+		$("#form-affiliate input:checkbox").map(function () {
+			if (this.checked) {
+				return;
+			} else {
+				fields.push({ name: this.name, value: "" });
+			}
+		});
+
 		$.ajax({
-			type: "POST",
-			url: form.attr("action"),
-			data: fields,
+			type: type,
+			url: url,
+			data: sortFields(fields),
 			success: function (response) {
+				console.log(response);
 				alert(response);
+				closeModal();
 			},
 			error: function (error) {
 				alert("Erro" + error);
 				console.log("Erro" + error);
 			},
 		});
-	});
+	}
 
 	function removeCharacter(element) {
 		element = element.split("");
@@ -179,71 +329,168 @@ $(document).ready(function () {
 		return element.join("");
 	}
 
+	function sortFields(array) {
+		array.sort((a, b) => {
+			return a.name > b.name ? 1 : -1;
+		});
 
+		return array;
+	}
 
 	/**
 	 * JS do Fechar Modal
 	 */
-	$("span[close='modal-ver']").on("click", function (param) {
+	$("span[close='modal-ver']").on("click", closeModal);
 
-		$(".modal-container").addClass("modal-hidden")
-		$(".modal-body .modal-menu").show()
-		$(".modal-header button").show()
-		// $("#form-affiliate").reset()
+	function closeModal() {
+		$("#form-affiliate :input").attr("disabled", false);
+		$(".modal-container").addClass("modal-hidden");
+		$(".modal-body .modal-menu").show();
+		$(".modal-header button").show();
+		$("#form-affiliate")[0].reset();
 
-		$(".modal-menu span").removeClass("menu-item-actived")
-		$("span[modal-view=dados-pessoais]").addClass("menu-item-actived")
-		$(".dados section").fadeOut()
+		$(".modal-menu span").removeClass("menu-item-actived");
+		$("span[modal-view=dados-pessoais]").addClass("menu-item-actived");
+		$(".dados section").fadeOut();
 		$("#dados-pessoais").fadeIn();
 
-	})
+		$("#modal-salve-affiliate").hide();
+
+		$("#list-items tbody tr").remove();
+	}
 
 	/**
 	 * JS que faz o nav do modal, aparecer e desaparecer div
 	 */
-
 	$("[modal-view]").on("click", function (param) {
-		param.preventDefault()
-		let span = ($(this).attr("modal-view"))
+		param.preventDefault();
+		let span = $(this).attr("modal-view");
 
-
-		$(".modal-menu span").removeClass("menu-item-actived")
+		$(".modal-menu span").removeClass("menu-item-actived");
 		// $(this).addClass("menu-item-actived")
-		$("span[modal-view=" + span + "]").addClass("menu-item-actived")
+		$("span[modal-view=" + span + "]").addClass("menu-item-actived");
 
 		/*
-		$(".dados section").addClass("modal-hidden")
-		$("#" + span).removeClass("modal-hidden");
-		*/
+				$(".dados section").addClass("modal-hidden")
+				$("#" + span).removeClass("modal-hidden");
+				*/
 
-		$(".dados section").fadeOut()
-		$("#" + span).fadeIn();
+		// $(".dados section").fadeOut()
+		// $("#" + span).fadeIn();
 		//$(".dados section").hide()
 		//$("#" + span).show();
-		// $(".dados section").animate({ width: 'toggle' }, 500).hide()
-		// $("#" + span).fadeIn();
-		// $("#" + span).animate({ width: 'toggle' }, 500);
-		// $("#" + span).show("slide", { direction: "right" }, 500);
 
-	})
+		// $("#" + span).fadeIn();
+		$("#" + span).animate({ width: "toggle" }, 500);
+		$(".dados section").animate({ width: "toggle" }).hide();
+		// $("#" + span).show("slide", { direction: "right" }, 500);
+	});
 
 	/**
 	 * JS mostra e oculta div do tipo de afiliado
 	 * Códido do Denis abaixo
 	 */
-	$("#ddlPassport").change(function () {
-		if ($(this).val() === "vol") {
+	$("#ddlPassport").change(showType);
+
+	function showType() {
+		let s = $("#ddlPassport");
+		if ($(s).val() === "Voluntário") {
 			$("#voluntario").show();
 			$("#assistida").hide();
-		} else if ($(this).val() === "ass") {
+		} else if ($(s).val() === "Assistida") {
 			$("#assistida").show();
 			$("#voluntario").hide();
 		} else {
 			$("#voluntario").hide();
 			$("#assistida").hide();
-
 		}
+	}
+
+	/**
+	 * JS para adição de mascára nos campos necessários
+	 */
+	$('input[name="cpf"]').mask("000.000.000-00");
+	$('input[name="cep"]').mask("00000-000");
+	$('input[name="telefone"]').mask("(00) 0000-0000");
+	$('input[name="celular"]').mask("(00) 00000-0000");
+
+	function validarCPF(input) {
+		let valor = input.split("");
+		let soma = 0;
+		let cont = 10;
+
+		for (let index = 0; index < valor.length - 2; index++) {
+			soma = soma + valor[index] * cont--;
+		}
+
+		let digito1 = 11 - (soma % 11) >= 10 ? 0 : 11 - (soma % 11);
+
+		soma = 0;
+		cont = 11;
+		for (let index = 0; index < valor.length - 1; index++) {
+			soma = soma + valor[index] * cont--;
+		}
+
+		let digito2 = 11 - (soma % 11) >= 10 ? 0 : 11 - (soma % 11);
+
+		if (valor[9] == digito1 && valor[10] == digito2) {
+			console.log("Este CPF é válido");
+			return true;
+		} else {
+			console.log("Este CPF NÃO é válido");
+			return false;
+		}
+	}
+
+
+	/**
+	 * JS cadastrar Items
+	 */
+
+	$("#form-items").submit(function (e) {
+		e.preventDefault();
+		let form = $(this);
+		let arrayForm = form.serializeArray();
+		let id = $(".dados #codAfiliado").val();
+
+		arrayForm.push({ name: "id", value: id })
+
+		if (arrayForm[0].value == "" || arrayForm[2].value == "" || arrayForm[2].value == "") {
+			alert("Coloque a quantidade e a descrição para cadastrar");
+			return;
+		}
+
+		$.ajax({
+			type: "POST",
+			url: form.attr("action"),
+			data: arrayForm,
+			success: function (response) {
+				alert(response)
+				getItemsAffiliate()
+			},
+			complete: function () {
+				form[0].reset();
+			}
+		});
 	});
+
+	function getItemsAffiliate() {
+		let id = $(".dados #codAfiliado").val();
+		let url = $("#form-items").attr("action") + "/" + id;
+
+		$.get(url, function (data) {
+			let items = JSON.parse(data)
+			console.log(items)
+			items = items == null ? [] : items;
+
+			items.map((e) => {
+				let row = `<tr><td>${e.qt}</td><td>${e.nome}</td><td>${e.data}</td></tr>`;
+				$("#list-items").append(row);
+			})
+
+		});
+	}
+
 
 
 });
