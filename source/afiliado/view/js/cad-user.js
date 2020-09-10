@@ -14,7 +14,7 @@ $(document).ready(function () {
       $.ajax({
         type: "POST",
         url: formUser.attr("action"),
-        data: formUser.serializeArray(),
+        data: arrayFields,
         success: function (response) {
           console.log(response);
           alert("Cadastro de usuário realizado com sucesso");
