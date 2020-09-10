@@ -73,9 +73,9 @@ class ControllerAfiliado extends Controller
         echo $afiliado;
     }
 
-    public function getItem()
+    public function getItem($data)
     {
-        $afiliado = (new Afiliado)->showItems();
+        $afiliado = (new Afiliado)->showItems($data["id"]);
 
         echo json_encode($afiliado);
     }

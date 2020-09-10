@@ -148,6 +148,7 @@ $(document).ready(function () {
 				$("#form-affiliate button").hide();
 				$("#modal-ver").removeClass("modal-hidden");
 				showType();
+				getItemsAffiliate()
 			},
 		});
 	});
@@ -354,6 +355,8 @@ $(document).ready(function () {
 		$("#dados-pessoais").fadeIn();
 
 		$("#modal-salve-affiliate").hide();
+
+		$("#list-items tbody tr").remove();
 	}
 
 	/**
@@ -462,10 +465,31 @@ $(document).ready(function () {
 			url: form.attr("action"),
 			data: arrayForm,
 			success: function (response) {
-				console.log(response)
+				alert(response)
+				getItemsAffiliate()
+			},
+			complete: function () {
+				form[0].reset();
 			}
 		});
 	});
+
+	function getItemsAffiliate() {
+		let id = $(".dados #codAfiliado").val();
+		let url = $("#form-items").attr("action") + "/" + id;
+
+		$.get(url, function (data) {
+			let items = JSON.parse(data)
+			console.log(items)
+			items = items == null ? [] : items;
+
+			items.map((e) => {
+				let row = `<tr><td>${e.qt}</td><td>${e.nome}</td><td>${e.data}</td></tr>`;
+				$("#list-items").append(row);
+			})
+
+		});
+	}
 
 
 

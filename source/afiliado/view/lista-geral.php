@@ -55,7 +55,7 @@
         <div class="modal">
             <div class="modal-header">
                 <button id="modal-edit-affiliate" class="input-base input-item-btn">Editar</button>
-                <button id="modal-salve-affiliate" class="input-base" hidden>Salvar</button>
+                <button id="modal-salve-affiliate" class="input-base input-item-btn input-salve" hidden>Salvar</button>
                 <p id="modal-text-type">Afiliado</p>
                 <span close="modal-ver"><i class="fas fa-times"></i></span>
             </div>
@@ -322,19 +322,8 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Dipirona</td>
-                                    <td>2020-08-27</td>
-                                </tr>
 
-                            <tfoot>
-                                <tr>
-                                    <th>Qtd</th>
-                                    <th>Nome</th>
-                                    <th>Data</th>
-                                </tr>
-                            </tfoot>
+                            </tbody>
                         </table>
 
                     </section>
