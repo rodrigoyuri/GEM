@@ -6,8 +6,6 @@ $(document).ready(function () {
 
   function sendDataUser() {
     const formUser = $("#form-cad-user");
-    console.log(formUser.serializeArray());
-    console.log(formUser.attr("action"));
 
     if (igualsPassword(formUser.serializeArray())) {
       $.ajax({
@@ -24,12 +22,25 @@ $(document).ready(function () {
       });
     } else {
       alert(
-        "Senhas diferentes, por favor verifique de novo antes de realizar o cadastro"
+        "Senhas diferentes ou campos vazios, por favor verifique de novo antes de realizar o cadastro"
       );
     }
   }
 
   function igualsPassword(elemet) {
-    return elemet[1].value === elemet[2].value ? true : false;
+    if (
+      elemet[1].value !== "" &&
+      elemet[2].value !== "" &&
+      elemet[1].value == elemet[2].value
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  function cancelForm() {
+    $(".modal-container").addClass("modal-hidden");
+    $("#form-cad-user")[0].reset();
   }
 });

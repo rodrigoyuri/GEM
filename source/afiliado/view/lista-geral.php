@@ -363,8 +363,8 @@
                                 <input type="password" class="input-base" name="confSenha" id="confSenha" title="Confirmar Senha">
                             </div>
                             <div class="field btns">
-                                <button class="submit" id="confirmar">Confirmar</button>
-                                <button>Cancelar</button>
+                                <button class="submit" id="confirmar" type="submit">Confirmar</button>
+                                <span close="modal-ver">Cancelar</span>
                             </div>
                         </div>
 

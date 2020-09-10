@@ -347,7 +347,9 @@ $(document).ready(function () {
 		$(".modal-container").addClass("modal-hidden");
 		$(".modal-body .modal-menu").show();
 		$(".modal-header button").show();
+		
 		$("#form-affiliate")[0].reset();
+		$("#form-cad-user")[0].reset();
 
 		$(".modal-menu span").removeClass("menu-item-actived");
 		$("span[modal-view=dados-pessoais]").addClass("menu-item-actived");

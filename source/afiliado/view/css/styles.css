@@ -513,6 +513,26 @@ INICIO: CSS dos inputs/form de #form-affiliate
     background-color: var(--color-primary-hover);
 }
 
+.form-outer form .page .field span {
+    border: none;
+    background: var(--color-input-border);
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: 0.5s ease;
+    padding: .5rem;
+    width: 49%;
+    text-align: center;
+}
+
+.form-outer form .page .field span:hover {
+    background-color: var(--color-primary-hover);
+}
+
 .form-outer form .page .btns {
     display: flex;
     justify-content: space-between;
