@@ -6,8 +6,11 @@ $(document).ready(function () {
 
   function sendDataUser() {
     const formUser = $("#form-cad-user");
+    const arrayFields = formUser.serializeArray();
 
-    if (igualsPassword(formUser.serializeArray())) {
+    if (igualsPassword(arrayFields)) {
+      arrayFields.splice(2, 1);
+
       $.ajax({
         type: "POST",
         url: formUser.attr("action"),
@@ -15,6 +18,7 @@ $(document).ready(function () {
         success: function (response) {
           console.log(response);
           alert("Cadastro de usuário realizado com sucesso");
+          $("#form-cad-user")[0].reset();
         },
         error: function (error) {
           console.log("Erro " + error);
@@ -37,10 +41,5 @@ $(document).ready(function () {
     } else {
       return false;
     }
-  }
-
-  function cancelForm() {
-    $(".modal-container").addClass("modal-hidden");
-    $("#form-cad-user")[0].reset();
   }
 });

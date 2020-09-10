@@ -34,7 +34,7 @@ class Login extends Crud
 
     public function insertUser($data): bool
     {
-        $crud = $this->insert("login", $data, "nm_login, nm_senha, nm_tipo_usuario")->execute();
+        $crud = $this->insert("login", $data, "nm_login, nm_senha")->execute();
 
         return $crud;
     }
