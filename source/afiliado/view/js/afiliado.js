@@ -217,7 +217,7 @@ $(document).ready(function () {
 	$("#add-user").on("click", function(e) {
 		e.preventDefault();
 
-		$("#modal-cad-usu").removeClass("modal-hidden");
+		$("#modal-cad-user").removeClass("modal-hidden");
 	})
 
 	/**
@@ -301,8 +301,6 @@ $(document).ready(function () {
 				fields.push({ name: this.name, value: "" });
 			}
 		});
-
-		console.log(sortFields(fields))
 
 		$.ajax({
 			type: type,

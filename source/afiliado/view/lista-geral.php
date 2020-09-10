@@ -347,7 +347,7 @@
         </div>
     </div>
 
-    <div id="modal-cad-usu" class="modal-container modal-hidden" close="modal-ver">
+    <div id="modal-cad-user" class="modal-container modal-hidden" close="modal-ver">
         <div class="modal">
             <div class="modal-header">
                 <p id="modal-text-type">Afiliado</p>
@@ -356,14 +356,14 @@
             <div class="modal-body">
 
                 <div class="dados form-outer">
-                    <form action="<?= URL_BASE ?>/admin/cadastro-usuario" method="POST">
+                    <form id="form-cad-user" action="<?=URL_BASE?>/admin/cadastro-usuario" method="POST">
 
                         <div class="page">
                             <div class="title">Informações para Cadastro:</div>
 
                             <div class="field">
                                 <div class="label">E-mail</div>
-                                <input type="email" class="input-base" name="email" id="email" title="E-mail" />
+                                <input type="email" class="input-base" name="emailUser" id="emailUser" title="E-mail" />
                             </div>
                             <div class="field">
                                 <div class="label">Senha</div>
@@ -393,6 +393,7 @@
     <script src="<?= URL_BASE ?>/source/global/js/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
     <script src="<?= URL_BASE ?>/source/afiliado/view/js/afiliado.js"></script>
+    <script src="<?= URL_BASE ?>/source/afiliado/view/js/cad-user.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js" integrity="sha256-yE5LLp5HSQ/z+hJeCqkz9hdjNkk1jaiGG0tDCraumnA=" crossorigin="anonymous">
     </script>
 </body>
