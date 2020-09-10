@@ -34,8 +34,6 @@ class ControllerAfiliado extends Controller
     {
         $afiliado = (new Afiliado)->indexFilter($data);
 
-        // $_SESSION["teste"] = $data;
-
         echo json_encode($afiliado);
     }
 
