@@ -372,23 +372,10 @@ $(document).ready(function () {
 		let span = $(this).attr("modal-view");
 
 		$(".modal-menu span").removeClass("menu-item-actived");
-		// $(this).addClass("menu-item-actived")
 		$("span[modal-view=" + span + "]").addClass("menu-item-actived");
 
-		/*
-				$(".dados section").addClass("modal-hidden")
-				$("#" + span).removeClass("modal-hidden");
-				*/
-
-		// $(".dados section").fadeOut()
-		// $("#" + span).fadeIn();
-		//$(".dados section").hide()
-		//$("#" + span).show();
-
-		// $("#" + span).fadeIn();
+		$(".dados section").hide();
 		$("#" + span).animate({ width: "toggle" }, 500);
-		$(".dados section").animate({ width: "toggle" }).hide();
-		// $("#" + span).show("slide", { direction: "right" }, 500);
 	});
 
 	/**
