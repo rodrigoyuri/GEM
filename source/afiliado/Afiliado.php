@@ -52,7 +52,7 @@ class Afiliado extends Crud
 
         if (!empty($data["search"]['value'])) {
             $queryFilter = $queryFilter
-                ->where("nm_afiliado LIKE (?)", ["%{$data["search"]['value']}%"]);
+                ->where("nm_afiliado LIKE (?) OR nm_area_interesse LIKE (?)", ["%{$data["search"]['value']}%", "%{$data["search"]['value']}%"]);
         }
 
         $totalRegisterInQuery = $queryFilter->execute("rowCount", false);
