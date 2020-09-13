@@ -47,6 +47,7 @@ $(document).ready(function () {
 			},
 			{
 				data: "dt_nascimento",
+				orderable: false,
 			},
 			{
 				data: "cd_telefone",
