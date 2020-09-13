@@ -100,57 +100,49 @@
 .dataTables_wrapper table tbody tr:nth-child(1),
 .dataTables_wrapper table tbody td:nth-child(1) {
     text-align: left;
-    padding: 0 0.2rem;
     border-left: 1px solid var(--color-primary-hover);
-    min-width: 170px;
+    min-width: 200px;
 }
 
 /* Tipo Afiliado */
 .dataTables_wrapper table tbody tr:nth-child(2),
 .dataTables_wrapper table tbody td:nth-child(2) {
-    /* padding: 0 0.5rem; */
-    min-width: 110px;
-    width: 130px;
-    max-width: 140px;
+    min-width: 127px;
 }
 
 /* Função */
-.dataTables_wrapper table tbody tr:nth-child(3),
+/* .dataTables_wrapper table tbody tr:nth-child(3),
 .dataTables_wrapper table tbody td:nth-child(3) {
-    /* padding: 0 0.5rem; */
     min-width: 110px;
-    /* width: 140px;
-    max-width: 150px; */
-}
+} */
 
 /* Status */
+/* .dataTables_wrapper table tbody tr:nth-child(4),
+.dataTables_wrapper table tbody td:nth-child(4) {
+    min-width: 110px;
+} */
+
 /* Data de aniversario */
-.dataTables_wrapper table tbody tr:nth-child(5),
+/* .dataTables_wrapper table tbody tr:nth-child(5),
 .dataTables_wrapper table tbody td:nth-child(5) {
-    /* padding: 0 0.5rem; */
     min-width: 110px;
     width: 120px;
     max-width: 130px;
-}
+} */
 
 /* Telefone */
 .dataTables_wrapper table tbody tr:nth-child(6),
 .dataTables_wrapper table tbody td:nth-child(6) {
-    /* padding: 0 0.5rem; */
-    min-width: 125px;
-    width: 130px;
-    max-width: 135px;
-    white-space: nowrap;
+    min-width: 141px;
 }
 
 /* Opções */
-.dataTables_wrapper table tbody tr:nth-child(6),
-.dataTables_wrapper table tbody td:nth-child(6) {
-    /* padding: 0 0.5rem; */
+/* .dataTables_wrapper table tbody tr:nth-child(7),
+.dataTables_wrapper table tbody td:nth-child(7) {
     min-width: 110px;
     width: 120px;
     max-width: 130px;
-}
+} */
 
 
 
