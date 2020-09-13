@@ -648,6 +648,16 @@ form .page .btns button.next {
     background-color: #ff5f776e !important;
 }
 
+.cpf-success {
+    border-color: #00E676;
+    background-color: #00e67765;
+}
+
+.cpf-error {
+    border-color: #E53935;
+    background-color: #e5383560;
+}
+
 /*
 FIM: CSS dos inputs/form de #form-affiliate
  */

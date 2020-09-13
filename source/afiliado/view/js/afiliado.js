@@ -232,13 +232,13 @@ $(document).ready(function () {
 		if (validarCPF(cpf)) {
 			buttonSend.disabled = false;
 			$("#enviar").removeClass("button-disable");
-			$("#cpf").css("border-color", "#00E676");
-			$("#cpf").css("background-color", "#00e67765");
+			$("#cpf").removeClass("cpf-error");
+			$("#cpf").addClass("cpf-success");
 		} else {
 			buttonSend.disabled = true;
+			$("#cpf").removeClass("cpf-success");
+			$("#cpf").addClass("cpf-error");
 			$("#enviar").addClass("button-disable");
-			$("#cpf").css("border-color", "#E53935");
-			$("#cpf").css("background-color", "#e5383560");
 			alert("O CPF digitado é invalido, por favor digite um CPF valido");
 		}
 	});
@@ -353,6 +353,8 @@ $(document).ready(function () {
 		$("#form-cad-user")[0].reset();
 
 		$(".modal-menu span").removeClass("menu-item-actived");
+		$("#cpf").removeClass("cpf-success");
+		$("#cpf").removeClass("cpf-error");
 		$("span[modal-view=dados-pessoais]").addClass("menu-item-actived");
 		$(".dados section").fadeOut();
 		$("#dados-pessoais").fadeIn();
