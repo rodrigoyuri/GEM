@@ -82,7 +82,7 @@
                                 <input type="text" class="input-base" name="cpf" id="cpf" title="CPF" maxlength="14" />
                             </div>
                             <div class="field">
-                                <div class="label">Nacionalidade</div>
+                                <div class="label">Natural de:</div>
                                 <input type="text" class="input-base" name="nacionalidade" id="nacionalidade" title="Nacionalidade">
                             </div>
                             <div class="field">
