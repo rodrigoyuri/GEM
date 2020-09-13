@@ -62,7 +62,7 @@
                     <span class="modal-menu-item menu-item-actived" modal-view="dados-pessoais">Dados Pessoais</span>
                     <span class="modal-menu-item" modal-view="dados-contatos">Dados Contato</span>
                     <span class="modal-menu-item" modal-view="dados-afiliados">Dados Afiliado</span>
-                    <span class="modal-menu-item" modal-view="dados-cedidos">Benficios cedidos</span>
+                    <span class="modal-menu-item" modal-view="dados-cedidos">Beneficios cedidos</span>
                 </nav>
                 <div class="dados form-outer">
                     <input type="text" name="codAfiliado" id="codAfiliado" hidden>
@@ -337,7 +337,7 @@
     <div id="modal-cad-user" class="modal-container modal-hidden" close="modal-ver">
         <div class="modal">
             <div class="modal-header">
-                <p id="modal-text-type">Afiliado</p>
+                <p id="modal-text-type">Usuário</p>
                 <span close="modal-ver"><i class="fas fa-times"></i></span>
             </div>
             <div class="modal-body">
