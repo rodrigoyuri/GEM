@@ -118,14 +118,13 @@
 
 /* CheckBox */
 
-.dataTables_wrapper table tbody tr td input[type="checkbox"] {
+input[type="checkbox"] {
     width: 1.4rem;
     height: 1.4rem;
     cursor: pointer;
-    background: #FFF;
 }
 
-.dataTables_wrapper table tbody tr td input[type="checkbox"]:checked {
+input[type="checkbox"]:indeterminate {
     background-color: var(--color-primary-hover);
 }
 

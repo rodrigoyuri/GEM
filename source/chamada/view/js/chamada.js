@@ -7,6 +7,14 @@ $(document).ready(function () {
     };
 
     $("#list-afiliados").DataTable({
+        stateSave: true,
+        stateSaveCallback: function (settings, data) {
+            console.log(data);
+            localStorage.setItem('DataTables_' + settings.sInstance, JSON.stringify(data))
+        },
+        stateLoadCallback: function (settings) {
+            return JSON.parse(localStorage.getItem('DataTables_' + settings.sInstance))
+        },
         processing: true,
         serverSide: true,
         ajax: {
@@ -67,4 +75,5 @@ $(document).ready(function () {
         scrollCollapse: true,
         scroller: true
     });
+
 });
