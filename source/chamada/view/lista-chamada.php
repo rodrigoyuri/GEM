@@ -7,17 +7,15 @@
     <link rel="stylesheet" href="<?=URL_BASE?>/source/global/css/menu.css">
 
     <link rel="stylesheet" href="<?=URL_BASE?>/source/global/css/global.css">
-    <link rel="stylesheet" href="<?=URL_BASE?>/source/afiliado/view/css/styles.css">
+    <link rel="stylesheet" href="<?=URL_BASE?>/source/chamada/view/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-    
+
     <?php include __DIR__ . "/../../global/components/links-css.php"?>
     <title>Lista de Chamada</title>
 </head>
 <body>
-    <?php include __DIR__ . "/../../global/components/header.php"?>
-    <h1>Lista de Chamada!</h1>
     <div class="container">
-        <?php include __DIR__ . "/../../global/components/header.php" ?>
+        <?php include __DIR__ . "/../../global/components/header.php"?>
         <table id="list-afiliados" class="display" style="width: 100%;">
             <thead>
                 <tr>

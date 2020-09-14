@@ -1,0 +1,224 @@
+.container {
+    display: flex;
+    position: relative;
+    left: 15%;
+    width: 85%;
+    height: 100%;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: var(--color-background);
+    flex-wrap: nowrap;
+}
+
+/* DIV que envolve a tabela e os campos de pesquisa */
+
+.dataTables_wrapper {
+    width: 90%;
+    margin: 0.5rem;
+    margin-bottom: 1.2rem;
+    margin-top: 1.2rem;
+}
+
+/* INICIO: CSS da tabela */
+
+.dataTables_wrapper table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+
+.dataTables_wrapper table thead th, .dataTables_wrapper table tfoot th {
+    color: var(--color-text-title);
+    padding: 0.5rem 0;
+    font-weight: bold;
+    border-radius: 4px;
+    min-width: 120px;
+    border: 1px solid var(--color-primary-hover);
+}
+
+.dataTables_wrapper table thead th {
+    top: 0;
+}
+
+.dataTables_wrapper table thead .sorting, .dataTables_wrapper table thead .sorting_asc, .dataTables_wrapper table thead .sorting_desc, .dataTables_wrapper table thead .sorting_asc_disabled, .dataTables_wrapper table thead .sorting_desc_disabled {
+    cursor: pointer;
+    *cursor: hand;
+    background-repeat: no-repeat;
+    background-position: center right;
+}
+
+.dataTables_scrollHead .dataTables_scrollHeadInner table thead .sorting::after {
+    content: "\025B4\025BE";
+    color: var(--color-primary);
+    margin-left: 0.3rem;
+}
+
+.dataTables_scrollHead .dataTables_scrollHeadInner table thead .sorting_asc::after {
+    content: "\025B4";
+    color: var(--color-primary);
+    margin-left: 0.3rem;
+}
+
+.dataTables_scrollHead .dataTables_scrollHeadInner table thead .sorting_desc::after {
+    content: "\025BE";
+    color: var(--color-primary);
+    margin-left: 0.3rem;
+}
+
+.dataTables_wrapper table tfoot th {
+    bottom: 0;
+}
+
+.dataTables_wrapper table tbody {
+    overflow: hidden;
+}
+
+.dataTables_wrapper table tbody tr:nth-child(odd) {
+    border-radius: 4px;
+    background-color: #ff7e8d42;
+}
+
+.dataTables_wrapper table tbody td {
+    text-align: center;
+    border-right: 1px solid var(--color-primary-hover);
+}
+
+/* CSS das colunas individualmente */
+
+.dataTables_wrapper table tbody tr {
+    height: 2.6rem;
+}
+
+/* Alinha a esquerda apenas a primeira coluna */
+
+.dataTables_wrapper table tbody tr:nth-child(1), .dataTables_wrapper table tbody td:nth-child(1) {
+    text-align: left;
+    border-left: 1px solid var(--color-primary-hover);
+    min-width: 200px;
+}
+
+/* Tipo Afiliado */
+
+
+.dataTables_wrapper table tbody tr:nth-child(2), .dataTables_wrapper table tbody td:nth-child(2) {
+    min-width: 127px;
+}
+
+/* Telefone */
+
+.dataTables_wrapper table tbody tr:nth-child(6), .dataTables_wrapper table tbody td:nth-child(6) {
+    min-width: 141px;
+}
+
+/* Quando clica no thead */
+
+.dataTables_wrapper table thead th:active, .dataTables_wrapper table tfoot th:active {
+    outline: none;
+}
+
+/* CheckBox */
+
+input[type="checkbox"] {
+    width: 1.4rem;
+    height: 1.4rem;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:indeterminate {
+    background-color: var(--color-primary-hover);
+}
+
+/* FIM: CSS da tabela */
+
+/* ========================= */
+
+/* INICIO: CSS do processando */
+
+.dataTables_processing {
+    position: fixed;
+    width: 76%;
+    padding: 3rem 0;
+    top: calc(50% - 5.5rem);
+    background-color: #49505769;
+    color: var(--color-box-base);
+    font-size: 2.5rem;
+    text-align: center;
+    text-shadow: 2px 2px var(--color-text-title);
+    z-index: 10;
+}
+
+/* FIM: CSS do processando */
+
+/* ======================= */
+
+/* INICIO: CSS do controle da tabela (filtro, paginação, e detalhes) */
+
+/* Div que engloba o comboBox */
+
+.dataTables_wrapper .dataTables_length {
+    clear: both;
+    float: left;
+}
+
+.dataTables_wrapper .dataTables_length label select {
+    height: 2rem;
+    background: var(--color-input-background);
+    border: 1px solid var(--color-input-border);
+    border-radius: 0.2rem;
+    padding: 0 1rem;
+    margin: 0.5rem;
+    outline: 0;
+    font: var(--font-base);
+}
+
+/* Div que engloba o Pesquisar <input>  */
+
+.dataTables_wrapper .dataTables_filter {
+    float: right;
+}
+
+.dataTables_wrapper .dataTables_filter input {
+    height: 2rem;
+    background: var(--color-input-background);
+    border: 1px solid var(--color-input-border);
+    border-radius: 0.2rem;
+    padding: 0 1rem;
+    margin: 0.5rem;
+    outline: 0;
+    font: var(--font-base);
+}
+
+/* Local onde fica o: Mostrando de 1 até 10 de 21 registros */
+
+.dataTables_wrapper .dataTables_info {
+    clear: both;
+    float: left;
+    margin-top: 1rem;
+}
+
+/* Local da paginação */
+
+.dataTables_wrapper .dataTables_paginate {
+    float: right;
+    margin-top: 1rem;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    padding: .5rem;
+    margin: 0 .3rem;
+    outline: none;
+    cursor: pointer;
+}
+
+.dataTables_wrapper .dataTables_paginate .current, .dataTables_wrapper .dataTables_paginate .next, .dataTables_wrapper .dataTables_paginate .previous {
+    background-color: var(--color-primary);
+    border-radius: 0.2rem;
+    color: var(--color-button-text);
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover, .dataTables_wrapper .dataTables_paginate .previous:hover, .dataTables_wrapper .dataTables_paginate .next:hover {
+    background-color: var(--color-primary-hover);
+    border-radius: 0.2rem;
+    color: var(--color-button-text);
+    transition: 0.2s;
+}
