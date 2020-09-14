@@ -16,9 +16,9 @@
 
 <body>
 
+    <?php include __DIR__ . "/../../global/components/header.php" ?>
 
     <div class="container">
-        <?php include __DIR__ . "/../../global/components/header.php" ?>
         <table id="list-afiliados" class="display" style="width: 100%;">
             <thead>
                 <tr>
@@ -407,6 +407,7 @@
     <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
     <script src="<?= URL_BASE ?>/source/afiliado/view/js/afiliado.js"></script>
     <script src="<?= URL_BASE ?>/source/afiliado/view/js/cad-user.js"></script>
+    <script src="<?= URL_BASE ?>/source/global/js/global.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js" integrity="sha256-yE5LLp5HSQ/z+hJeCqkz9hdjNkk1jaiGG0tDCraumnA=" crossorigin="anonymous">
     </script>
 </body>
