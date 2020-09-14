@@ -17,7 +17,7 @@ abstract class Crud
      * @param table
      * @param data
      * @param columns
-     * @return DAO
+     * @return Crud
      */
     protected function insert(string $table, array $data, string $columns = ""): ?Crud
     {
@@ -69,8 +69,17 @@ abstract class Crud
     }
 
     /**
+     * @return Crud
+     */
+    protected function delete(): ?Crud
+    {
+        $this->query .= " DELETE";
+        return $this;
+    }
+
+    /**
      * @param table
-     * @return DAO
+     * @return Crud
      */
     protected function from(string $table): ?Crud
     {
@@ -82,7 +91,7 @@ abstract class Crud
     /**
      * @param conditions column1, column2 || LIKE, AND, OR
      * @param values
-     * @return DAO
+     * @return Crud
      */
     protected function where(string $conditions, array $values): ?Crud
     {
@@ -97,7 +106,7 @@ abstract class Crud
     /**
      * @param columns "column1, column2"
      * @param order "ASC|DESC"
-     * @return DAO
+     * @return Crud
      */
     protected function order(string $columns, string $order = "ASC"): ?Crud
     {
@@ -109,7 +118,7 @@ abstract class Crud
     /**
      * @param start 0
      * @param end 10
-     * @return DAO
+     * @return Crud
      */
     protected function limit(int $start = 0, int $end = 10): ?Crud
     {

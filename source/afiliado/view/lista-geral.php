@@ -342,31 +342,57 @@
             </div>
             <div class="modal-body">
 
+                <nav class="modal-menu">
+                    <span class="modal-menu-item menu-item-actived" modal-view="cad-usuario">Cadastro de Usuário</span>
+                    <span class="modal-menu-item" modal-view="excluir-usuario" modal-delete>Excluir Usuário</span>
+                </nav>
+
+
                 <div class="dados form-outer">
-                    <form id="form-cad-user" action="<?=URL_BASE?>/admin/cadastro-usuario" method="POST">
 
-                        <div class="page">
-                            <div class="title">Informações para Cadastro:</div>
+                    <section id="cad-usuario">
 
-                            <div class="field">
-                                <div class="label">E-mail</div>
-                                <input type="email" class="input-base" name="emailUser" id="emailUser" title="E-mail" />
-                            </div>
-                            <div class="field">
-                                <div class="label">Senha</div>
-                                <input type="password" class="input-base" name="senha" id="senha" title="Senha" />
-                            </div>
-                            <div class="field">
-                                <div class="label">Confirmar senha</div>
-                                <input type="password" class="input-base" name="confSenha" id="confSenha" title="Confirmar Senha">
-                            </div>
-                            <div class="field btns">
-                                <button class="submit" id="confirmar" type="submit">Confirmar</button>
-                                <span close="modal-ver">Cancelar</span>
-                            </div>
-                        </div>
+                        <form id="form-cad-user" action="<?= URL_BASE ?>/admin/cadastro-usuario" method="POST">
 
-                    </form>
+                            <div class="page">
+                                <div class="title">Informações para Cadastro:</div>
+
+                                <div class="field">
+                                    <div class="label">E-mail</div>
+                                    <input type="email" class="input-base" name="emailUser" id="emailUser" title="E-mail" />
+                                </div>
+                                <div class="field">
+                                    <div class="label">Senha</div>
+                                    <input type="password" class="input-base" name="senha" id="senha" title="Senha" />
+                                </div>
+                                <div class="field">
+                                    <div class="label">Confirmar senha</div>
+                                    <input type="password" class="input-base" name="confSenha" id="confSenha" title="Confirmar Senha">
+                                </div>
+                                <div class="field btns">
+                                    <button class="submit" id="confirmar" type="submit">Confirmar</button>
+                                    <span close="modal-ver">Cancelar</span>
+                                </div>
+                            </div>
+
+                        </form>
+
+                    </section>
+
+                    <section id="excluir-usuario" class="modal-hidden">
+                        <table id="list-usuario" class="table-item" style="width: 100%;">
+                            <thead>
+                                <tr>
+                                    <th>E-mail</th>
+                                    <th>Opção</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </section>
+
                 </div>
 
             </div>

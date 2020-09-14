@@ -38,8 +38,9 @@ $router->get("/editar-afiliado", "ControllerAfiliado:renderEditAffiliate");
 $router->get("/lista-chamada", "ControllerChamada:renderGeneralList");
 $router->post("/lista-chamada", "ControllerChamada:getAffiliates");
 
-$router->get("/cadastro-usuario", "ControllerLogin:renderRegisterUser");
+$router->get("/cadastro-usuario", "ControllerLogin:getUsers");
 $router->post("/cadastro-usuario", "ControllerLogin:registerUser");
+$router->delete("/cadastro-usuario/{id}", "ControllerLogin:removeUser");
 
 $router->group("usuario");
 

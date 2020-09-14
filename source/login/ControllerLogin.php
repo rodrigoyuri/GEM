@@ -25,9 +25,11 @@ class ControllerLogin extends Controller
         return $this->renderView("/login");
     }
 
-    public function renderRegisterUser()
+    public function getUsers()
     {
-        $this->verify("A", "/cadastro-usuario", "/ops");
+        $logins = (new Login)->indexUsers();
+
+        echo json_encode($logins);
     }
 
     public function registerUser($data)
@@ -41,6 +43,13 @@ class ControllerLogin extends Controller
         } else {
             echo "Falha ao realizar o Cadastro";
         }
+    }
+
+    public function removeUser($data)
+    {
+        $login = (new Login)->deleteUser($data["id"]);
+
+        echo json_encode($login);
     }
 
     public function logIn(array $data)

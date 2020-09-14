@@ -39,6 +39,20 @@ class Login extends Crud
         return $crud;
     }
 
+    public function indexUsers()
+    {
+        $crud = $this->select("cd_login as codigo, nm_login as email")->from("login")->execute("fetchAll");
+
+        return $crud;
+    }
+
+    public function deleteUser($id)
+    {
+        $crud = $this->delete()->from("login")->where("cd_login = ?", [$id])->execute();
+
+        return $crud;
+    }
+
     public function resetPassword($email)
     {
         $rs = parent::select()->from("login")
