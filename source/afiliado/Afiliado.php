@@ -160,13 +160,3 @@ class Afiliado extends Crud
         return $query;
     }
 }
-
-
-// "cd_afiliado as cod, nm_afiliado as nome, cd_rg as rg, cd_cpf as cpf,
-//   nm_nacionalidade as nacionalidade, ic_sexo as sexo, dt_nascimento as nascimento,
-//   nm_endereco as endereco, cd_telefone as telefone,cd_contato as celular, nm_email as email,
-//   nm_situacao_profissional qualificacao , nm_tipo_afiliado as tipo, nm_area_interesse as funcao,
-//   nm_disponibilidade as week, nm_diagnostico as diagnostico,
-//   nm_cirurgia_mama_direita as mamaDireita, dt_cirugia_mama_direita as anoDireita,
-//   nm_cirurgia_mama_esquerda as mamaEsquerda,dt_cirugia_mama_esquerda as anoEsquerda,
-//   nm_convenio_medico as convenio, nm_status_assistida as statusAss, nm_status_voluntario as statusVol";
