@@ -85,26 +85,35 @@ $(document).ready(function () {
     });
 
 
-    // $('#list-afiliados tbody').on('click', 'tr', function () {
-    //     $(this).toggleClass('selected');
-    //     console.log("Click")
-    // });
-
     $('#list-afiliados tbody').on('click', 'tr td input[data-view]', function () {
         let cods = JSON.parse(localStorage.getItem('DataTables_Chamada'))
-        let btn = $(this).val()
+        let btn = ($(this).val())
 
-        cods.includes(btn) ? cods.splice(cods.indexOf(btn), 1) : cods.push(btn)
+        cods.includes(btn) ? cods.splice(cods.indexOf(btn), 1) : cods.push(parseInt(btn))
 
-        console.log("Click " + btn)
         console.log(cods)
 
         localStorage.setItem('DataTables_Chamada', JSON.stringify(cods))
     });
 
     $('#btn-encerrar').click(function () {
-        // alert(table.rows('.selected').data().length + ' row(s) selected');
-        console.log(JSON.parse(localStorage.getItem('DataTables_Chamada')))
+        let presents = {
+            data: localStorage.getItem('DataTables_Chamada')
+        }
+
+        $.ajax({
+            type: "PUT",
+            url: "http://localhost/GEM/admin/lista-chamada",
+            data: (presents),
+            success: function (response) {
+                // let res = JSON.parse(response)
+                alert(response)
+                console.log(response)
+            },
+            error: function (error) {
+                console.log("Erro " + error);
+            },
+        });
     });
 
 });

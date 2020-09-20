@@ -51,4 +51,7 @@ class Chamada extends Crud
         return $jsonData;
     }
 
+    public function updatePresent($data = array())
+    {
+    }
 }

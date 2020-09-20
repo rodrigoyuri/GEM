@@ -15,12 +15,12 @@ class ControllerChamada extends Controller
         parent::init(__DIR__ . "/view", "php");
     }
 
-    public function getAffiliates($data){
+    public function getAffiliates($data)
+    {
 
         $affiliates = (new Chamada)->indexFilter($data);
 
         echo json_encode($affiliates);
-
     }
 
     public function renderGeneralList()
@@ -30,10 +30,19 @@ class ControllerChamada extends Controller
 
     public function renderAttendanceSheet()
     {
-        if($this->typeUser() === "A" || $this->typeUser() === "U")
+        if ($this->typeUser() === "A" || $this->typeUser() === "U")
             return $this->renderView("/lista-chamada");
         else {
             header("LOCATION: " . URL_BASE . "/ops");
         }
+    }
+
+    public function updatePresent($data)
+    {
+        $codPresents = json_decode($data["data"]);
+
+        $affiliates = (new Chamada)->updatePresent($codPresents);
+
+        echo ($codPresents[0]);
     }
 }
