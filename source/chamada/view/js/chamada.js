@@ -1,20 +1,28 @@
 $(document).ready(function () {
+
+    localStorage.setItem('DataTables_Chamada', JSON.stringify([]))
+
     let optionTag = function (data, type, row) {
+        let cods = JSON.parse(localStorage.getItem('DataTables_Chamada'))
+        let checked = "";
+
+        cods.includes(data) ? checked = "checked" : checked
+
         if (type === "display") {
-            return `<input name="check-in" type="checkbox" value="${data}" data-view>`;
+            return `<input name="check-in" type="checkbox" value="${data}" data-view ${checked}> `;
         }
         return data;
     };
 
     $("#list-afiliados").DataTable({
-        stateSave: true,
-        stateSaveCallback: function (settings, data) {
-            console.log(data);
-            localStorage.setItem('DataTables_' + settings.sInstance, JSON.stringify(data))
-        },
-        stateLoadCallback: function (settings) {
-            return JSON.parse(localStorage.getItem('DataTables_' + settings.sInstance))
-        },
+        // stateSave: true,
+        // stateSaveCallback: function (settings, data) {
+        //     // console.log(data);
+        //     localStorage.setItem('DataTables_Chamada', JSON.stringify([]))
+        // },
+        // stateLoadCallback: function (settings) {
+        //     return JSON.parse(localStorage.getItem('DataTables_Chamada'))
+        // },
         processing: true,
         serverSide: true,
         ajax: {
@@ -74,6 +82,29 @@ $(document).ready(function () {
         scrollX: true,
         scrollCollapse: true,
         scroller: true
+    });
+
+
+    // $('#list-afiliados tbody').on('click', 'tr', function () {
+    //     $(this).toggleClass('selected');
+    //     console.log("Click")
+    // });
+
+    $('#list-afiliados tbody').on('click', 'tr td input[data-view]', function () {
+        let cods = JSON.parse(localStorage.getItem('DataTables_Chamada'))
+        let btn = $(this).val()
+
+        cods.includes(btn) ? cods.splice(cods.indexOf(btn), 1) : cods.push(btn)
+
+        console.log("Click " + btn)
+        console.log(cods)
+
+        localStorage.setItem('DataTables_Chamada', JSON.stringify(cods))
+    });
+
+    $('#btn-encerrar').click(function () {
+        // alert(table.rows('.selected').data().length + ' row(s) selected');
+        console.log(JSON.parse(localStorage.getItem('DataTables_Chamada')))
     });
 
 });

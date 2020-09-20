@@ -43,6 +43,8 @@
                 </tr>
             </tfoot>
         </table>
+
+        <button id="btn-encerrar" class="button-submit">Encerrar chamada</button>
     </div>
     <?php include __DIR__ . "/../../global/components/links-js.php" ?>
     <script src="<?= URL_BASE ?>/source/global/js/jquery-3.5.1.min.js"></script>

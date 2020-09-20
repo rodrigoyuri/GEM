@@ -1,11 +1,12 @@
 .container {
     display: flex;
     position: relative;
+    flex-direction: column;
     left: 15%;
     width: 85%;
     height: 100%;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     background-color: var(--color-background);
     flex-wrap: nowrap;
 }
@@ -27,7 +28,8 @@
     width: 100%;
 }
 
-.dataTables_wrapper table thead th, .dataTables_wrapper table tfoot th {
+.dataTables_wrapper table thead th,
+.dataTables_wrapper table tfoot th {
     color: var(--color-text-title);
     padding: 0.5rem 0;
     font-weight: bold;
@@ -40,7 +42,11 @@
     top: 0;
 }
 
-.dataTables_wrapper table thead .sorting, .dataTables_wrapper table thead .sorting_asc, .dataTables_wrapper table thead .sorting_desc, .dataTables_wrapper table thead .sorting_asc_disabled, .dataTables_wrapper table thead .sorting_desc_disabled {
+.dataTables_wrapper table thead .sorting,
+.dataTables_wrapper table thead .sorting_asc,
+.dataTables_wrapper table thead .sorting_desc,
+.dataTables_wrapper table thead .sorting_asc_disabled,
+.dataTables_wrapper table thead .sorting_desc_disabled {
     cursor: pointer;
     *cursor: hand;
     background-repeat: no-repeat;
@@ -91,7 +97,8 @@
 
 /* Alinha a esquerda apenas a primeira coluna */
 
-.dataTables_wrapper table tbody tr:nth-child(1), .dataTables_wrapper table tbody td:nth-child(1) {
+.dataTables_wrapper table tbody tr:nth-child(1),
+.dataTables_wrapper table tbody td:nth-child(1) {
     text-align: left;
     border-left: 1px solid var(--color-primary-hover);
     min-width: 200px;
@@ -100,19 +107,22 @@
 /* Tipo Afiliado */
 
 
-.dataTables_wrapper table tbody tr:nth-child(2), .dataTables_wrapper table tbody td:nth-child(2) {
+.dataTables_wrapper table tbody tr:nth-child(2),
+.dataTables_wrapper table tbody td:nth-child(2) {
     min-width: 127px;
 }
 
 /* Telefone */
 
-.dataTables_wrapper table tbody tr:nth-child(6), .dataTables_wrapper table tbody td:nth-child(6) {
+.dataTables_wrapper table tbody tr:nth-child(6),
+.dataTables_wrapper table tbody td:nth-child(6) {
     min-width: 141px;
 }
 
 /* Quando clica no thead */
 
-.dataTables_wrapper table thead th:active, .dataTables_wrapper table tfoot th:active {
+.dataTables_wrapper table thead th:active,
+.dataTables_wrapper table tfoot th:active {
     outline: none;
 }
 
@@ -210,15 +220,33 @@ input[type="checkbox"]:indeterminate {
     cursor: pointer;
 }
 
-.dataTables_wrapper .dataTables_paginate .current, .dataTables_wrapper .dataTables_paginate .next, .dataTables_wrapper .dataTables_paginate .previous {
+.dataTables_wrapper .dataTables_paginate .current,
+.dataTables_wrapper .dataTables_paginate .next,
+.dataTables_wrapper .dataTables_paginate .previous {
     background-color: var(--color-primary);
     border-radius: 0.2rem;
     color: var(--color-button-text);
 }
 
-.dataTables_wrapper .dataTables_paginate .paginate_button:hover, .dataTables_wrapper .dataTables_paginate .previous:hover, .dataTables_wrapper .dataTables_paginate .next:hover {
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover,
+.dataTables_wrapper .dataTables_paginate .previous:hover,
+.dataTables_wrapper .dataTables_paginate .next:hover {
     background-color: var(--color-primary-hover);
     border-radius: 0.2rem;
     color: var(--color-button-text);
     transition: 0.2s;
+}
+
+.button-submit {
+    height: 2.5rem;
+    background: var(--color-primary);
+    color: var(--color-button-text);
+    border: none;
+    margin-top: 1rem;
+    font: var(--font-base);
+    border-radius: 0.2rem;
+}
+
+.button-submit:hover {
+    background: var(--color-primary-hover);
 }
