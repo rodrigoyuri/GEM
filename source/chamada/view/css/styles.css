@@ -5,7 +5,7 @@
     left: 15%;
     width: 85%;
     height: 100%;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     background-color: var(--color-background);
     flex-wrap: nowrap;
@@ -249,4 +249,67 @@ input[type="checkbox"]:indeterminate {
 
 .button-submit:hover {
     background: var(--color-primary-hover);
+}
+
+@media(max-width:750px) {
+
+    .container {
+        width: 100vw;
+        height: 100vh;
+        left: 0;
+    }
+
+    .dataTables_wrapper table thead tr th {
+        min-width: 150px;
+    }
+
+    .dataTables_scrollBody {
+        max-height: 40vh;
+        border: 1px solid var(--color-primary-hover);
+    }
+
+    .dataTables_processing {
+        width: 90%;
+    }
+}
+
+
+@media(max-width:665px) {
+
+    .dataTables_wrapper .dataTables_length {
+        float: inherit;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    /* Div que engloba o Pesquisar <input>  */
+    .dataTables_wrapper .dataTables_filter {
+        float: inherit;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .dataTables_wrapper .dataTables_filter input {
+        width: 165px;
+    }
+
+    /* Local onde fica o: Mostrando de 1 até 10 de 21 registros */
+    .dataTables_wrapper .dataTables_info {
+        float: inherit;
+        display: flex;
+        justify-content: space-around;
+        margin-top: .5rem;
+    }
+
+    /* Local da paginação */
+    .dataTables_wrapper .dataTables_paginate {
+        float: inherit;
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+        margin-top: .5rem;
+    }
+
+
+
 }

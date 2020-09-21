@@ -1,5 +1,4 @@
 .container {
-    /* width: 100vw; */
     display: flex;
     position: relative;
     left: 15%;
@@ -477,13 +476,7 @@ INICIO: CSS dos inputs/form de #form-affiliate
 }
 
 .form-outer form .page .field {
-    /* width: 330px;
-    height: 45px;
-    margin: 45px 0;
-    display: flex;
-    position: relative; */
     margin-top: .8rem;
-    /* width: 50%; */
 }
 
 .form-outer form .page .field button {
@@ -538,68 +531,6 @@ INICIO: CSS dos inputs/form de #form-affiliate
     margin-top: 1rem;
 }
 
-/* 
-form .page .field .label,
-form .page .fielde .label,
-form .page .fielda .label {
-    position: absolute;
-    top: -30px;
-    font-weight: 500;
-}
-
-form .page .field input[type=text],
-form .page .field input[type=email],
-form .page .field input[type=date],
-form .page .fielda input[type=date] {
-    height: 100%;
-    width: 100%;
-    border: 1px solid lightgrey;
-    border-radius: 5px;
-    padding-left: 15px;
-    font-size: 18px;
-}
-
-form .page .field textarea {
-    width: 100%;
-}
-
-form .page .field select {
-    width: 100%;
-    padding-left: 10px;
-    font-size: 17px;
-    font-weight: 500;
-}
-
-
-form .page .btns button {
-    width: 100%;
-    height: calc(100% + 5px);
-    border: none;
-    background: #d33f8d;
-    border-radius: 5px;
-    color: #fff;
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    transition: 0.5s ease;
-}
-
-form .page .field button:hover {
-    background: #000;
-}
-
-form .page .btns button.prev {
-    margin-right: 3px;
-    font-size: 17px;
-}
-
-form .page .btns button.next {
-    margin-left: 3px;
-}*/
-
-/*
 .todas {
     text-align: left;
 }
@@ -630,7 +561,7 @@ form .page .btns button.next {
 
 .label-mama-direita {
     text-align: left;
-} */
+}
 
 #voluntario {
     display: none;
