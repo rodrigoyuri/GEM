@@ -336,7 +336,7 @@
     <div id="modal-cad-user" class="modal-container modal-hidden" close="modal-ver">
         <div class="modal">
             <div class="modal-header">
-                <p id="modal-text-type">Usuário</p>
+                <p>Usuário</p>
                 <span close="modal-ver"><i class="fas fa-times"></i></span>
             </div>
             <div class="modal-body">

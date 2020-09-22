@@ -106,7 +106,6 @@ $(document).ready(function () {
 			url: "http://localhost/GEM/admin/lista-geral/" + id,
 			success: function (response) {
 				let affiliate = JSON.parse(response);
-				console.log(affiliate);
 				// seto valor nos campos text
 				for (let i = 0; i < inputForm.length; i++) {
 					$("#form-affiliate [name=" + inputForm[i].name + "]").val(
@@ -216,7 +215,7 @@ $(document).ready(function () {
 	/**
 	 * Clicou no Menu (li a) "Cadastro de Usuário"
 	 */
-	$("#add-user").on("click", function(e) {
+	$("#add-user").on("click", function (e) {
 		e.preventDefault();
 
 		$("#modal-cad-user").removeClass("modal-hidden");
@@ -348,7 +347,7 @@ $(document).ready(function () {
 		$(".modal-container").addClass("modal-hidden");
 		$(".modal-body .modal-menu").show();
 		$(".modal-header button").show();
-		
+
 		$("#form-affiliate")[0].reset();
 		$("#form-cad-user")[0].reset();
 
@@ -356,8 +355,10 @@ $(document).ready(function () {
 		$("#cpf").removeClass("cpf-success");
 		$("#cpf").removeClass("cpf-error");
 		$("span[modal-view=dados-pessoais]").addClass("menu-item-actived");
+		$("span[modal-view=cad-usuario]").addClass("menu-item-actived");
 		$(".dados section").fadeOut();
 		$("#dados-pessoais").fadeIn();
+		$("#cad-usuario").fadeIn();
 
 		$("#modal-salve-affiliate").hide();
 
