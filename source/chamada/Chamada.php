@@ -51,5 +51,14 @@ class Chamada extends Crud
 
     public function updatePresent($data = array())
     {
+        $presents = parent::update("chamada", "qt_faltas = qt_faltas + ?", [1])->where("id_afiliado NOT IN (?)", $data)->execute();
+
+        if($presents || NULL) {
+            return "Chamada Efetuada com Sucesso";
+        } else {
+            return "Erro ao Realizar a Chamada";
+        }
+
+        return;
     }
 }

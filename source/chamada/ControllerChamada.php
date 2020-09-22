@@ -43,6 +43,6 @@ class ControllerChamada extends Controller
 
         $affiliates = (new Chamada)->updatePresent($codPresents);
 
-        echo ($codPresents[0]);
+        return var_dump($affiliates);
     }
 }
