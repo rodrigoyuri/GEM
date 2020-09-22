@@ -44,7 +44,15 @@ class ControllerAfiliado extends Controller
 
     public function updateAffiliate($data)
     {
-        $data["week"] = isset($data["week"]) ? implode(";", $data["week"]) : "";
+        $week = "";
+
+        for ($x = 0; $x < count($data["week"]); $x++) {
+            if ($data["week"][$x] != "") {
+                $week .= $data["week"][$x] . ";";
+            }
+        }
+
+        $data["week"] = $week;
 
         $id = $data["id"];
         unset($data["id"]);
@@ -56,12 +64,19 @@ class ControllerAfiliado extends Controller
 
     public function registerAffiliate($data)
     {
-        $data["week"] = isset($data["week"]) ? implode(";", $data["week"]) : "";
+        $week = "";
+
+        for ($x = 0; $x < count($data["week"]); $x++) {
+            if ($data["week"][$x] != "") {
+                $week .= $data["week"][$x] . ";";
+            }
+        }
+
+        $data["week"] = $week;
 
         $afiliado = (new Afiliado)->insertAffiliate($data);
 
         echo $afiliado;
-        
     }
 
     public function registerItem($data)
