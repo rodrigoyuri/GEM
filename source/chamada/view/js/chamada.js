@@ -89,8 +89,9 @@ $(document).ready(function () {
         let cods = JSON.parse(localStorage.getItem('DataTables_Chamada'))
         let btn = ($(this).val())
 
-        cods.includes(btn) ? cods.splice(cods.indexOf(btn), 1) : cods.push(parseInt(btn))
+        cods.includes(btn) ? cods.splice(cods.indexOf(btn), 1) : cods.push(btn)
 
+        cods.includes(btn) ? console.log("Remove") : console.log("Coloca")
         console.log(cods)
 
         localStorage.setItem('DataTables_Chamada', JSON.stringify(cods))
@@ -115,5 +116,6 @@ $(document).ready(function () {
             },
         });
     });
+
 
 });
