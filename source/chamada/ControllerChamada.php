@@ -45,4 +45,11 @@ class ControllerChamada extends Controller
 
         return var_dump($affiliates);
     }
+
+    public function statusAffiliate($data)
+    {
+        $affiliates = (new Chamada)->toggleAffiliate($data["id"]);
+
+        echo json_encode($affiliates);
+    }
 }

@@ -38,6 +38,7 @@ $router->get("/editar-afiliado", "ControllerAfiliado:renderEditAffiliate");
 $router->get("/lista-chamada", "ControllerChamada:renderGeneralList");
 $router->post("/lista-chamada", "ControllerChamada:getAffiliates");
 $router->put("/lista-chamada", "ControllerChamada:updatePresent");
+$router->put("/status-afiliado", "ControllerChamada:statusAffiliate");
 
 $router->get("/cadastro-usuario", "ControllerLogin:getUsers");
 $router->post("/cadastro-usuario", "ControllerLogin:registerUser");

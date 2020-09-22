@@ -98,14 +98,14 @@ $(document).ready(function () {
 
         console.log(btn)
 
-        // $.ajax({
-        //     type: "PUT",
-        //     url: "http://localhost/GEM/admin/lista-chamada",
-        //     data: { id: btn },
-        //     success: function (response) {
-        //         console.log(response)
-        //     }
-        // });
+        $.ajax({
+            type: "PUT",
+            url: "http://localhost/GEM/admin/status-afiliado",
+            data: { id: btn },
+            success: function (response) {
+                console.log(response)
+            }
+        });
 
     });
 

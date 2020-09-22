@@ -53,12 +53,23 @@ class Chamada extends Crud
     {
         $presents = parent::update("chamada", "qt_faltas = qt_faltas + ?", [1])->where("id_afiliado NOT IN (?)", $data)->execute();
 
-        if($presents || NULL) {
+        if ($presents || NULL) {
             return "Chamada Efetuada com Sucesso";
         } else {
             return "Erro ao Realizar a Chamada";
         }
 
         return;
+    }
+
+    public function toggleAffiliate(int $id = null)
+    {
+        $presents = parent::update("afiliado", "nm_status_voluntario = !nm_status_voluntario", [])->where("cd_afiliado = ?", [$id])->execute();
+
+        if ($presents || NULL) {
+            return "Modificado com sucesso";
+        } else {
+            return "Erro ao modificar";
+        }
     }
 }
