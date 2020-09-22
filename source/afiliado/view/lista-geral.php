@@ -329,7 +329,6 @@
 
             </div>
             <div class="modal-footer">
-                <p>Footer</p>
             </div>
         </div>
     </div>
@@ -397,7 +396,6 @@
 
             </div>
             <div class="modal-footer">
-                <p>Footer</p>
             </div>
         </div>
     </div>

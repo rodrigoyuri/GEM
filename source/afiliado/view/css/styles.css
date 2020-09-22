@@ -359,7 +359,7 @@
 
 .menu-item-actived {
     display: flex;
-    background-color: #ff5f776e;
+    background-color: var(--color-primary-hover);
     color: #FFF;
     font-weight: bold;
 

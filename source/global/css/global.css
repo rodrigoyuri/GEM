@@ -33,7 +33,7 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-button {
+button, i {
     cursor: pointer;
 }
 
