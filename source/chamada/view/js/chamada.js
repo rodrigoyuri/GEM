@@ -15,13 +15,19 @@ $(document).ready(function () {
     };
 
     let toggleTag = function (data, type, row) {
-        if (type === "display") {
+        let status = row["nm_status_voluntario"];
+        let checked = "";
+
+        if (type === "display" && status != null) {
+
+            status == 1 ? checked = "checked" : checked
+
             return `<label class="check-toggle">
-                        <input name="" type="checkbox" value="${data}" data-status-on-off>
+                        <input name="" type="checkbox" value="${data}" data-status-on-off ${checked}>
                         <span class="slider round"></span>
                     </label> `;
         }
-        return data;
+        return "Assistida";
     };
 
     $("#list-afiliados").DataTable({
@@ -37,6 +43,7 @@ $(document).ready(function () {
             },
             {
                 data: "nm_status_voluntario",
+                visible: false
             },
             {
                 data: "cd_afiliado",
@@ -88,15 +95,11 @@ $(document).ready(function () {
 
         cods.includes(btn) ? cods.splice(cods.indexOf(btn), 1) : cods.push(btn)
 
-        console.log(cods)
-
         localStorage.setItem('DataTables_Chamada', JSON.stringify(cods))
     });
 
     $('#list-afiliados tbody').on('click', 'tr td input[data-status-on-off]', function () {
         let btn = ($(this).val())
-
-        console.log(btn)
 
         $.ajax({
             type: "PUT",
