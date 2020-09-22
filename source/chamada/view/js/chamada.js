@@ -120,8 +120,7 @@ $(document).ready(function () {
             url: "http://localhost/GEM/admin/lista-chamada",
             data: (presents),
             success: function (response) {
-                // let res = JSON.parse(response)
-                alert(response)
+                //alert(response)
                 console.log(response)
             },
             error: function (error) {
