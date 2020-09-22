@@ -11,9 +11,7 @@ class Chamada extends Crud
     {
         $columns = array(
             "0" => "nm_afiliado",
-            "1" => "nm_tipo_afiliado",
-            "2" => "dt_nascimento",
-            "3" => "cd_telefone",
+            "1" => "nm_status_voluntario",
         );
 
         $orderBy = "{$columns[$data['order'][0]['column']]}";
@@ -21,7 +19,7 @@ class Chamada extends Crud
         $start = $data['start'];
         $end = $data['length'];
 
-        $queryFilter = parent::select("cd_afiliado, nm_afiliado, nm_tipo_afiliado, nm_area_interesse, dt_nascimento, cd_telefone ")
+        $queryFilter = parent::select("cd_afiliado, nm_afiliado, nm_status_voluntario")
             ->from("afiliado");
 
         if (!empty($data["search"]['value'])) {

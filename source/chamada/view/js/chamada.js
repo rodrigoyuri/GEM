@@ -26,17 +26,7 @@ $(document).ready(function () {
                 data: "nm_afiliado",
             },
             {
-                data: "nm_tipo_afiliado",
-            },
-            {
-                data: "nm_area_interesse",
-            },
-            {
-                data: "dt_nascimento",
-            },
-            {
-                data: "cd_telefone",
-                orderable: false,
+                data: "nm_status_voluntario",
             },
             {
                 class: "details-control",

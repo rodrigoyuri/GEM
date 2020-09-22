@@ -61,7 +61,7 @@ class ControllerAfiliado extends Controller
         $afiliado = (new Afiliado)->insertAffiliate($data);
 
         echo $afiliado;
-        //var_dump($afiliado);
+        
     }
 
     public function registerItem($data)

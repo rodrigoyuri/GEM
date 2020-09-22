@@ -23,10 +23,7 @@
             <thead>
                 <tr>
                     <th>Nome</th>
-                    <th>Tipo Afiliado</th>
-                    <th>Função</th>
-                    <th><i class="fas fa-birthday-cake"></i></th>
-                    <th><i class="fas fa-phone"></i></th>
+                    <th>Status</th>
                     <th>Opções</th>
                 </tr>
             </thead>
@@ -36,10 +33,7 @@
             <tfoot>
                 <tr>
                     <th>Nome</th>
-                    <th>Tipo Afiliado</th>
-                    <th>Função</th>
-                    <th><i class="fas fa-birthday-cake"></i></th>
-                    <th><i class="fas fa-phone"></i></th>
+                    <th>Status</th>
                     <th>Opções</th>
                 </tr>
             </tfoot>
