@@ -15,14 +15,6 @@ $(document).ready(function () {
     };
 
     $("#list-afiliados").DataTable({
-        // stateSave: true,
-        // stateSaveCallback: function (settings, data) {
-        //     // console.log(data);
-        //     localStorage.setItem('DataTables_Chamada', JSON.stringify([]))
-        // },
-        // stateLoadCallback: function (settings) {
-        //     return JSON.parse(localStorage.getItem('DataTables_Chamada'))
-        // },
         processing: true,
         serverSide: true,
         ajax: {

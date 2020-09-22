@@ -242,13 +242,15 @@ input[type="checkbox"]:indeterminate {
     background: var(--color-primary);
     color: var(--color-button-text);
     border: none;
-    margin-top: 1rem;
+    padding: 0.5rem;
+    margin: 0.3rem;
     font: var(--font-base);
     border-radius: 0.2rem;
 }
 
 .button-submit:hover {
     background: var(--color-primary-hover);
+    transition: 0.2s;
 }
 
 @media(max-width:750px) {
