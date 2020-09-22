@@ -24,6 +24,7 @@
                 <tr>
                     <th>Nome</th>
                     <th>Status</th>
+                    <th>Ativar</th>
                     <th>Opções</th>
                 </tr>
             </thead>
@@ -34,6 +35,7 @@
                 <tr>
                     <th>Nome</th>
                     <th>Status</th>
+                    <th>Ativar</th>
                     <th>Opções</th>
                 </tr>
             </tfoot>

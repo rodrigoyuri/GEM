@@ -14,6 +14,16 @@ $(document).ready(function () {
         return data;
     };
 
+    let toggleTag = function (data, type, row) {
+        if (type === "display") {
+            return `<label class="check-toggle">
+                        <input name="" type="checkbox" value="${data}" data-status-on-off>
+                        <span class="slider round"></span>
+                    </label> `;
+        }
+        return data;
+    };
+
     $("#list-afiliados").DataTable({
         processing: true,
         serverSide: true,
@@ -27,6 +37,11 @@ $(document).ready(function () {
             },
             {
                 data: "nm_status_voluntario",
+            },
+            {
+                data: "cd_afiliado",
+                orderable: false,
+                render: toggleTag,
             },
             {
                 class: "details-control",
@@ -77,6 +92,23 @@ $(document).ready(function () {
 
         localStorage.setItem('DataTables_Chamada', JSON.stringify(cods))
     });
+
+    $('#list-afiliados tbody').on('click', 'tr td input[data-status-on-off]', function () {
+        let btn = ($(this).val())
+
+        console.log(btn)
+
+        // $.ajax({
+        //     type: "PUT",
+        //     url: "http://localhost/GEM/admin/lista-chamada",
+        //     data: { id: btn },
+        //     success: function (response) {
+        //         console.log(response)
+        //     }
+        // });
+
+    });
+
 
     $('#btn-encerrar').click(function () {
         let presents = {
