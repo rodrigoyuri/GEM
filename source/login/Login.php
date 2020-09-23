@@ -64,7 +64,7 @@ class Login extends Crud
             //senha que será enviado no email de recuperação
             // $newPasswordEmail = $this->generatorPasswordRandom(5);
 
-            $newPasswordEmail = "admin123"; //$this->generatorPasswordRandom(5);
+            $newPasswordEmail = $this->generatorPasswordRandom(5); //"admin123"; //
 
             // encriptografar a senha antes de atualizar
             $newPasswordDB = password_hash($newPasswordEmail, PASSWORD_DEFAULT);
@@ -75,7 +75,7 @@ class Login extends Crud
 
             if ($update) {
 
-                return $newPasswordEmail;
+                // return $newPasswordEmail;
 
                 if ($this->sendEmail($email, $newPasswordEmail)) {
                     return true;
@@ -132,14 +132,14 @@ class Login extends Crud
         // Para enviar o e-mail em formato HTML com codificação de caracteres Europeu Ocidental (usado no Brasil)
         $headers .= "Content-type: text/html; charset=iso-8859-1\n";
         // E-mail que receberá a resposta quando se clicar no 'Responder' de seu leitor de e-mails
-        $headers .= "Reply-To: evelynjogos@gmail.com\n";
+        $headers .= "Reply-To: estreladamama@hotmail.com\n";
         // $headers .= 'From: ProjetoModular';
 
         $arquivo = "<h1>Sua nova senha é:</h1> <h3>$message</h3> ";
 
-        $from = "evelynbrandao15@gmail.com"; //$email
+        $from = $email;
 
-        $send = mail($from, "Nova senha de Projeto Modular ", $arquivo, $headers);
+        $send = mail($from, "Nova senha de GEM ", $arquivo, $headers);
 
         //$send = mail("evelynbrandao15@gmail.com", "Nova senha de Projeto Modular ", $arquivo);
         return $send;
