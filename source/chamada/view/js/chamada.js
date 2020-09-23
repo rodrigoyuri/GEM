@@ -1,4 +1,7 @@
 $(document).ready(function () {
+    
+    let urlDev = "http://localhost/GEM";
+    let urlProd = "https://estreladamama.com.br";
 
     localStorage.setItem('DataTables_Chamada', JSON.stringify([]))
 
@@ -34,7 +37,7 @@ $(document).ready(function () {
         processing: true,
         serverSide: true,
         ajax: {
-            url: "http://localhost/GEM/admin/lista-chamada",
+            url: `${urlProd}/admin/lista-chamada`,
             type: "POST",
         },
         columns: [
@@ -103,7 +106,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: "PUT",
-            url: "http://localhost/GEM/admin/status-afiliado",
+            url: `${urlProd}/admin/status-afiliado`,
             data: { id: btn },
             success: function (response) {
                 console.log(response)
@@ -120,7 +123,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: "PUT",
-            url: "http://localhost/GEM/admin/lista-chamada",
+            url: `${urlProd}/admin/lista-chamada`,
             data: (presents),
             success: function (response) {
                 //alert(response)
