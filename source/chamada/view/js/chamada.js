@@ -46,6 +46,9 @@ $(document).ready(function () {
                 visible: false
             },
             {
+                data: "Frequencia",
+            },
+            {
                 data: "cd_afiliado",
                 orderable: false,
                 render: toggleTag,

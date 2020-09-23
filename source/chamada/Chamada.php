@@ -19,8 +19,8 @@ class Chamada extends Crud
         $start = $data['start'];
         $end = $data['length'];
 
-        $queryFilter = parent::select("cd_afiliado, nm_afiliado, nm_status_voluntario")
-            ->from("afiliado");
+        $queryFilter = parent::select("cd_afiliado, nm_afiliado, nm_status_voluntario, ROUND(((qt_presencas / qt_total_disponibilidade_ano) * 100)) AS Frequencia")
+            ->from("afiliado, chamada")->where("cd_afiliado = id_afiliado");
 
         if (!empty($data["search"]['value'])) {
             $queryFilter = $queryFilter
@@ -51,9 +51,9 @@ class Chamada extends Crud
 
     public function updatePresent($data = array())
     {
-        $presents = parent::update("chamada", "qt_faltas = qt_faltas + ?", [1])->where("id_afiliado NOT IN (?)", $data)->execute();
+        $presents = parent::update("chamada", "qt_presencas = qt_presencas + ?", [1])->where("id_afiliado IN (?)", $data)->execute();
 
-        if ($presents || NULL) {
+        if ($presents) {
             return "Chamada Efetuada com Sucesso";
         } else {
             return "Erro ao Realizar a Chamada";

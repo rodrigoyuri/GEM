@@ -93,11 +93,13 @@ abstract class Crud
      * @param values
      * @return Crud
      */
-    protected function where(string $conditions, array $values): ?Crud
+    protected function where(string $conditions, array $values = []): ?Crud
     {
-        foreach ($values as $value) {
-            array_push($this->terms, $value);
-        }
+        if(!empty($values)) {
+            foreach ($values as $value) {
+                array_push($this->terms, $value);
+            }
+        }        
         $this->query .= " WHERE $conditions";
         return $this;
     }

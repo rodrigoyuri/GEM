@@ -24,6 +24,7 @@
                 <tr>
                     <th>Nome</th>
                     <th>Status</th>
+                    <th>Frequência</th>
                     <th>Ativar</th>
                     <th>Opções</th>
                 </tr>
@@ -35,6 +36,7 @@
                 <tr>
                     <th>Nome</th>
                     <th>Status</th>
+                    <th>Frequência</th>
                     <th>Ativar</th>
                     <th>Opções</th>
                 </tr>
