@@ -412,6 +412,7 @@ $(document).ready(function () {
 	$('input[name="cep"]').mask("00000-000");
 	$('input[name="telefone"]').mask("(00) 0000-0000");
 	$('input[name="celular"]').mask("(00) 00000-0000");
+	$('input[name="dataNascimento"]').mask("'00/00/0000'");
 
 	function validarCPF(input) {
 		let valor = input.split("");
