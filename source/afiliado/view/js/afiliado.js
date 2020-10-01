@@ -24,14 +24,17 @@ $(document).ready(function () {
 		return "-";
 	};
 
-	let urlDev = "http://localhost/GEM";
-	let urlProd = "https://estreladamama.com.br";
+	/** URL DE DESENVOLVIMENTO */
+	//let url = "http://localhost/GEM";
+
+	/** URL DE PRODUÇÃO */
+	let url = "https://estreladamama.com.br";
 
 	$("#list-afiliados").DataTable({
 		processing: true,
 		serverSide: true,
 		ajax: {
-			url: `${urlProd}/admin/lista-geral`,
+			url: `${url}/admin/lista-geral`,
 			type: "POST",
 		},
 		columns: [
@@ -106,7 +109,7 @@ $(document).ready(function () {
 
 		$.ajax({
 			type: "get",
-			url: `${urlProd}/admin/lista-geral/${id}`,
+			url: `${url}/admin/lista-geral/${id}`,
 			success: function (response) {
 				let affiliate = JSON.parse(response);
 				// seto valor nos campos text

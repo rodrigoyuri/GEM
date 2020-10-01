@@ -675,3 +675,10 @@ FIM: CSS dos inputs/form de #form-affiliate
         flex-direction: column;
     }
 }
+
+@media only screen and (max-width: 567px) {
+    input[type="date"]::-webkit-inner-spin-button,
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        display: none;
+        -webkit-appearance: none;
+    }
