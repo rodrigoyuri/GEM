@@ -61,6 +61,18 @@ class ControllerAfiliado extends Controller
 
         echo $afiliado;
     }
+    
+    public function deleteAffiliates($data) {
+
+        $delete = (new Afiliado)->deleteAffiliate($data["id"]);
+        
+        if($delete){
+            echo "Excluido com sucesso";
+        }else{
+            echo "Não foi possível excluir o usuário";
+        }
+
+    }
 
     public function registerAffiliate($data)
     {

@@ -140,6 +140,13 @@ class Afiliado extends Crud
         }
     }
 
+    public function deleteAffiliate($id){
+       
+        $crud = $this->delete()->from("afiliado")->where("cd_afiliado = ?", [$id])->execute();
+
+        return $crud;
+    }
+
     public function insertItem(array $data = null)
     {
         $query = $this->insert("item", $data, "qt_item, nm_item, id_afiliado")->execute();

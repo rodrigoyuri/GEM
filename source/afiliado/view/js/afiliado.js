@@ -25,10 +25,10 @@ $(document).ready(function () {
 	};
 
 	/** URL DE DESENVOLVIMENTO */
-	//let url = "http://localhost/GEM";
+	let url = "http://localhost/GEM";
 
 	/** URL DE PRODUÇÃO */
-	let url = "https://estreladamama.com.br";
+	// let url = "https://estreladamama.com.br";
 
 	$("#list-afiliados").DataTable({
 		processing: true,
@@ -178,10 +178,34 @@ $(document).ready(function () {
 			return "Ass/Vol";
 		}
 	}
+	
+	//Area de exclusão do afiliado
+
+	let excluir = document.querySelector('#modal-delete-affiliate');
+	excluir.addEventListener('click', () => {
+
+		let id = document.querySelector('#codAfiliado');
+		
+		$.ajax({
+			type: "POST",
+			url: "http://localhost/GEM/admin/lista-geral/delete",
+			data: { 'id': id.value },
+			success: function (response) {
+				console.log(response);
+				alert(response);
+				location.reload();
+			},
+			error: function (error) {
+				alert("Erro" + error);
+				console.log("Erro" + error);
+			}
+		});
+	});
 
 	/**
 	 * JS do editar afiliado
 	 */
+
 	$("#modal-edit-affiliate").on("click", function () {
 		$("#modal-salve-affiliate").show();
 		$(this).hide();

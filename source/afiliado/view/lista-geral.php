@@ -52,8 +52,11 @@
     <div id="modal-ver" class="modal-container modal-hidden" close="modal-ver">
         <div class="modal">
             <div class="modal-header">
-                <button id="modal-edit-affiliate" class="input-base input-item-btn">Editar</button>
-                <button id="modal-salve-affiliate" class="input-base input-item-btn input-salve" hidden>Salvar</button>
+                <div class="modal-buttons">
+                    <button id="modal-edit-affiliate" class="input-base input-item-btn">Editar</button>
+                    <button id="modal-salve-affiliate" class="input-base input-item-btn input-salve" hidden>Salvar</button>
+                    <button id="modal-delete-affiliate" class="input-base input-item-btn">Excluir</button>
+                </div>
                 <p id="modal-text-type">Afiliado</p>
                 <span close="modal-ver"><i class="fas fa-times"></i></span>
             </div>

@@ -24,10 +24,13 @@ $router->group("admin");
 $router->get("/lista-geral", "ControllerAfiliado:renderGeneralList");
 $router->get("/lista-geral/{id}", "ControllerAfiliado:getAffiliate");
 $router->post("/lista-geral", "ControllerAfiliado:tableList");
+$router->post("/lista-geral/delete","ControllerAfiliado:deleteAffiliates");
 
 $router->get("/cadastro-afiliado", "ControllerAfiliado:renderRegisterAffiliate");
 $router->post("/cadastro-afiliado", "ControllerAfiliado:registerAffiliate", "form.affiliate");
 $router->put("/cadastro-afiliado/{id}", "ControllerAfiliado:updateAffiliate");
+
+
 
 $router->get("/cadastro-item/{id}", "ControllerAfiliado:getItem");
 $router->post("/cadastro-item", "ControllerAfiliado:registerItem", "form.items");
