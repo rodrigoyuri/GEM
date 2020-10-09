@@ -202,7 +202,7 @@
                             </div>
                             <div class="field">
                                 <div class="label">Nº</div>
-                                <input type="text" class="input-base" name="numero" id="numero" title="Numero">
+                                <input type="number" class="input-base" name="numero" id="numero" title="Numero">
                             </div>
                             <div class="field">
                                 <div class="label">Complemento</div>
