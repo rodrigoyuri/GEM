@@ -195,6 +195,20 @@
                                 <div class="label">Bairro</div>
                                 <input type="text" class="input-base" name="bairro" id="bairro" title="Bairro">
                             </div>
+
+                            <div class="field">
+                                <div class="label">Rua</div>
+                                <input type="text" class="input-base" name="rua" id="rua" title="Rua">
+                            </div>
+                            <div class="field">
+                                <div class="label">Nº</div>
+                                <input type="text" class="input-base" name="numero" id="numero" title="Numero">
+                            </div>
+                            <div class="field">
+                                <div class="label">Complemento</div>
+                                <input type="text" class="input-base" name="complemento" id="complemento" title="Complemento">
+                            </div>
+                            
                             <div class="field">
                                 <div class="label">CEP</div>
                                 <input type="text" class="input-base" name="cep" id="cep" title="CEP">

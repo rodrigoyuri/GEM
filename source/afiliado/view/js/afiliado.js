@@ -25,10 +25,10 @@ $(document).ready(function () {
 	};
 
 	/** URL DE DESENVOLVIMENTO */
-	let url = "http://localhost/GEM";
+	// let url = "http://localhost/GEM";
 
 	/** URL DE PRODUÇÃO */
-	// let url = "https://estreladamama.com.br";
+	 let url = "https://estreladamama.com.br";
 
 	$("#list-afiliados").DataTable({
 		processing: true,
@@ -297,7 +297,10 @@ $(document).ready(function () {
 				value.name !== "estado" &&
 				value.name !== "cidade" &&
 				value.name !== "cep" &&
-				value.name !== "bairro"
+				value.name !== "bairro" &&
+				value.name !== "rua" &&
+				value.name !== "numero" &&
+				value.name !== "complemento"
 			) {
 				return value;
 			}
@@ -308,7 +311,10 @@ $(document).ready(function () {
 				value.name === "estado" ||
 				value.name === "cidade" ||
 				value.name === "cep" ||
-				value.name === "bairro"
+				value.name === "bairro" ||
+				value.name === "rua" ||
+				value.name === "numero" ||
+				value.name === "complemento"
 			) {
 				return value;
 			}
