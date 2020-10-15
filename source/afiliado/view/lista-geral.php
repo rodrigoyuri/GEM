@@ -286,7 +286,7 @@
                                 </div>
 
                                 <div class="field">
-                                    <div class="label">Auta Hospitalar</div>
+                                    <div class="label">Alta Hospitalar</div>
                                     <input type="date" name="auta" class="input-base" id="auta">
                                 </div>
 
@@ -334,6 +334,7 @@
                                     <th>Qtd</th>
                                     <th>Nome</th>
                                     <th>Data</th>
+                                    <th>Opção</th>
                                 </tr>
                             </thead>
                             <tbody>

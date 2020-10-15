@@ -28,7 +28,7 @@ $(document).ready(function () {
 	// let url = "http://localhost/GEM";
 
 	/** URL DE PRODUÇÃO */
-	 let url = "https://estreladamama.com.br";
+	let url = "https://estreladamama.com.br";
 
 	$("#list-afiliados").DataTable({
 		processing: true,
@@ -514,10 +514,38 @@ $(document).ready(function () {
 			items = items == null ? [] : items;
 
 			items.map((e) => {
-				let row = `<tr><td>${e.qt}</td><td>${e.nome}</td><td>${e.data}</td></tr>`;
+				let row = `<tr>
+					<td>${e.qt}</td><td>${e.nome}</td>
+					<td>${e.data}</td>
+					<td>
+						<button delete-item value=${e.id}>
+							<i class="fas fa-trash-alt"></i>
+						</butoon>
+					</td>
+				</tr>`;
 				$("#list-items").append(row);
 			})
 
+		});
+	}
+
+	$("#list-items").on("click", "[delete-item]", deleteItemsAffiliate);
+
+	function deleteItemsAffiliate(e) {
+		e.preventDefault();
+		let codigoItem = $(this).val();
+
+		$.ajax({
+			type: "DELETE",
+			url: url + "/admin/excluir-item",
+			data: {codigoItem},
+			success: function (response) {
+			  alert(response);
+			  location.reload();
+			},
+			error: function (error) {
+			  console.log("Erro: " + error);
+			},
 		});
 	}
 

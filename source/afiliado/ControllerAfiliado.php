@@ -105,6 +105,17 @@ class ControllerAfiliado extends Controller
         echo json_encode($afiliado);
     }
 
+    public function deleteItems($data)
+    {
+        $delete = (new Afiliado)->deleteItem($data["codigoItem"]);
+        
+        if($delete){
+            echo "Excluido com sucesso";
+        }else{
+            echo "Não foi possível excluir o item";
+        }
+    }
+
     public function renderViewAffiliate()
     {
         $this->verify("A", "/ver-afiliado", "/ops");

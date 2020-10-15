@@ -162,11 +162,18 @@ class Afiliado extends Crud
     }
     public function showItems(int $id)
     {
-        $query = $this->select("qt_item as qt, nm_item as nome, dt_aquisicao as data")
+        $query = $this->select("cd_item as id, qt_item as qt, nm_item as nome, dt_aquisicao as data")
             ->from("item")
             ->where("id_afiliado = ?", [$id])
             ->execute("fetchAll");
 
         return $query;
+    }
+
+    public function deleteItem(int $id) 
+    {
+        $crud = $this->delete()->from("item")->where("cd_item = ?", [$id])->execute();
+
+        return $crud;
     }
 }
