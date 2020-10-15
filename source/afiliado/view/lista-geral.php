@@ -90,7 +90,7 @@
                             </div>
                             <div class="field">
                                 <div class="label">Data de nascimento</div>
-                                <input type="text" class="input-base" name="dataNascimento" id="data" title="Data de Nascimento">
+                                <input type="text" class="input-base" name="data" id="data" title="Data de Nascimento">
                             </div>
                             <div class="field">
                                 <button class="firstNext next" modal-view="dados-contatos">Próximo</button>

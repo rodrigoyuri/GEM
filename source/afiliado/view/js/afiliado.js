@@ -188,7 +188,7 @@ $(document).ready(function () {
 		
 		$.ajax({
 			type: "POST",
-			url: "http://localhost/GEM/admin/lista-geral/delete",
+			url: `${url}/admin/lista-geral/delete`,
 			data: { 'id': id.value },
 			success: function (response) {
 				console.log(response);
