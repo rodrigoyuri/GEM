@@ -1,7 +1,7 @@
 $(document).ready(function () {
     
     /** URL DE DESENVOLVIMENTO */
-    //let url = "http://localhost/GEM";
+    // let url = "http://localhost/GEM";
 
     /** URL DE PRODUÇÂO */
     let url = "https://estreladamama.com.br";
@@ -132,13 +132,35 @@ $(document).ready(function () {
             url: `${url}/admin/lista-chamada`,
             data: (presents),
             success: function (response) {
-                //alert(response)
+                alert(response)
                 console.log(response)
+                window.location.reload();
             },
             error: function (error) {
                 console.log("Erro " + error);
             },
         });
+    });
+
+    $('#btn-resetar').click(function () {
+        let confirmOption = confirm(`Deseja realmente resetar a chamada ? \n\n
+        OBS: Todos os Afiliados retornaram com 100% de presença.\n
+        Recomendamos que faça isso apenas em começo de ano.`);
+
+        if(confirmOption) {
+            $.ajax({
+                type: "POST",
+                url: `${url}/admin/resetar-chamada`,
+                success: function (response) {
+                    alert(response)
+                    console.log(response)
+                    window.location.reload();
+                },
+                error: function (error) {
+                    console.log("Erro " + error);
+                },
+            });
+        }         
     });
 
 

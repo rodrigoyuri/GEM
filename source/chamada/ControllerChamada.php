@@ -52,4 +52,15 @@ class ControllerChamada extends Controller
 
         echo json_encode($affiliates);
     }
+
+    public function resetChamada()
+    {
+        $chamada = (new Chamada)->reset();
+
+        if($chamada) {
+            echo "Chamada resetada com sucesso";
+        } else {
+            echo "Erro ao resetar a Chamada";
+        }
+    }
 }

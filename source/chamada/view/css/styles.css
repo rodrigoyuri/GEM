@@ -311,7 +311,21 @@ input[type="checkbox"]:indeterminate {
     border-radius: 50%;
 }
 
-/* INICIO: Botão Toggle para ativar e desativar afiliado */
+/* FIM: Botão Toggle para ativar e desativar afiliado */
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.buttons #btn-resetar {
+    background-color: var(--color-error);
+}
+
+.buttons #btn-encerrar {
+    background-color: var(--color-success);
+}
 
 @media(max-width:750px) {
 

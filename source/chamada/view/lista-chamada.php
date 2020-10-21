@@ -26,7 +26,7 @@
                     <th>Status</th>
                     <th>Frequência</th>
                     <th>Ativar</th>
-                    <th>Opções</th>
+                    <th>Presentes</th>
                 </tr>
             </thead>
             <tbody>
@@ -38,12 +38,15 @@
                     <th>Status</th>
                     <th>Frequência</th>
                     <th>Ativar</th>
-                    <th>Opções</th>
+                    <th>Presentes</th>
                 </tr>
             </tfoot>
         </table>
 
-        <button id="btn-encerrar" class="button-submit">Encerrar chamada</button>
+        <div class="buttons">
+            <button id="btn-resetar" class="button-submit">Resetar Chamada</button>
+            <button id="btn-encerrar" class="button-submit">Encerrar chamada</button>
+        </div>
     </div>
 
     <?php include __DIR__ . "/../../global/components/links-js.php" ?>

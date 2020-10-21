@@ -24,9 +24,9 @@
                     </li>
                 </ul>
             </li>
-            <!--<li>
+            <li>
                 <a href="<?= URL_BASE ?>/admin/lista-chamada"><i class="fas fa-clipboard-check"></i>Chamada</a>
-            </li>-->
+            </li>
 
             <li>
                 <a href="<?= URL_BASE ?>/sair"><i class="fas fa-sign-out-alt"></i>Sair</a>

@@ -113,7 +113,6 @@ abstract class Crud
     protected function order(string $columns, string $order = "ASC"): ?Crud
     {
         $this->query .= " ORDER BY $columns $order ";
-        // $this->query .= " ORDER BY $columns ";
         return $this;
     }
 
@@ -125,6 +124,20 @@ abstract class Crud
     protected function limit(int $start = 0, int $end = 10): ?Crud
     {
         $this->query .= " LIMIT $start, $end";
+        return $this;
+    }
+
+    /**
+     * @return Crud
+     */
+    protected function call(string $name, array $params = []): ?Crud
+    {
+        if(!empty($params)) {
+            foreach ($params as $param) {
+                array_push($this->terms, $param);
+            }
+        }  
+        $this->query .= " CALL $name";
         return $this;
     }
 

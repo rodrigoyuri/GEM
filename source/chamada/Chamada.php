@@ -49,23 +49,25 @@ class Chamada extends Crud
         return $jsonData;
     }
 
-    public function updatePresent($data = array())
+    public function updatePresent($data = [])
     {
         $setFaults = parent::update("chamada", "qt_presencas = qt_presencas - ?", [1])->execute();
 
         if($setFaults) {
-            $setPresents = parent::update("chamada", "qt_presencas = qt_presencas + ?", [1])->where("id_afiliado IN (?)", $data)->execute();
-        } else {
-            return "Erro ao Realizar a Chamada";
-        }        
+            if(!empty($data)) {
+                $setPresents = parent::update("chamada", "qt_presencas = qt_presencas + ?", [1])->where("id_afiliado IN (?)", $data)->execute();
 
-        if ($setPresents) {
-            return "Chamada Efetuada com Sucesso";
+                if ($setPresents) {
+                    return "Chamada Efetuada com Sucesso";
+                } else {
+                    return "Erro ao efetuar o calculo da presença";
+                }
+            } else {
+                return "Chamada Efetuada com sucesso\n todos receberam faltas";
+            }
         } else {
-            return "Erro ao Realizar a Chamada";
+            return "Erro ao efetuar a contagem de faltas";
         }
-        
-        return;
     }
 
     public function toggleAffiliate(int $id = null)
@@ -77,5 +79,12 @@ class Chamada extends Crud
         } else {
             return "Erro ao modificar";
         }
+    }
+
+    public function reset()
+    {
+        $reset = parent::call("prc_reset_chamada()")->execute();
+
+        return $reset;
     }
 }
