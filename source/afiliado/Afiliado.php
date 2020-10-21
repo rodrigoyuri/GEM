@@ -11,7 +11,7 @@ class Afiliado extends Crud
     public function showAffiliate(int $id)
     {
         $query = parent::select("cd_afiliado as cod, nm_afiliado as nome, cd_rg as rg, cd_cpf as cpf,
-                                nm_nacionalidade as nacionalidade, ic_sexo as sexo, dt_nascimento as data,
+                                nm_nacionalidade as nacionalidade, ic_sexo as sexo, DATE_FORMAT(dt_nascimento, '%d/%m/%Y') as data,
                                 nm_endereco as endereco, cd_telefone as telefone,cd_contato as celular, nm_email as email,
                                 nm_situacao_profissional qualificacao , nm_tipo_afiliado as tipo, nm_area_interesse as funcao,
                                 nm_disponibilidade as week, nm_diagnostico as diagnostico,
@@ -41,8 +41,6 @@ class Afiliado extends Crud
         $columns = array(
             "0" => "nm_afiliado",
             "1" => "nm_tipo_afiliado",
-            "2" => "dt_nascimento",
-            "3" => "cd_telefone",
         );
 
         $orderBy = "{$columns[$data['order'][0]['column']]}";
@@ -54,8 +52,10 @@ class Afiliado extends Crud
             ->from("afiliado");
 
         if (!empty($data["search"]['value'])) {
+            $searchLike = "%{$data["search"]['value']}%";
             $queryFilter = $queryFilter
-                ->where("nm_afiliado LIKE (?) OR nm_area_interesse LIKE (?)", ["%{$data["search"]['value']}%", "%{$data["search"]['value']}%"]);
+                ->where("nm_afiliado LIKE (?) OR nm_area_interesse LIKE (?) OR DATE_FORMAT(dt_nascimento, '%d/%m/%Y') LIKE(?)",
+                 [$searchLike, $searchLike, $searchLike]);
         }
 
         $totalRegisterInQuery = $queryFilter->execute("rowCount", false);
