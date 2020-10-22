@@ -135,10 +135,11 @@ class Afiliado extends Crud
                                             nm_disponibilidade = ?", $data)
             ->where("cd_afiliado = ?", [$id])->execute();
 
-        if ($crud) {
+            $resetFrequenciAffiliate = parent::call("prc_reset_chamada_id(?)", [$id])->execute();
+
+        if ($crud && $resetFrequenciAffiliate) {
             return "Atualizado Com Sucesso";
         } else {
-            return "não";
             return $this->getError();
         }
     }
