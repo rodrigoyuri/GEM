@@ -386,6 +386,7 @@ input[type="checkbox"]:indeterminate {
         margin-top: .5rem;
     }
 
-
-
+    .buttons {
+        flex-direction: column-reverse;
+    }
 }
