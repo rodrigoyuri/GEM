@@ -56,7 +56,7 @@ $(document).ready(function () {
 				orderable: false,
 			},
 			{
-				data: "cd_telefone",
+				data: "cd_contato",
 				orderable: false,
 			},
 			{

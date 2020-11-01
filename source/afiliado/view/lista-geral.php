@@ -27,7 +27,7 @@
                     <th>Função</th>
                     <th>Status</th>
                     <th><i class="fas fa-birthday-cake"></i></th>
-                    <th><i class="fas fa-phone"></i></th>
+                    <th><i class="fas fa-mobile-alt"></i></th>
                     <th>Opções</th>
                 </tr>
             </thead>
@@ -41,7 +41,7 @@
                     <th>Função</th>
                     <th>Status</th>
                     <th><i class="fas fa-birthday-cake"></i></th>
-                    <th><i class="fas fa-phone"></i></th>
+                    <th><i class="fas fa-mobile-alt"></i></th>
                     <th>Opções</th>
                 </tr>
             </tfoot>
@@ -256,7 +256,7 @@
                                     <input type="text" name="qualificacao" class="input-base">
                                 </div>
 
-                                <div class="fielda">
+                                <div class="field">
                                     <div class="label">Disponibilidade</div>
                                     <div class="todas">
                                         <div class="div">
@@ -290,7 +290,7 @@
                                     <input type="date" name="auta" class="input-base" id="auta">
                                 </div>
 
-                                <div class="fielda">
+                                <div class="field">
                                     <div class="label">Cirurgia da mama</div>
                                     <div>
                                         <div class="field label-mama-direita">
