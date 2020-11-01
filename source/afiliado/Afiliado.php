@@ -41,6 +41,8 @@ class Afiliado extends Crud
         $columns = array(
             "0" => "nm_afiliado",
             "1" => "nm_tipo_afiliado",
+            "2" => "nm_area_interesse",
+            "3" => "status",
         );
 
         $orderBy = "{$columns[$data['order'][0]['column']]}";
