@@ -25,10 +25,10 @@ $(document).ready(function () {
 	};
 
 	/** URL DE DESENVOLVIMENTO */
-	let url = "http://localhost/GEM";
+	// let url = "http://localhost/GEM";
 
 	/** URL DE PRODUÇÃO */
-	// let url = "https://estreladamama.com.br";
+	let url = "https://estreladamama.com.br";
 
 	let dataTableList = $("#list-afiliados").DataTable({
 		processing: true,
