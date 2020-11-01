@@ -54,7 +54,6 @@ li:hover {
 }
 
 .nav-sub {
-  /* text-align: right; */
   list-style-type: none;
   padding-left: 1rem;
   overflow: hidden;
@@ -63,7 +62,7 @@ li:hover {
   background-color: #ef556c;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 1190px) {
   .visable {
     display: none;
   }

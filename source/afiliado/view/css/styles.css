@@ -596,7 +596,7 @@ FIM: CSS dos inputs/form de #form-affiliate
     }
 }
 
-@media(max-width:750px) {
+@media(max-width:1190px) {
 
     .container {
         width: 100vw;
