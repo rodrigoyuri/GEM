@@ -280,7 +280,7 @@
                             </div>
 
                             <div id="assistida">
-                                <div class="field">
+                                <!-- <div class="field">
                                     <div class="label">Diagnóstico</div>
                                     <textarea name="diagnostico" id="diagnostico" cols="30" rows="10" class="input-base"></textarea>
                                 </div>
@@ -288,9 +288,9 @@
                                 <div class="field">
                                     <div class="label">Alta Hospitalar</div>
                                     <input type="date" name="auta" class="input-base" id="auta">
-                                </div>
+                                </div> -->
 
-                                <div class="field">
+                                <!-- <div class="field">
                                     <div class="label">Cirurgia da mama</div>
                                     <div>
                                         <div class="field label-mama-direita">
@@ -309,11 +309,11 @@
                                             <input type="date" name="anoEsquerda" class="input-base" id="anoEsquerda">
                                         </div>
                                     </div>
-                                </div>
-                                <div class="field">
+                                </div> -->
+                                <!-- <div class="field">
                                     <div class="label">Convenio</div>
                                     <textarea name="convenio" cols="30" rows="10" class="input-base"></textarea>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="field btns">
                                 <button class="prev-2 prev" modal-view="dados-contatos">Anterior</button>
