@@ -25,7 +25,7 @@ $(document).ready(function () {
 	};
 
 	/** URL DE DESENVOLVIMENTO */
-	// let url = "http://localhost/GEM";
+	//let url = "http://localhost/GEM";
 
 	/** URL DE PRODUÇÃO */
 	let url = "https://estreladamama.com.br";
@@ -111,6 +111,7 @@ $(document).ready(function () {
 			type: "get",
 			url: `${url}/admin/lista-geral/${id}`,
 			success: function (response) {
+				console.log(response);
 				let affiliate = JSON.parse(response);
 				// seto valor nos campos text
 				for (let i = 0; i < inputForm.length; i++) {
@@ -127,21 +128,12 @@ $(document).ready(function () {
 						: "";
 				}
 
-				let right = $("#form-affiliate [name='mamaDireita']");
-				let left = $("#form-affiliate [name='mamaEsquerda']");
-
-				affiliate["mamaDireita"] == right[0].value
-					? (right[0].checked = true)
-					: "";
-				affiliate["mamaEsquerda"] == left[0].value
-					? (left[0].checked = true)
-					: "";
-
 				$(".modal-header #modal-text-type").text(
 					textStatusAffiliate([
 						affiliate["tipo"],
 						affiliate["statusVol"],
-						affiliate["statusAss"],
+						affiliate["estado_da_assistida"],
+						affiliate["data_ingressao"]
 					])
 				);
 				$(".dados #codAfiliado").val(affiliate["cod"]);

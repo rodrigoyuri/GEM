@@ -14,10 +14,7 @@ class Afiliado extends Crud
                                 nm_nacionalidade as nacionalidade, ic_sexo as sexo, DATE_FORMAT(dt_nascimento, '%d/%m/%Y') as data,
                                 nm_endereco as endereco, cd_telefone as telefone,cd_contato as celular, nm_email as email,
                                 nm_situacao_profissional qualificacao , nm_tipo_afiliado as tipo, nm_area_interesse as funcao,
-                                nm_disponibilidade as week, nm_diagnostico as diagnostico,
-                                nm_cirurgia_mama_direita as mamaDireita, dt_cirugia_mama_direita as anoDireita,
-                                nm_cirurgia_mama_esquerda as mamaEsquerda,dt_cirugia_mama_esquerda as anoEsquerda,
-                                nm_convenio_medico as convenio, nm_status_assistida as statusAss, nm_status_voluntario as statusVol")
+                                nm_disponibilidade as week, nm_status_assistida as estado_da_assistida, nm_status_voluntario as statusVol, dt_inicio_afiliado as data_ingressao")
             ->from("afiliado")->where("cd_afiliado = ?", [$id])->execute("fetch");
 
         $endereco = explode(";", $query->endereco);
@@ -29,6 +26,7 @@ class Afiliado extends Crud
         $query->complemento = (isset($endereco[5])) ? $endereco[5] : null;
         $query->cep = (isset($endereco[6])) ? $endereco[6] : null;
         // Deixo tudo em minusculo, removo espaços em branco e separo em um array pelo ;
+        
         $query->week = explode(";", str_replace(" ", "", strtolower($query->week)));
 
         unset($query->endereco);
@@ -84,19 +82,14 @@ class Afiliado extends Crud
 
     public function insertAffiliate($data)
     {
-        $crud = $this->insert("afiliado", $data, "dt_cirugia_mama_direita, 
-                                                  dt_cirugia_mama_esquerda,
-                                                  nm_status_assistida,
-                                                  cd_contato,
-                                                  nm_convenio_medico,
+        $crud = $this->insert("afiliado", $data, "cd_contato,
                                                   cd_cpf,
                                                   dt_nascimento,
-                                                  nm_diagnostico,
+                                                  dt_inicio_afiliado,
                                                   nm_email,
                                                   nm_endereco,
+                                                  nm_status_assistida,
                                                   nm_area_interesse,
-                                                  nm_cirurgia_mama_direita,
-                                                  nm_cirurgia_mama_esquerda,
                                                   nm_nacionalidade,
                                                   nm_afiliado,
                                                   nm_situacao_profissional,
@@ -114,19 +107,14 @@ class Afiliado extends Crud
 
     public function updateAffiliate(int $id, array $data)
     {
-        $crud = $this->update("afiliado", "dt_cirugia_mama_direita = ?, 
-                                            dt_cirugia_mama_esquerda = ?,
-                                            nm_status_assistida = ?,
-                                            cd_contato = ?,
-                                            nm_convenio_medico = ?,
+        $crud = $this->update("afiliado", "cd_contato = ?,
                                             cd_cpf = ?,
                                             dt_nascimento = ?,
-                                            nm_diagnostico = ?,
+                                            dt_inicio_afiliado = ?,
                                             nm_email = ?,
                                             nm_endereco = ?,
+                                            nm_status_assistida = ?,
                                             nm_area_interesse = ?,
-                                            nm_cirurgia_mama_direita = ?,
-                                            nm_cirurgia_mama_esquerda = ?,
                                             nm_nacionalidade = ?,
                                             nm_afiliado = ?,
                                             nm_situacao_profissional = ?,

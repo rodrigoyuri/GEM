@@ -89,6 +89,7 @@ class ControllerAfiliado extends Controller
         $data["week"] = $week;
 
         $data["data"] = date("Y-m-d", strtotime(str_replace("/", "-", $data["data"])));
+        $data["data_ingressao"] = date("Y-m-d", strtotime(str_replace("/", "-", $data["data_ingressao"])));
 
         $afiliado = (new Afiliado)->insertAffiliate($data);
 
