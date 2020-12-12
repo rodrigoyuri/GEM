@@ -240,6 +240,10 @@
                                 </select>
                             </div>
                             <div class="field">
+                                <div class="label">Data de Ingressão</div>
+                                <input type="text" class="input-base" name="data_ingressao" id="data_ingressao" title="Data de Ingressão">
+                            </div>
+                            <div class="field">
                                 <div class="label">Tipo</div>
                                 <select id="ddlPassport" name="tipo" class="input-base">
                                     <option value="Assistida">Assistida</option>
@@ -278,42 +282,12 @@
                                     </div>
                                 </div>
                             </div>
-
+                            
                             <div id="assistida">
-                                <!-- <div class="field">
-                                    <div class="label">Diagnóstico</div>
-                                    <textarea name="diagnostico" id="diagnostico" cols="30" rows="10" class="input-base"></textarea>
-                                </div>
-
                                 <div class="field">
-                                    <div class="label">Alta Hospitalar</div>
-                                    <input type="date" name="auta" class="input-base" id="auta">
-                                </div> -->
-
-                                <!-- <div class="field">
-                                    <div class="label">Cirurgia da mama</div>
-                                    <div>
-                                        <div class="field label-mama-direita">
-                                            <input type="checkbox" class="custom-control-input" name="mamaDireita" id="mamaDireita" value="1">
-                                            <label class="custom-control-label" for="mamaDireita">Direita</label>
-                                        </div>
-                                        <div class="data-mama-direita">
-                                            <input type="date" name="anoDireita" class="input-base" id="anoDireita">
-                                        </div>
-
-                                        <div class="field label-mama-direita">
-                                            <input type="checkbox" class="custom-control-input" name="mamaEsquerda" id="mamaEsquerda" value="1">
-                                            <label class="custom-control-label" for="mamaEsquerda">Esquerda</label>
-                                        </div>
-                                        <div class="data-mama-direita">
-                                            <input type="date" name="anoEsquerda" class="input-base" id="anoEsquerda">
-                                        </div>
-                                    </div>
-                                </div> -->
-                                <!-- <div class="field">
-                                    <div class="label">Convenio</div>
-                                    <textarea name="convenio" cols="30" rows="10" class="input-base"></textarea>
-                                </div> -->
+                                    <div class="label">Estado da Assistida</div>
+                                    <input type="text" class="input-base" name="estado_da_assistida" id="estado_da_assistida" placeholder="" title="Estado da Assistida">
+                                </div>
                             </div>
                             <div class="field btns">
                                 <button class="prev-2 prev" modal-view="dados-contatos">Anterior</button>
