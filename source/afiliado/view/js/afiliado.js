@@ -25,7 +25,7 @@ $(document).ready(function () {
 	};
 
 	/** URL DE DESENVOLVIMENTO */
-	//let url = "http://localhost/GEM";
+	// let url = "http://localhost";
 
 	/** URL DE PRODUÇÃO */
 	let url = "https://estreladamama.com.br";
@@ -152,23 +152,13 @@ $(document).ready(function () {
 	});
 
 	function textStatusAffiliate(dataType = []) {
-		if (dataType[0] == "Voluntário" || dataType[0] == "vol") {
+		if (dataType[0] == "Voluntário" || dataType[0] == "vol") 
 			return dataType[1] == 1 ? "Ativo" : "Inativo";
-		} else if (dataType[0] == "Assistida" || dataType[0] == "ass") {
-			if (dataType[2] == "0000-00-00") {
-				return "Tratamento";
-			} else {
-				let now = Date.now(); //data atual
-				let altaHospitalar = new Date(dataType[2]);
-
-				let year = 1000 * 60 * 60 * 24 * 365; //ano
-				let years = (now - altaHospitalar) / year;
-
-				return years >= 5 ? "Curada" : "Observação";
-			}
-		} else if (dataType[0] == "Ambos") {
-			return "Ass/Vol";
+		if (dataType[0] == "Assistida" || dataType[0] == "ass") {
+			if(dataType[2] == "0000-00-00") return "-";
+			return dataType[2];
 		}
+		return "Ass/Vol";			
 	}
 	
 	//Area de exclusão do afiliado
@@ -247,20 +237,14 @@ $(document).ready(function () {
 	 * JS que verifica se o CPF é valido após preencher o input
 	 */
 	$('input[name="cpf"]').focusout(function () {
-		let buttonSend = document.getElementById("enviar");
 		let cpf = removeCharacter($("#cpf").val());
 
 		if (validarCPF(cpf)) {
-			buttonSend.disabled = false;
-			$("#enviar").removeClass("button-disable");
 			$("#cpf").removeClass("cpf-error");
 			$("#cpf").addClass("cpf-success");
 		} else {
-			buttonSend.disabled = true;
 			$("#cpf").removeClass("cpf-success");
 			$("#cpf").addClass("cpf-error");
-			$("#enviar").addClass("button-disable");
-			alert("O CPF digitado é invalido, por favor digite um CPF valido");
 		}
 	});
 
