@@ -56,6 +56,10 @@ $(document).ready(function () {
 				orderable: false,
 			},
 			{
+				data: "cd_telefone",
+				orderable: false
+			},
+			{
 				data: "cd_contato",
 				orderable: false,
 			},

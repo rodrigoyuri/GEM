@@ -12,7 +12,7 @@ class Afiliado extends Crud
     {
         $query = parent::select("cd_afiliado as cod, nm_afiliado as nome, cd_rg as rg, cd_cpf as cpf,
                                 nm_nacionalidade as nacionalidade, ic_sexo as sexo, DATE_FORMAT(dt_nascimento, '%d/%m/%Y') as data,
-                                nm_endereco as endereco, cd_telefone as telefone,cd_contato as celular, nm_email as email,
+                                nm_endereco as endereco, cd_telefone as telefone, cd_contato as celular, nm_email as email,
                                 nm_situacao_profissional qualificacao , nm_tipo_afiliado as tipo, nm_area_interesse as funcao,
                                 nm_disponibilidade as week, nm_status_assistida as estado_da_assistida, nm_status_voluntario as statusVol, dt_inicio_afiliado as data_ingressao")
             ->from("afiliado")->where("cd_afiliado = ?", [$id])->execute("fetch");
@@ -48,7 +48,7 @@ class Afiliado extends Crud
         $start = $data['start'];
         $end = $data['length'];
 
-        $queryFilter = parent::select("cd_afiliado, nm_afiliado, nm_tipo_afiliado, nm_area_interesse, DATE_FORMAT(dt_nascimento, '%d/%m/%Y') as dt_nascimento, cd_contato, CONCAT(nm_tipo_afiliado,';',COALESCE(nm_status_voluntario,'-'), ';', COALESCE(nm_status_assistida, '-')) as status ")
+        $queryFilter = parent::select("cd_afiliado, nm_afiliado, nm_tipo_afiliado, nm_area_interesse, DATE_FORMAT(dt_nascimento, '%d/%m/%Y') as dt_nascimento, cd_telefone, cd_contato, CONCAT(nm_tipo_afiliado,';',COALESCE(nm_status_voluntario,'-'), ';', COALESCE(nm_status_assistida, '-')) as status ")
             ->from("afiliado");
 
         if (!empty($data["search"]['value'])) {

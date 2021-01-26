@@ -27,6 +27,7 @@
                     <th>Função</th>
                     <th>Status</th>
                     <th><i class="fas fa-birthday-cake"></i></th>
+                    <th><i class="fas fa-phone"></i></th>
                     <th><i class="fas fa-mobile-alt"></i></th>
                     <th>Opções</th>
                 </tr>
@@ -41,6 +42,7 @@
                     <th>Função</th>
                     <th>Status</th>
                     <th><i class="fas fa-birthday-cake"></i></th>
+                    <th><i class="fas fa-phone"></i></th>
                     <th><i class="fas fa-mobile-alt"></i></th>
                     <th>Opções</th>
                 </tr>

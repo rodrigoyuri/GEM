@@ -111,10 +111,10 @@
 }
 
 /* Função */
-/* .dataTables_wrapper table tbody tr:nth-child(3),
+.dataTables_wrapper table tbody tr:nth-child(3),
 .dataTables_wrapper table tbody td:nth-child(3) {
-    min-width: 110px;
-} */
+    max-width: 100px;
+}
 
 /* Status */
 /* .dataTables_wrapper table tbody tr:nth-child(4),
