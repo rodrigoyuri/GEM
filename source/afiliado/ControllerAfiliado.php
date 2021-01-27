@@ -57,7 +57,8 @@ class ControllerAfiliado extends Controller
         $id = $data["id"];
         unset($data["id"]);
 
-        $data["data"] = date("Y-m-d", strtotime(str_replace("/", "-", $data["data"])));
+        $data["data"] = $this->validateDate($data["data"]);
+        $data["data_ingressao"] = $this->validateDate($data["data_ingressao"]);
 
         $afiliado = (new Afiliado)->updateAffiliate($id, $data);
 
@@ -88,8 +89,8 @@ class ControllerAfiliado extends Controller
 
         $data["week"] = $week;
 
-        $data["data"] = date("Y-m-d", strtotime(str_replace("/", "-", $data["data"])));
-        $data["data_ingressao"] = date("Y-m-d", strtotime(str_replace("/", "-", $data["data_ingressao"])));
+        $data["data"] = $this->validateDate($data["data"]);
+        $data["data_ingressao"] = $this->validateDate($data["data_ingressao"]);
 
         $afiliado = (new Afiliado)->insertAffiliate($data);
 
@@ -129,5 +130,11 @@ class ControllerAfiliado extends Controller
     public function renderEditAffiliate()
     {
         $this->verify("A", "/editar-afiliado", "/ops");
+    }
+
+    private function validateDate(string $date)
+    {
+        if(empty($date)) return 0000-00-00;
+        return  date("Y-m-d", strtotime(str_replace("/", "-", $date)));
     }
 }
