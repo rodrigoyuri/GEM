@@ -49,7 +49,6 @@ $(document).ready(function () {
 			},
 			{
 				data: "status",
-				render: statusAffiliate,
 			},
 			{
 				data: "dt_nascimento",
@@ -530,7 +529,4 @@ $(document).ready(function () {
 			},
 		});
 	}
-
-
-
 });

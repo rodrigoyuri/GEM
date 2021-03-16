@@ -48,15 +48,15 @@ class Afiliado extends Crud
         $start = $data['start'];
         $end = $data['length'];
 
-        $queryFilter = parent::select("cd_afiliado, nm_afiliado, nm_tipo_afiliado, nm_area_interesse, DATE_FORMAT(dt_nascimento, '%d/%m/%Y') as dt_nascimento, cd_telefone, cd_contato, CONCAT(nm_tipo_afiliado,';',COALESCE(nm_status_voluntario,'-'), ';', COALESCE(nm_status_assistida, '-')) as status ")
+        $queryFilter = parent::select("cd_afiliado, nm_afiliado, nm_tipo_afiliado, nm_area_interesse, DATE_FORMAT(dt_nascimento, '%d/%m/%Y') as dt_nascimento, cd_telefone, cd_contato, COALESCE(nm_status_afiliado, '-') as status ")
             ->from("afiliado");
 
         if (!empty($data["search"]['value'])) {
             $searchLike = "%{$data["search"]['value']}%";
             $queryFilter = $queryFilter
                 ->where(
-                    "nm_afiliado LIKE (?) OR nm_area_interesse LIKE (?) OR DATE_FORMAT(dt_nascimento, '%d/%m/%Y') LIKE(?)",
-                    [$searchLike, $searchLike, $searchLike]
+                    "nm_afiliado LIKE (?) OR nm_area_interesse LIKE (?) OR DATE_FORMAT(dt_nascimento, '%d/%m/%Y') LIKE(?) OR nm_status_afiliado LIKE (?)",
+                    [$searchLike, $searchLike, $searchLike, $searchLike]
                 );
         }
 
