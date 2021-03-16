@@ -156,22 +156,22 @@ $(document).ready(function () {
 	});
 
 	function textStatusAffiliate(dataType = []) {
-		if (dataType[0] == "Voluntário" || dataType[0] == "vol") 
+		if (dataType[0] == "Voluntário" || dataType[0] == "vol")
 			return dataType[1] == 1 ? "Ativo" : "Inativo";
 		if (dataType[0] == "Assistida" || dataType[0] == "ass") {
-			if(dataType[2] == "0000-00-00") return "-";
+			if (dataType[2] == "0000-00-00") return "-";
 			return dataType[2];
 		}
-		return "Ass/Vol";			
+		return "Ass/Vol";
 	}
-	
+
 	//Area de exclusão do afiliado
 
 	let excluir = document.querySelector('#modal-delete-affiliate');
 	excluir.addEventListener('click', () => {
 
 		let id = document.querySelector('#codAfiliado');
-		
+
 		$.ajax({
 			type: "POST",
 			url: `${url}/admin/lista-geral/delete`,
@@ -520,13 +520,13 @@ $(document).ready(function () {
 		$.ajax({
 			type: "DELETE",
 			url: url + "/admin/excluir-item",
-			data: {codigoItem},
+			data: { codigoItem },
 			success: function (response) {
-			  alert(response);
-			  location.reload();
+				alert(response);
+				location.reload();
 			},
 			error: function (error) {
-			  console.log("Erro: " + error);
+				console.log("Erro: " + error);
 			},
 		});
 	}

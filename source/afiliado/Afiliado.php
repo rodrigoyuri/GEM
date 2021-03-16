@@ -10,7 +10,7 @@ class Afiliado extends Crud
 
     public function showAffiliate(int $id)
     {
-        $query = parent::select("cd_afiliado as cod, nm_afiliado as nome, cd_rg as rg, cd_cpf as cpf,
+        $query = parent::select("cd_afiliado as cod, nm_afiliado as nome, cd_rg as rg, cd_cpf as cpf, nm_status_afiliado as status_afiliado,
                                 nm_nacionalidade as nacionalidade, ic_sexo as sexo, DATE_FORMAT(dt_nascimento, '%d/%m/%Y') as data,
                                 nm_endereco as endereco, cd_telefone as telefone, cd_contato as celular, nm_email as email,
                                 nm_situacao_profissional qualificacao , nm_tipo_afiliado as tipo, nm_area_interesse as funcao,
@@ -26,7 +26,7 @@ class Afiliado extends Crud
         $query->complemento = (isset($endereco[5])) ? $endereco[5] : null;
         $query->cep = (isset($endereco[6])) ? $endereco[6] : null;
         // Deixo tudo em minusculo, removo espaços em branco e separo em um array pelo ;
-        
+
         $query->week = explode(";", str_replace(" ", "", strtolower($query->week)));
 
         unset($query->endereco);
@@ -54,8 +54,10 @@ class Afiliado extends Crud
         if (!empty($data["search"]['value'])) {
             $searchLike = "%{$data["search"]['value']}%";
             $queryFilter = $queryFilter
-                ->where("nm_afiliado LIKE (?) OR nm_area_interesse LIKE (?) OR DATE_FORMAT(dt_nascimento, '%d/%m/%Y') LIKE(?)",
-                 [$searchLike, $searchLike, $searchLike]);
+                ->where(
+                    "nm_afiliado LIKE (?) OR nm_area_interesse LIKE (?) OR DATE_FORMAT(dt_nascimento, '%d/%m/%Y') LIKE(?)",
+                    [$searchLike, $searchLike, $searchLike]
+                );
         }
 
         $totalRegisterInQuery = $queryFilter->execute("rowCount", false);
@@ -95,6 +97,7 @@ class Afiliado extends Crud
                                                   nm_situacao_profissional,
                                                   cd_rg,
                                                   ic_sexo,
+                                                  nm_status_afiliado,
                                                   cd_telefone,
                                                   nm_tipo_afiliado,
                                                   nm_disponibilidade")->execute();
@@ -120,12 +123,13 @@ class Afiliado extends Crud
                                             nm_situacao_profissional = ?,
                                             cd_rg = ?,
                                             ic_sexo = ?,
+                                            nm_status_afiliado = ?,
                                             cd_telefone = ?,
                                             nm_tipo_afiliado = ?,
                                             nm_disponibilidade = ?", $data)
             ->where("cd_afiliado = ?", [$id])->execute();
 
-            $resetFrequenciAffiliate = parent::call("prc_reset_chamada_id(?)", [$id])->execute();
+        $resetFrequenciAffiliate = parent::call("prc_reset_chamada_id(?)", [$id])->execute();
 
         if ($crud && $resetFrequenciAffiliate) {
             return "Atualizado Com Sucesso";
@@ -134,8 +138,9 @@ class Afiliado extends Crud
         }
     }
 
-    public function deleteAffiliate($id){
-       
+    public function deleteAffiliate($id)
+    {
+
         $crud = $this->delete()->from("afiliado")->where("cd_afiliado = ?", [$id])->execute();
 
         return $crud;
@@ -161,7 +166,7 @@ class Afiliado extends Crud
         return $query;
     }
 
-    public function deleteItem(int $id) 
+    public function deleteItem(int $id)
     {
         $crud = $this->delete()->from("item")->where("cd_item = ?", [$id])->execute();
 

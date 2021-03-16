@@ -235,6 +235,10 @@
                                 <input type="text" class="input-base" name="data_ingressao" id="data_ingressao" title="Data de Ingressão">
                             </div>
                             <div class="field">
+                                <div class="label">Status do Afiliado</div>
+                                <input type="text" class="input-base" name="status_afiliado" id="status_afiliado" title="Status do Afiliado">
+                            </div>
+                            <div class="field">
                                 <div class="label">Tipo</div>
                                 <select id="ddlPassport" name="tipo" class="input-base">
                                     <option value="Assistida">Assistida</option>
