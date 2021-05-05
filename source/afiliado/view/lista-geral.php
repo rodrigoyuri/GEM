@@ -244,12 +244,13 @@
                                     <option value="Assistida">Assistida</option>
                                     <option value="Voluntário">Voluntário</option>
                                 </select>
-                            </div>
-                            <div id="voluntario">
                                 <div class="field">
-                                    <div class="label">Area de interesse</div>
+                                    <div class="label">Area de interesse/Função</div>
                                     <input type="text" name="funcao" class="input-base">
                                 </div>
+                            </div>
+                            <div id="voluntario">
+                                
                                 <div class="field">
                                     <div class="label">Qualificação Profissional</div>
                                     <input type="text" name="qualificacao" class="input-base">
