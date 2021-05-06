@@ -90,6 +90,7 @@
 .dataTables_wrapper table tbody td {
     text-align: center;
     border-right: 1px solid var(--color-primary-hover);
+    overflow: auto;
 }
 
 
